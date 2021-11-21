@@ -1,0 +1,23 @@
+body{
+    direction: rtl;
+    text-align: right;
+    
+}
+div{
+    text-align: right;
+}
+p{
+    text-align: right;
+}
+h1{
+    text-align: right;
+}
+button{
+    text-align: right;
+}
+l1{
+    text-align: right;
+}
+a{
+    text-align: right;
+}
