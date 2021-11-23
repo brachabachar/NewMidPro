@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemNavbar } from 'src/app/class/item-navbar';
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -8,9 +7,11 @@ import { ItemNavbar } from 'src/app/class/item-navbar';
 })
 export class NavbarComponent implements OnInit {
 
-  lst:ItemNavbar[];
   constructor() { }
-
+   all:ItemNavbar[]=[{link:'#',class:1,nameButton:'כניסה',isFirst:true},{link:'#',class:1,nameButton:'הרשמה',isFirst:false}];
+   right:ItemNavbar[];
+   left:ItemNavbar[];
+   isStart:boolean=true;
   ngOnInit(): void {
   }
 

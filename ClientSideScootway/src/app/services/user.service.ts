@@ -24,7 +24,9 @@ export class UserService {
     return this.http.get("http://localhost:44394/api/User/GetUser?userId=47").subscribe(x => {
       return x;
   });
-  
+  }
+ login(email:string,password:string) {
+    return this.http.get(this.url+'email='+email+'&password='+password);
   }
   Test(){
     return this.http.get("/api/User/Test").subscribe(x => {

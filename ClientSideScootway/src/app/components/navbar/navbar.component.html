@@ -1,1 +1,23 @@
-<h1>hhh</h1>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class=" nav navbar-nav navbar-right">        
+          <li class="nav-item"><a class="nav-link active" href="#">אודות</a>  </li>
+          </ul>
+        <ul class="nav navbar-nav mr-auto" >
+          <li class="nav-item" *ngFor="let item of all" >
+          <a class="nav-link active" *ngIf="item.isFirst" href="#" data-toggle="modal" data-target="#exampleModalCenter1">{{item.nameButton}}</a>
+          <a class="nav-link active" *ngIf="!item.isFirst" href="#" data-toggle="modal" data-target="#exampleModalCenter">{{item.nameButton}}</a>
+        </li>
+        </ul>
+  
+      </div>
+    </nav>
+  <app-about></app-about>
+  
+  
+  <app-log-in></app-log-in>
+  <app-registration></app-registration>
