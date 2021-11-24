@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
    right:ItemNavbar[];
    left:ItemNavbar[];
    isStart:boolean=true;
+   test:string="Way";
   ngOnInit(): void {
   }
 

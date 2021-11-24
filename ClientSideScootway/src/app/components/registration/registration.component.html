@@ -22,7 +22,7 @@
               <small *ngIf="submitted && mandoForm.controls['UserId'].errors?.required">שדה חובה</small> 
               <small *ngIf="submitted && mandoForm.controls['UserId'].errors?.pattern">תעודת זהות צריכה להכיל ספרות בלבד</small> 
               <small *ngIf="submitted &&mandoForm.controls['UserId'].errors?.max">מקסימום אורך 9 ספרות</small> 
-              <small *ngIf="mandoForm.controls['UserId'].errors?.min">מינימום אורך 9 ספרות</small> 
+              <small *ngIf="submitted &&mandoForm.controls['UserId'].errors?.min">מינימום אורך 9 ספרות</small> 
             </div>
             <!-- email -->
             <div class="form-group">  

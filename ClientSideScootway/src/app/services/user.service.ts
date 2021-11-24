@@ -15,6 +15,7 @@ export class UserService {
   
   AddUser(u:User){
     this.http.post("/api/User/AddUser",u).subscribe(x=>{});
+    localStorage.setItem("user",JSON.stringify(u));
   }
   // AddUser(u:User){
   //   return this.http.post("/api/User/AddUser",u);

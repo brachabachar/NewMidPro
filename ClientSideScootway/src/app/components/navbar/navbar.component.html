@@ -11,7 +11,9 @@
           <li class="nav-item" *ngFor="let item of all" >
           <a class="nav-link active" *ngIf="item.isFirst" href="#" data-toggle="modal" data-target="#exampleModalCenter1">{{item.nameButton}}</a>
           <a class="nav-link active" *ngIf="!item.isFirst" href="#" data-toggle="modal" data-target="#exampleModalCenter">{{item.nameButton}}</a>
+    
         </li>
+        <li class="nav-item active"><a class="nav-link active" href="{{test}}" >WAY</a></li>
         </ul>
   
       </div>

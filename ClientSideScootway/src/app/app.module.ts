@@ -18,6 +18,7 @@ import { PersonalAreaComponent } from './components/personal-area/personal-area.
 import { LogInComponent} from './components/log-in/log-in.component';
 import { AboutComponent } from './components/about/about.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { WayComponent } from './components/way/way.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LogInComponent,
     AboutComponent,
     NavbarComponent,
+    WayComponent,
     
   ],
   imports: [
