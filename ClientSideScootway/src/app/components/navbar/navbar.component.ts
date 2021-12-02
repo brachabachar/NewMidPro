@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ItemNavbar } from 'src/app/class/item-navbar';
 import { Router } from '@angular/router';
@@ -14,14 +14,14 @@ import { NavbarService } from 'src/app/services/navbar.service';
 export class NavbarComponent implements OnInit {
   rightNav:ItemNavbar[];
   leftNav:ItemNavbar[];
+  @Input() nav:ItemNavbar[];
   constructor(private modalService: NgbModal,private router: Router,private navbarService:NavbarService) { 
-
-    this.rightNav=navbarService.NavForPreview.filter(x=>x.dir==0);
-    this.leftNav=navbarService.NavForPreview.filter(x=>x.dir==1);
   }
  
    test:string="Way";
   ngOnInit(): void {
+    this.rightNav=this.nav.filter(x=>x.dir==0);
+    this.leftNav=this.nav.filter(x=>x.dir==1);
   }
 public Main(nameFunc:string){
   switch (nameFunc) {
