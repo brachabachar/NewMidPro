@@ -19,6 +19,8 @@ import { LogInComponent} from './components/log-in/log-in.component';
 import { AboutComponent } from './components/about/about.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { WayComponent } from './components/way/way.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { NewScootComponent } from './components/new-scoot/new-scoot.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +31,8 @@ import { WayComponent } from './components/way/way.component';
     AboutComponent,
     NavbarComponent,
     WayComponent,
+    CheckoutComponent,
+    NewScootComponent,
     
   ],
   imports: [
