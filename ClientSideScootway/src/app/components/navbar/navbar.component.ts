@@ -30,7 +30,10 @@ public Main(nameFunc:string){
       break;
     case "Registration":
       this.Registration(); 
-      break;   
+      break;
+      case "logout":
+        this.logout();
+        break;   
     default:
         console.log("default");
   }
@@ -47,6 +50,7 @@ public Main(nameFunc:string){
   public logout() {
     localStorage.clear();
     this.router.navigate(['About']);
+    window.location.reload();
   }
   public null(){}
 

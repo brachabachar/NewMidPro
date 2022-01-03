@@ -1,7 +1,8 @@
-<!-- לפני התחברות -->
-<app-navbar *ngIf="true" [nav]="NavForPreview"></app-navbar>
+<div  >
+ <!-- לפני התחברות -->   
+<app-navbar *ngIf="!user" [nav]="NavForPreview"></app-navbar>
 <!-- מחובר -->
-<app-navbar *ngIf="true" [nav]="NavForReg"></app-navbar>
+<app-navbar *ngIf="user && !user.isMeng" [nav]="NavForReg"></app-navbar>
 <!-- מנהל -->
-<app-navbar *ngIf="true" [nav]="NavForManag"></app-navbar>
-
+<app-navbar *ngIf="user && user.isMeng" [nav]="NavForManag"></app-navbar>
+</div>

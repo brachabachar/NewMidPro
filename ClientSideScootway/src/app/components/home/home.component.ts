@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { RegistrationComponent } from '../registration/registration.component';
 import { LogInComponent } from 'src/app/components/log-in/log-in.component';
 import { ItemNavbar } from 'src/app/class/item-navbar';
+import { User } from 'src/app/class/user';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -16,21 +17,15 @@ export class HomeComponent implements OnInit {
   NavForPreview:ItemNavbar[];
   NavForReg:ItemNavbar[];
   NavForManag:ItemNavbar[];
+    user:User= new User();
 
-
-  user:UserService;
-  constructor(private navbarService:NavbarService, private modalService: NgbModal,u:UserService,private router: Router) {
+    constructor(private navbarService:NavbarService, private modalService: NgbModal,private u:UserService,private router: Router) 
+    {
     this.NavForPreview=navbarService.NavForPreview;
     this.NavForReg=navbarService.NavForReg;
     this.NavForManag=navbarService.NavForManag;
-    this.user=u;
-  }
-
-  public Registration() {
-    const modalReg = this.modalService.open(RegistrationComponent)
-  
-  }
-
+    this.user=this.u.getUser();
+    }
   ngOnInit(): void {
     
   }

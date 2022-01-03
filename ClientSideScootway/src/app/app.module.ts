@@ -21,6 +21,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { WayComponent } from './components/way/way.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NewScootComponent } from './components/new-scoot/new-scoot.component';
+import { NewRouteComponent } from './components/new-route/new-route.component';
+import { OrderComponent } from './components/order/order.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +35,8 @@ import { NewScootComponent } from './components/new-scoot/new-scoot.component';
     WayComponent,
     CheckoutComponent,
     NewScootComponent,
+    NewRouteComponent,
+    OrderComponent,
     
   ],
   imports: [

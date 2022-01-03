@@ -45,23 +45,8 @@ export class RegistrationComponent implements OnInit {
   this.user.Password=this.mandoForm.controls["Password"].value;
   this.user.BronDate=this.mandoForm.controls["Brondate"].value;
   localStorage.setItem("",this.user.UserId.toString());
-  // this.userService.AddUser(this.user).subscribe( (res) =>{ 
-  //   if(res!=null)
-  //   {
-  //     if(res!="bed")
-  //     {
-  //       this.userService.user=true;
-  //       localStorage.setItem("user",res.toString());
-  //       let element:HTMLElement=document.getElementById("link") as HTMLElement;
-  //       element.click();
-  //     }
-  //     else{
-  //       this.response= "כתובת דואר אלקרוני זו קיימת כבר במערכת";
-  //       this.mandoForm.controls.Email.setValue("");
-  //     }
-  //   }
-  // },(error)=>{alert(error.error);});
-  this.userService.AddUser(this.user);    
+  this.userService.AddUser(this.user);
+  window.location.reload();  
     }
-}
+  }
 }
