@@ -10,7 +10,7 @@ export class UserService {
   user:User= new User();
   FullName:string="";
   constructor(private http: HttpClient) {
- this.setUser(JSON.parse(localStorage.getItem("user") || '{}'));
+ this.setUser(JSON.parse(localStorage.getItem("user") || 'null'));
    }
   url:string = "http://localhost:44394/api/User//GetUser?";
 getUser(){
