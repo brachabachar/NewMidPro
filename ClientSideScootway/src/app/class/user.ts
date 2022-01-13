@@ -4,6 +4,6 @@ export class User {
     Email :string;
     Password:string;
     BronDate:Date;
-    isMeng:Boolean;
+    IsMeng:Boolean;
 }
    

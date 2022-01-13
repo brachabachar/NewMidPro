@@ -18,7 +18,6 @@ getUser(){
 }
 setUser(u:User){
 this.user=u;
-
 }
   
   AddUser(u:User){

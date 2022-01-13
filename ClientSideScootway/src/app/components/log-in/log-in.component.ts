@@ -27,6 +27,7 @@ userService:UserService;
     Password: new FormControl(  '',[Validators.required,Validators.pattern('((?=.*[$@$!%*?&])(?=.*[0-9]).{5,10})'),Validators.max(10)])
   });
   }
+
   onFormSubmit(): void {
     debugger;
     this.Email=this.mandoForm.controls["Email"].value;
