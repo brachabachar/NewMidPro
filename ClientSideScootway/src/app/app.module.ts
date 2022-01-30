@@ -23,6 +23,16 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NewScootComponent } from './components/new-scoot/new-scoot.component';
 import { NewRouteComponent } from './components/new-route/new-route.component';
 import { OrderComponent } from './components/order/order.component';
+ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { AgmCoreModule } from '@agm/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { AgmDirectionModule } from 'agm-direction'; 
+import '@angular/compiler';
+//import for GooglePlaceModule
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,13 +48,20 @@ import { OrderComponent } from './components/order/order.component';
     NewRouteComponent,
     OrderComponent,
     
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,HttpClientModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
-    ModalModule.forRoot(),ReactiveFormsModule
+    GooglePlaceModule, 
+    ModalModule.forRoot(),ReactiveFormsModule,MatGoogleMapsAutocompleteModule,
+    AgmCoreModule.forRoot({
+    apiKey: 'AIzaSyBs9YFui13oo8KZWLIs7a7Xptdhsp8SRCU',//'AIzaSyB2kBVRWLTi8fj6EnDGMz0DMzlO_nbZOoQ',
+    libraries: ["places","geometry"],
+    }),
+    BrowserAnimationsModule,  AgmDirectionModule, 
   ],
   exports: [BsDropdownModule, TooltipModule, ModalModule],
   providers: [],
