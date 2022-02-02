@@ -11,21 +11,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent implements OnInit {
-  userService:UserService;
-  user=new User();
-  Email:string;
-  Password:string;
-  constructor() { }
-  mandoForm = new FormGroup({
+userService:UserService;
+ user=new User();
+ Email:string;
+ Password:string;
+ mandoForm:FormGroup;
+  constructor(userS:UserService , private router: Router)
+  {
+    this.userService=userS;
+  }
+
+  ngOnInit(): void {
+    this.mandoForm = new FormGroup({
     Email:  new FormControl('',[Validators.required,Validators.email,Validators.pattern('^[ A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$'),Validators.max(50)]),
     Password: new FormControl(  '',[Validators.required,Validators.pattern('((?=.*[$@$!%*?&])(?=.*[0-9]).{5,10})'),Validators.max(10)])
   });
-  ngOnInit(): void {
-
   }
+
   onFormSubmit(): void {
     debugger;
-    this.userService.login(this.Email,this.Password).subscribe( (data) => {
+    this.Email=this.mandoForm.controls["Email"].value;
+    this.Password=this.mandoForm.controls["Password"].value;
+    this.userService.Login(this.Email,this.Password).subscribe((data) => {
       if(data.toString()=="0"){
         alert("המשתמש לא רשום")
       }
@@ -34,11 +41,13 @@ export class LogInComponent implements OnInit {
       }
       else
       {
-        this.userService.user=true;
-        localStorage.setItem("user",data.toString());
-        let element:HTMLElement=document.getElementById("link") as HTMLElement;
-        element.click();
-        
+        this.userService.setUser(data as User);
+         localStorage.setItem("user",data.toString());
+         //refresh
+          window.location.reload();    
+
+
+
       }
     });
   }

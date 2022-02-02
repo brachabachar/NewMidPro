@@ -1,0 +1,28 @@
+
+
+<form  class="modal" [formGroup]="mandoForm" (ngSubmit)="onFormSubmit()" data-toggle="modal">
+    <div  class="rtl">
+      
+        <label >שם מלא:</label>
+        <input type="text" formControlName="FullName" class="form-control" id="exampleFormControlInput1" >
+    
+        <label for="exampleFormControlInput1">מייל:</label>
+        <input type="email" formControlName="Email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    
+        <label for="exampleFormControlInput1">כתובת:</label>
+        <input type="text" formControlName="Address" class="form-control" id="exampleFormControlInput1" >
+    
+        <label for="exampleFormControlInput1">תאריך התחלה :</label>
+        <input type="date" formControlName="StartDate"  class="form-control" id="exampleFormControlInput1" >
+        <label for="exampleFormControlInput1">מספר קורקינט:</label>
+        <input type="number" formControlName="NumScooter"  class="form-control" id="exampleFormControlInput1" >
+        <label for="exampleFormControlInput1">תאריך סיום</label>
+        <input type="date" formControlName="EndDate"  class="form-control" id="exampleFormControlInput1" >
+    
+        <label for="exampleFormControlTextarea1">הערות:</label>
+        <textarea formControlName="Remarks"  class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    
+    <br>
+    <button type="submit" class="btn btn-primary">בצע הזמנה </button>
+    </div>
+</form>

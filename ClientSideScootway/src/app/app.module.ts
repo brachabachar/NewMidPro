@@ -19,6 +19,24 @@ import { LogInComponent} from './components/log-in/log-in.component';
 import { AboutComponent } from './components/about/about.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { WayComponent } from './components/way/way.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { NewScootComponent } from './components/new-scoot/new-scoot.component';
+import { NewRouteComponent } from './components/new-route/new-route.component';
+import { OrderComponent } from './components/order/order.component';
+ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { AgmCoreModule } from '@agm/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { AgmDirectionModule } from 'agm-direction'; 
+import '@angular/compiler';
+//import for GooglePlaceModule
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { RentComponent } from './components/rent/rent.component';
+import { FuturRentComponent } from './components/futur-rent/futur-rent.component';
+import { MyOrderComponent } from './my-order/my-order.component';
+import { CreateWayComponent } from './components/create-way/create-way.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +47,14 @@ import { WayComponent } from './components/way/way.component';
     AboutComponent,
     NavbarComponent,
     WayComponent,
+    CheckoutComponent,
+    NewScootComponent,
+    NewRouteComponent,
+    OrderComponent,
+    RentComponent,
+    FuturRentComponent,
+    MyOrderComponent,
+    CreateWayComponent,
     
   ],
   imports: [
@@ -36,7 +62,13 @@ import { WayComponent } from './components/way/way.component';
     AppRoutingModule,HttpClientModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
-    ModalModule.forRoot(),ReactiveFormsModule
+    GooglePlaceModule, 
+    ModalModule.forRoot(),ReactiveFormsModule,MatGoogleMapsAutocompleteModule,
+    AgmCoreModule.forRoot({
+    apiKey: 'AIzaSyBs9YFui13oo8KZWLIs7a7Xptdhsp8SRCU',
+    libraries: ["places","geometry"],
+    }),
+    BrowserAnimationsModule,  AgmDirectionModule, 
   ],
   exports: [BsDropdownModule, TooltipModule, ModalModule],
   providers: [],

@@ -1,6 +1,23 @@
+
+ul{
+    padding:0;
+    margin: 0 20px 0 20px;
+list-style: none;
+
+}
+nav a{
+    width: 100px;
+    display:block;
+    padding: 15px 15px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f2f2f2;
+text-align:center ;
+}
 #nav ul li:hover a{ 
-    color:#fd7114;
+    color:#49a75e;
 }
 .bg-dark {
-    background-color: #2d6837!important;
+    background-color:#313131 !important;
 }
+

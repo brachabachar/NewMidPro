@@ -1,9 +1,22 @@
-<p>way works!</p>
-<p>way works!</p>
 
-<p>way works!</p>
+<div id="map"></div> 
 
-<p>way works!</p>
-
-<p>way works!</p>
-
+<BR>
+  <div class="container">
+  
+      <div class="form d-flex row">
+          <div class="col-sm-6">
+              <!-- (ngSubmit)="onSubmit()" -->
+              <form class="my-form" [formGroup]="favoriteForm">
+                 
+                  <div class="form-group md-form">
+                      <i class="fas fa fa-map-marker"></i>
+                      <input name="place_changed" placeholder="התחל להקליד" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+                    </div>
+                  <div>
+                
+                  </div>
+              </form>
+          </div> 
+      </div>
+  </div>
