@@ -1,27 +1,28 @@
 <div class="container">
-  <div class="form" >
-      <div>
-          <form class="modal" [formGroup]="mandoForm" (ngSubmit)="onFormSubmit()" data-toggle="modal" >
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="font-weight-bold mb-3 myHeader">כניסה </h4>
+      <div id="card-content">
+        <div id="card-title">
+          <h2>התחברות </h2>
+          <div class="underline-title"></div>
+       </div>
+          <form class='from' [formGroup]="mandoForm" (ngSubmit)="onFormSubmit()" data-toggle="modal" >
             <div class="form-group">
            <!--Email -->   
           <label>אמייל</label><br>   
-          <input type="email" formControlName="Email"  placeholder="אמייל " class="form-control"> 
+          <input  type="email" formControlName="Email"  placeholder="אמייל " class="form-control form-content"> 
+          <div class="form-border"></div>
           </div>
           <div class="form-group">
            <!--Password -->   
             <label>סיסמה</label><br>
-           <input type="password" formControlName="Password"  placeholder="סיסמה" class="form-control">
+           <input type="password" formControlName="Password"  placeholder="סיסמה" class="form-control form-content">
+           <div class="form-border"></div>
           </div>
           <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">ביטול</button>
-          <button type="submit" class="btn btn-secondary">כניסה</button> 
+          <button type="submit" class="btn btn-secondary"  id="submit-btn">כניסה</button>
            </div>
+                        <a href="#about" id="signup"> חזרה </a>
+
           </form>
         </div>
         <br>
-    </div>
-</div>
+    </div>  

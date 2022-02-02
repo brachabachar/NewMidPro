@@ -9,8 +9,8 @@ import { AboutComponent } from './components/about/about.component';
 import { OrderComponent } from './components/order/order.component';
 import { NewScootComponent } from './components/new-scoot/new-scoot.component';
 import { NewRouteComponent } from './components/new-route/new-route.component';
-const routes: Routes = [ {
-path: '', redirectTo: 'About' , pathMatch: 'full'},
+const routes: Routes = [ 
+{path: '', redirectTo: 'About' , pathMatch: 'full'},
 { path: 'Registration', component: RegistrationComponent },
 { path: 'Login', component:LogInComponent},
 { path: 'About', component:AboutComponent},

@@ -10,6 +10,7 @@ export class AppComponent {
   
   @ViewChild('Map',{static: true})mapElement: ElementRef; 
   userService:UserService;
+  title: any;
   // map: google.maps.Map;
   // marker: google.maps.Marker;
   constructor(userS:UserService){

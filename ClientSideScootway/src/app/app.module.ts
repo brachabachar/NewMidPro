@@ -31,6 +31,10 @@ import { AgmDirectionModule } from 'agm-direction';
 import '@angular/compiler';
 //import for GooglePlaceModule
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { RentComponent } from './components/rent/rent.component';
+import { FuturRentComponent } from './components/futur-rent/futur-rent.component';
+import { MyOrderComponent } from './my-order/my-order.component';
+import { CreateWayComponent } from './components/create-way/create-way.component';
 
 
 @NgModule({
@@ -47,6 +51,10 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
     NewScootComponent,
     NewRouteComponent,
     OrderComponent,
+    RentComponent,
+    FuturRentComponent,
+    MyOrderComponent,
+    CreateWayComponent,
     
     
   ],

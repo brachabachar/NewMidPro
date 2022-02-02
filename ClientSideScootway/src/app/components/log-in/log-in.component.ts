@@ -44,7 +44,10 @@ userService:UserService;
         this.userService.setUser(data as User);
          localStorage.setItem("user",data.toString());
          //refresh
-         window.location.reload();        
+          window.location.reload();    
+
+
+
       }
     });
   }

@@ -36,8 +36,7 @@ this.user=u;
   }
  Login(email:string,password:string) {
     return this.http.get(this.url+'email='+email+'&password='+password);
-    
-  }
+ }
   Test(){
     return this.http.get("/api/User/Test").subscribe(x => {
       console.log(x)
