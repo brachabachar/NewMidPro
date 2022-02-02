@@ -56,7 +56,6 @@ import { CreateWayComponent } from './components/create-way/create-way.component
     MyOrderComponent,
     CreateWayComponent,
     
-    
   ],
   imports: [
     BrowserModule,
@@ -66,7 +65,7 @@ import { CreateWayComponent } from './components/create-way/create-way.component
     GooglePlaceModule, 
     ModalModule.forRoot(),ReactiveFormsModule,MatGoogleMapsAutocompleteModule,
     AgmCoreModule.forRoot({
-    apiKey: 'AIzaSyBs9YFui13oo8KZWLIs7a7Xptdhsp8SRCU',//'AIzaSyB2kBVRWLTi8fj6EnDGMz0DMzlO_nbZOoQ',
+    apiKey: 'AIzaSyBs9YFui13oo8KZWLIs7a7Xptdhsp8SRCU',
     libraries: ["places","geometry"],
     }),
     BrowserAnimationsModule,  AgmDirectionModule, 

@@ -10,7 +10,7 @@ import { ScooterService } from 'src/app/services/scooter.service';
   styleUrls: ['./new-scoot.component.css']
 })
 export class NewScootComponent implements OnInit {
-  addScootForm: FormGroup;
+  //addScootForm: FormGroup;
   scooter:Scooter;
   scooterService:ScooterService; 
   constructor(scooterS:ScooterService , private router: Router) { 
@@ -18,19 +18,19 @@ export class NewScootComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.addScootForm= new FormGroup({
+   /* this.addScootForm= new FormGroup({
       City:new FormControl(''),
       Street: new FormControl(''),
       Number: new FormControl(''),
       Isfree: new FormControl(''),
-    });
+    });*/
   }
   onFormSubmit(){
-   this.scooter.city=this.addScootForm.controls["City"].value;
+  /* this.scooter.city=this.addScootForm.controls["City"].value;
    this.scooter.street=this.addScootForm.controls["Street"].value;
    this.scooter.number=this.addScootForm.controls["Number"].value;
    this.scooter.city=this.addScootForm.controls["Isfree"].value;
-   this.scooterService.AddScooter(this.scooter);    
+   this.scooterService.AddScooter(this.scooter); */   
 
   }
 
