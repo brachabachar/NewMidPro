@@ -1,10 +1,14 @@
-<form  class="my-form" [formGroup]="addScootForm" (ngSubmit)="onFormSubmit()">
+<!-- <form  class="my-form" [formGroup]="addScootForm" (ngSubmit)="onFormSubmit()"> -->
     <div>
         <h5>הוספת קורקינט חדש:</h5><br/>
-       <label>עיר: </label><br/><input type="text" id="cityName" placeholder="תל אביב" formControlName="City"/> <br/>
-        <label>רחוב: </label><br/><input type="text" id="streetName" placeholder="הפרחים" formControlName="Street"/><br/>
-        <label>מספר: </label><br/><input type="number" id="numberStreet" placeholder="10" formControlName="Number"/><br/>
-        <label>מצב הקורקינט: </label><br/><input type="checkbox" id="scootState" placeholder="true/false" formControlName="Isfree"/><br/>
+        <label>מספר קורקינט:</label>
+        <input name="place_changed" type="number">
+        <label>מיקום: </label>
+        <!-- <input name="place_changed" placeholder="התחל להקליד" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl"> -->
+
+        <label>מצב הקורקינט: </label><br/>
+        <input type="checkbox" id="scootState" placeholder="true/false" formControlName="Isfree"/><br/>
        <br> <button  type="submit">הוספה</button> 
     </div>
-  </form>
+    
+  <!-- </form> -->

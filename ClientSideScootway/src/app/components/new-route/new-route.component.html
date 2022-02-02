@@ -1,20 +1,19 @@
-<form  class="my-form" >
+<form class="my-form" [formGroup]="favoriteForm">             
     <div>
         <h5>יצירת מסלול חדש:</h5><br/>
-        
         <div>
-        <h6>מיקום נוכחי:</h6>
-       <label>עיר: </label><br/><input type="text" id="cityName" placeholder="תל אביב"/> <br/>
-        <label>רחוב: </label><br/><input type="text" id="streetName" placeholder="הפרחים"/><br/>
-        <label>מספר: </label><br/><input type="number" id="numberStreet" placeholder="10"/><br/>
+            <h6>מיקום התחלה:</h6>
+        <input name="place_changed" placeholder="התחל להקליד" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
         </div>
-
         <div>
         <h6>מיקום היעד:</h6>
-        <label>עיר: </label><br/><input type="text" id="cityName" placeholder="תל אביב"/> <br/>
-        <label>רחוב: </label><br/><input type="text" id="streetName" placeholder="הברזל"/><br/>
-        <label>מספר: </label><br/><input type="number" id="numberStreet" placeholder="2"/><br/>             
+        <input name="place_changed" placeholder="התחל להקליד" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">   
         </div>
-<button>אישור</button>
+        <agm-map [latitude]="lat" [longitude]="lng"  [zoom]="20">
+            <agm-marker title="title" [latitude]="lat" [longitude]="lng"></agm-marker> 
+        </agm-map>
     </div>
-  </form>
+    
+</form>
+
+
