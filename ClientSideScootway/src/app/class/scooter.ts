@@ -1,7 +1,10 @@
 export class Scooter {
-    scooterId: string;
-    city: string;
-    street: string;
-    number: string;
-    isfree: boolean;
+    Id :number;
+    GoogleCoordinateX :number;
+    GoogleCoordinateY:number;
+    FullAddress:string
+    IsFree:boolean; 
+    StorageId :number;
+    CreatedOn :Date;
+    StatusId :number;
 }

@@ -22,7 +22,7 @@ import { WayComponent } from './components/way/way.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NewScootComponent } from './components/new-scoot/new-scoot.component';
 import { NewRouteComponent } from './components/new-route/new-route.component';
-import { OrderComponent } from './components/order/order.component';
+
  import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 import { AgmCoreModule } from '@agm/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,7 +33,7 @@ import '@angular/compiler';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { RentComponent } from './components/rent/rent.component';
 import { FuturRentComponent } from './components/futur-rent/futur-rent.component';
-import { MyOrderComponent } from './my-order/my-order.component';
+
 import { CreateWayComponent } from './components/create-way/create-way.component';
 
 
@@ -50,10 +50,8 @@ import { CreateWayComponent } from './components/create-way/create-way.component
     CheckoutComponent,
     NewScootComponent,
     NewRouteComponent,
-    OrderComponent,
     RentComponent,
     FuturRentComponent,
-    MyOrderComponent,
     CreateWayComponent,
     
   ],

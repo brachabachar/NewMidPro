@@ -6,7 +6,6 @@ import { HomeComponent } from './components/home/home.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { AboutComponent } from './components/about/about.component';
-import { OrderComponent } from './components/order/order.component';
 import { NewScootComponent } from './components/new-scoot/new-scoot.component';
 import { NewRouteComponent } from './components/new-route/new-route.component';
 const routes: Routes = [ 
@@ -16,7 +15,6 @@ const routes: Routes = [
 { path: 'About', component:AboutComponent},
 { path: 'Home', component:HomeComponent},
 { path: 'Way', component:WayComponent},
-{ path: 'Order', component:OrderComponent},
 { path: 'NewScoot', component:NewScootComponent},
 { path: 'NewRoute', component:NewRouteComponent},
 ];
