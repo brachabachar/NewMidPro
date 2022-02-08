@@ -39,12 +39,12 @@ export class RegistrationComponent implements OnInit {
     }
     else
     {
-  this.user.UserId=this.mandoForm.controls["UserId"].value;
-  this.user.Name=this.mandoForm.controls["Name"].value;
+  this.user.Id=this.mandoForm.controls["UserId"].value;
+  this.user.LastName=this.mandoForm.controls["Name"].value;
   this.user.Email=this.mandoForm.controls["Email"].value;
   this.user.Password=this.mandoForm.controls["Password"].value;
-  this.user.BronDate=this.mandoForm.controls["Brondate"].value;
-  localStorage.setItem("",this.user.UserId.toString());
+  this.user.BornDate=this.mandoForm.controls["Brondate"].value;
+  localStorage.setItem("",this.user.Id.toString());
   this.userService.AddUser(this.user);
   window.location.reload();  
     }
