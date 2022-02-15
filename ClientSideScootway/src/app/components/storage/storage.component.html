@@ -1,0 +1,19 @@
+<p>storage works!</p>
+<div [ngSwitch]="eStorage">
+    <div *ngSwitchCase="EStorage.MySrorage">
+        MySrorage  <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list>
+    </div>
+    <div *ngSwitchCase="EStorage.NewStorage">
+        NewStorage  <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
+    </div>
+    <div *ngSwitchCase="EStorage.ScooterInStorage">
+        ScooterInStorage  <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
+    </div> 
+    <div *ngSwitchCase="EStorage.CountScooterInStorage">
+        CountScooterInStorage  <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
+    </div>
+     <div *ngSwitchCase="EStorage.AboutStorage">
+        AboutStorage <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
+    </div>
+    
+</div>

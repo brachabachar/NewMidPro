@@ -17,7 +17,7 @@ import { User } from 'src/app/class/user';
 import { PersonalAreaComponent } from './components/personal-area/personal-area.component';
 import { LogInComponent} from './components/log-in/log-in.component';
 import { AboutComponent } from './components/about/about.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './components/base-components/navbar/navbar.component';
 import { WayComponent } from './components/way/way.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NewScootComponent } from './components/new-scoot/new-scoot.component';
@@ -35,6 +35,10 @@ import { RentComponent } from './components/rent/rent.component';
 import { FuturRentComponent } from './components/futur-rent/futur-rent.component';
 
 import { CreateWayComponent } from './components/create-way/create-way.component';
+import { ListComponent } from './components/base-components/list/list.component';
+import { OrderComponent } from './components/order/order.component';
+import { StorageComponent } from './components/storage/storage.component';
+import { ScooterComponent } from './components/scooter/scooter.component';
 
 
 @NgModule({
@@ -53,6 +57,10 @@ import { CreateWayComponent } from './components/create-way/create-way.component
     RentComponent,
     FuturRentComponent,
     CreateWayComponent,
+    ListComponent,
+    OrderComponent,
+    StorageComponent,
+    ScooterComponent,
     
   ],
   imports: [

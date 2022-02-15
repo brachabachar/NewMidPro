@@ -1,0 +1,18 @@
+<p>order works!</p>
+<div [ngSwitch]="eOrder">
+    <div *ngSwitchCase="EOrder.ActiveOrders">
+        ActiveOrders <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
+    </div>
+    <div *ngSwitchCase="EOrder.NoActiveOrders">
+        NoActiveOrders <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
+     </div>
+     <div *ngSwitchCase="EOrder.EditOrder">
+        EditOrder <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
+     </div>
+     <div *ngSwitchCase="EOrder.CreateOrder">
+        CreateOrder <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
+     </div>
+     <div *ngSwitchCase="EOrder.waitAcceptOrder">
+        waitAcceptOrder <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
+     </div>
+</div>

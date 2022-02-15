@@ -15,16 +15,16 @@ export class FutureOrderService {
     this.http.post(this.url+"AddFutureOrder",f).subscribe(x=>{});
   }
   GetFutureOrderByUserId(userId:number){
-    return this.http.get(this.url+"GetAllStorages"+"userId"+userId);
+    return this.http.get(this.url+"GetAllStorages"+"userId"+userId).subscribe(x=>{});
   }
   GetFutureOrderId(futureOrderId:number){
-    return this.http.get(this.url+"GetAllStorages"+"futureOrderId"+futureOrderId);
+    return this.http.get(this.url+"GetAllStorages"+"futureOrderId"+futureOrderId).subscribe(x=>{});
   }
   GetFutureOrderByUserIdByStatus(userId:number,state:number){
-    return this.http.get(this.url+"GetAllStorages"+"userId"+userId+"&state"+state);
+    return this.http.get(this.url+"GetAllStorages"+"userId"+userId+"&state"+state).subscribe(x=>{});
   }
   UpdateStatusFutureOrders(futureOrdersId:number,state:number){
-    return this.http.get(this.url+"GetAllStorages"+"futureOrdersId"+futureOrdersId+"&state"+state);
+    return this.http.get(this.url+"GetAllStorages"+"futureOrdersId"+futureOrdersId+"&state"+state).subscribe(x=>{});
   }
   
 }

@@ -1,36 +1,38 @@
+import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Scooter } from '../class/scooter';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ScooterService {
-  url:string = "/api/Scooters/";
+  url:string = "/api/Scooter/";
   scooter:Scooter=new Scooter();
   constructor(private http: HttpClient) { }
 
  AddScooter(s:Scooter){
     this.http.post(this.url+"AddScooter",s).subscribe(x=>{});
- }
+ }//this.url+
  GetAllScooters(){
   return this.http.get(this.url+"GetAllScooters");
  }
  GetScooterId(scooterId:number){
-  return this.http.get(this.url+"GetScooterId"+"scooterId"+scooterId);
+  return this.http.get(this.url+"GetScooterId"+"scooterId"+scooterId).subscribe(x=>{});
  }
  GetScootersByStorageId(StorageId:number){
-  return this.http.get(this.url+"GetScooterId"+"StorageId"+StorageId);
+  return this.http.get<Scooter[]>(this.url+"GetScooterId"+"StorageId"+StorageId);
  }
  GetCountScootersByStorageId(StorageId:number){
-  return this.http.get(this.url+"GetScooterId"+"StorageId"+StorageId);
+  return this.http.get(this.url+"GetScooterId"+"StorageId"+StorageId).subscribe(x=>{});
  }
  UpdateStatusScooter(scooterId:number,state:number){
-  return this.http.get(this.url+"GetScooterId"+"scooterId"+scooterId+"&state"+state);
+  return this.http.get(this.url+"GetScooterId"+"scooterId"+scooterId+"&state"+state).subscribe(x=>{});
  }
  UpdateStorageId(scooterId:number,StorageId:number){
-  return this.http.get(this.url+"GetScooterId"+"scooterId"+scooterId+"&StorageId"+StorageId);
+  return this.http.get(this.url+"GetScooterId"+"scooterId"+scooterId+"&StorageId"+StorageId).subscribe(x=>{});
  }
 
 }

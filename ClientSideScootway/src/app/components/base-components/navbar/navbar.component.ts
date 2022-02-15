@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ItemNavbar } from 'src/app/class/item-navbar';
+import { ItemNavbar } from 'src/app/class/base-class/item-navbar';
 import { Router } from '@angular/router';
-import { LogInComponent } from '../log-in/log-in.component';
-import { RegistrationComponent } from '../registration/registration.component';
+import { LogInComponent } from '../../log-in/log-in.component';
+import { RegistrationComponent } from '../../registration/registration.component';
 import { NavbarService } from 'src/app/services/navbar.service';
 
 @Component({

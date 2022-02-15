@@ -1,3 +1,4 @@
+import { List } from './../../class/base-class/list';
 import { NavbarService } from 'src/app/services/navbar.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
@@ -5,7 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { RegistrationComponent } from '../registration/registration.component';
 import { LogInComponent } from 'src/app/components/log-in/log-in.component';
-import { ItemNavbar } from 'src/app/class/item-navbar';
+import { ItemNavbar } from 'src/app/class/base-class/item-navbar';
 import { User } from 'src/app/class/user';
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ import { User } from 'src/app/class/user';
 })
 export class HomeComponent implements OnInit {
 
+  list:List;
   NavForPreview:ItemNavbar[];
   NavForReg:ItemNavbar[];
   NavForManag:ItemNavbar[];
@@ -29,5 +31,5 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     
   }
-
+    
 }

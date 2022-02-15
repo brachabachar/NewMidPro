@@ -24,7 +24,6 @@ this.user=u;
   AddUser(u:User){
     this.http.post("/api/User/AddUser",u).subscribe(x=>{});
     localStorage.setItem("user",JSON.stringify(u));
-
   }
   
   GetUser(userId:string){

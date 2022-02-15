@@ -16,12 +16,18 @@ export class OrderService {
     this.http.post(this.url+"AddOrder",o).subscribe(x=>{});
   } 
   GetActiveOrdersByUserId(userId:number){
-    return this.http.get(this.url+"GetAllStorages"+"userId"+userId);
+    return this.http.get<Order[]>(this.url+"GetActiveOrdersByUserId"+"userId"+userId);
   }  
+  GetNoActiveOrdersByUserId(userId:number){
+    return this.http.get<Order[]>(this.url+"GetNoActiveOrdersByUserId"+"userId"+userId);
+  }
+  GetOrderByStateMovedManager(){
+    return this.http.get<Order[]>(this.url+"GetOrderByStateMovedManager");
+  }
   GetOrderById(orderId:number){
-    return this.http.get(this.url+"GetAllStorages"+"orderId"+orderId);
+    return this.http.get(this.url+"GetOrderById"+"orderId"+orderId).subscribe(x=>{});;
   }
   UpdateStatusOrder(orderId:number, state:number){
-    return this.http.get(this.url+"GetAllStorages"+"orderId"+orderId+"&state"+state);
+    return this.http.get(this.url+"UpdateStatusOrder"+"orderId"+orderId+"&state"+state).subscribe(x=>{});;
   }
 }

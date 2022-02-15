@@ -1,3 +1,6 @@
+import { ScooterComponent } from './components/scooter/scooter.component';
+import { StorageComponent } from './components/storage/storage.component';
+import { OrderComponent } from './components/order/order.component';
 import { WayComponent } from './components/way/way.component';
 import { PersonalAreaComponent } from './components/personal-area/personal-area.component';
 import { NgModule } from '@angular/core';
@@ -17,6 +20,12 @@ const routes: Routes = [
 { path: 'Way', component:WayComponent},
 { path: 'NewScoot', component:NewScootComponent},
 { path: 'NewRoute', component:NewRouteComponent},
+{ path: 'Order/:eOrder', component:OrderComponent},
+{ path: 'Storage/:eStorage', component:StorageComponent},
+{ path: 'Scooter/:eScooter', component:ScooterComponent},
+
+
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

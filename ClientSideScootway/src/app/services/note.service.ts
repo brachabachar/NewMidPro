@@ -14,31 +14,31 @@ export class NoteService {
     this.http.post(this.url+"AddNote",n).subscribe(x=>{});
   }
   GetNotesById(noteId:number){
-    return this.http.get(this.url+"GetScooterId"+"noteId"+noteId);
+    return this.http.get(this.url+"GetScooterId"+"noteId"+noteId).subscribe(x=>{});
 
   }
   GetNotesByScooterId(scooterId:number){
-    return this.http.get(this.url+"GetScooterId"+"scooterId"+scooterId);
+    return this.http.get(this.url+"GetScooterId"+"scooterId"+scooterId).subscribe(x=>{});
 
   }
   GetNotesByUserId(userId:number){
-    return this.http.get(this.url+"GetScooterId"+"userId"+userId);
+    return this.http.get(this.url+"GetScooterId"+"userId"+userId).subscribe(x=>{});
 
   }
   GetNewNotesByUserId(userId:number){
-    return this.http.get(this.url+"GetScooterId"+"userId"+userId);
+    return this.http.get(this.url+"GetScooterId"+"userId"+userId).subscribe(x=>{});
 
   }
   GetNotesByOredrId(orderId:number){
-    return this.http.get(this.url+"GetScooterId"+"orderId"+orderId);
+    return this.http.get(this.url+"GetScooterId"+"orderId"+orderId).subscribe(x=>{});
 
   }
   GetNotesByFutureOrderId(futureOrderId:number){
-    return this.http.get(this.url+"GetScooterId"+"futureOrderId"+futureOrderId);
+    return this.http.get(this.url+"GetScooterId"+"futureOrderId"+futureOrderId).subscribe(x=>{});
 
   }
   UpdateStatusNote(noteId:number,state:number){
-    return this.http.get(this.url+"GetScooterId"+"noteId"+noteId+"&state"+state);
+    return this.http.get(this.url+"GetScooterId"+"noteId"+noteId+"&state"+state).subscribe(x=>{});
 
   }
 }
