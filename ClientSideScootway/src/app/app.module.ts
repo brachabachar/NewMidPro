@@ -39,6 +39,7 @@ import { ListComponent } from './components/base-components/list/list.component'
 import { OrderComponent } from './components/order/order.component';
 import { StorageComponent } from './components/storage/storage.component';
 import { ScooterComponent } from './components/scooter/scooter.component';
+import { BaseNoteComponent } from './components/base-components/base-note/base-note.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { ScooterComponent } from './components/scooter/scooter.component';
     OrderComponent,
     StorageComponent,
     ScooterComponent,
+    BaseNoteComponent,
     
   ],
   imports: [

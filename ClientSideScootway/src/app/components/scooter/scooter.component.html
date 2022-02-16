@@ -1,8 +1,9 @@
-<p>scooter works!</p>
+<!-- <p>scooter works!</p> -->
 <div [ngSwitch]="eScooter">
   
     <div *ngSwitchCase="EScooter.AllScooter">
-        AllScooter  <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list>
+        <!-- AllScooter  -->
+        <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list>
     </div>
     <div *ngSwitchCase="EScooter.UpdatStatScooter">
         UpdatStatScooter  <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->

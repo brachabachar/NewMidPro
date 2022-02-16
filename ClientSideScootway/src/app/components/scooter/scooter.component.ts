@@ -36,6 +36,7 @@ export class ScooterComponent implements OnInit {
       case EScooter.UpdatStatScooter:
         this.UpdatStatScooter(1,2);
       break;
+      
       case EScooter.AddScooter:
         this.AddScooter();
       break;
@@ -57,7 +58,7 @@ export class ScooterComponent implements OnInit {
    .subscribe((scooter)=>{
     this.scooter=JSON.parse(scooter.toString());
     this.list.title="רשימה קורקינט";
-    this.scooter.forEach(x=> this.list.list.set(x.Id," :מספר קורקינט"+x.Id));
+    this.scooter.forEach(x=> this.list.list.set(x.Id," מספר קורקינט:"+x.Id));
   });
    }
   UpdatStatScooter(scooterId:number,state:number){
