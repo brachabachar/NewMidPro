@@ -1,4 +1,4 @@
-import { List } from './../../class/base-class/list';
+import { List } from '../../class/base-class/list';
 import { NavbarService } from 'src/app/services/navbar.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';

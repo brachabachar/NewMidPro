@@ -1,0 +1,23 @@
+<p>add works!</p>
+<div class="container">
+    <div id="card-content">
+      <div id="card-title">
+        <h2> {{listAdd.Title}}</h2>
+        <div class="underline-title"></div>
+     </div>
+        <form class='from' [formGroup]="addForm" (ngSubmit)="onFormSubmit()" data-toggle="modal" >
+            <div class="form-group" *ngFor="let item of listAdd.List">
+                <label>{{item.Title}}</label><br>   
+                <input  type="item.TypeDisplay" formControlName="item.Title"  placeholder="item.Title" class="form-control form-content"> 
+                <div class="form-border"></div>
+            </div>
+
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-secondary"  id="submit-btn">{{listAdd.TitleSubmit}}</button>
+            </div>
+            <a href="#about" id="signup"> חזרה </a>
+        </form>
+      </div>
+      <br>
+  </div>  

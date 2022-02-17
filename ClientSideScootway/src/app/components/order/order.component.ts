@@ -1,4 +1,4 @@
-import { List } from './../../class/base-class/list';
+import { List } from '../../class/base-class/list';
 import { OrderService } from './../../services/order.service';
 import {Order} from './../../class/order';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class OrderComponent implements OnInit {
   
   eOrder:EOrder;
-  list:List;
+  allOrder:List=new List();
   orders:Order[];
 
   constructor(public orderService:OrderService,private router:ActivatedRoute) {
@@ -26,8 +26,7 @@ export class OrderComponent implements OnInit {
   public get EOrder() {
     return EOrder; 
   }
-  CheckComponentByEnum(eOrder:number){
-    
+  CheckComponentByEnum(eOrder:EOrder){
     switch (eOrder) {
       case EOrder.ActiveOrders:
         this.ActiveOrders();
@@ -50,18 +49,19 @@ export class OrderComponent implements OnInit {
   }
   ActiveOrders(){
     localStorage.getItem('Id');
-    this.orderService.GetActiveOrdersByUserId(1).subscribe((orders:Order[])=>{
-      this.orders=orders;
-    });
-    this.list.title="הזמנות פעילות שלי";
-    this.orders.forEach(x=> this.list.list.set(x.Id," :מספר הזמנה"+x.Id));
+    this.orderService.GetActiveOrdersByUserId(1).subscribe((orders)=>{
+      let orderList:Order[]=JSON.parse(orders.toString());
+      this.allOrder.Title="מחסנים שלי";
+      orderList.forEach(x=> this.allOrder.List.set(x.Id," :מספר הזמנה"+x.Id));
+    });  
   }
+ 
   NoActiveOrders(){
-    this.orderService.GetNoActiveOrdersByUserId(1).subscribe((orders:Order[])=>{
-      this.orders=orders;
-    });
-    this.list.title="הזמנות לא פעילות שלי";
-    this.orders.forEach(x=> this.list.list.set(x.Id," :מספר הזמנה"+x.Id));
+    this.orderService.GetNoActiveOrdersByUserId(1).subscribe((orders)=>{
+      let orderList:Order[]=JSON.parse(orders.toString());
+      this.allOrder.Title="הזמנות לא פעילות שלי";
+      orderList.forEach(x=> this.allOrder.List.set(x.Id," :מספר הזמנה"+x.Id));
+    }); 
   }
   EditOrder(){
  
@@ -72,10 +72,11 @@ export class OrderComponent implements OnInit {
   waitAcceptOrder(){
     localStorage.getItem('Id');
      this.orderService.GetOrderByStateMovedManager().subscribe((orders:Order[])=>{
-     this.orders=orders;
+      let orderList:Order[]=JSON.parse(orders.toString());
+      this.allOrder.Title="הזמנות מחכות לאישור מנהל";
+      orderList.forEach(x=> this.allOrder.List.set(x.Id," :מספר הזמנה"+x.Id));
     });
-    this.list.title="הזמנות מחכות לאישור מנהל";
-    this.orders.forEach(x=> this.list.list.set(x.Id," :מספר הזמנה"+x.Id));
+    
   }
   GetOrderID(ID:number){  
     console.log(ID);  

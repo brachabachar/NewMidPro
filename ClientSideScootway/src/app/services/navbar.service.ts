@@ -7,9 +7,9 @@ import { ItemNavbar } from '../class/base-class/item-navbar';
 export class NavbarService {
 
   constructor() { }
-  NavForPreview:ItemNavbar[]=[{link:'About',dir:0,nameButton:'אודות',onClick:"null"},{link:'',dir:1,nameButton:'כניסה',onClick:"login"},{link:'',dir:1,nameButton:'הרשמה',onClick:"Registration"}];
-  NavForReg:ItemNavbar[]=[{link:'',dir:1,nameButton:'יציאה',onClick:"logout"},{link:'Way',dir:0,nameButton:'השכרה',onClick:""},{link:'',dir:0,nameButton:'השכרה עתידית',onClick:""},{link:' ',dir:0,nameButton:'הזמנות שלי',onClick:""},{link:'',dir:0,nameButton:'יצירת מסלול',onClick:""}];
-  NavForManag:ItemNavbar[]=[{link:'',dir:1,nameButton:'יציאה',onClick:"logout"},{link:'NewScoot',dir:0,nameButton:'הוספת קורקינט',onClick:""},{link:'',dir:0,nameButton:'ניהול הזמנות',onClick:""}];
+  NavForPreview:ItemNavbar[]=[{Link:'About',Dir:0,NameButton:'אודות',OnClick:"null"},{Link:'',Dir:1,NameButton:'כניסה',OnClick:"login"},{Link:'',Dir:1,NameButton:'הרשמה',OnClick:"Registration"}];
+  NavForReg:ItemNavbar[]=[{Link:'',Dir:1,NameButton:'יציאה',OnClick:"logout"},{Link:'Way',Dir:0,NameButton:'השכרה',OnClick:""},{Link:'',Dir:0,NameButton:'השכרה עתידית',OnClick:""},{Link:' ',Dir:0,NameButton:'הזמנות שלי',OnClick:""},{Link:'',Dir:0,NameButton:'יצירת מסלול',OnClick:""}];
+  NavForManag:ItemNavbar[]=[{Link:'',Dir:1,NameButton:'יציאה',OnClick:"logout"},{Link:'NewScoot',Dir:0,NameButton:'הוספת קורקינט',OnClick:""},{Link:'',Dir:0,NameButton:'ניהול הזמנות',OnClick:""}];
 
 
   

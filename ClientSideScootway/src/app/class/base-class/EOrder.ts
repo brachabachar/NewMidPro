@@ -1,7 +1,7 @@
 export enum EOrder {
-    ActiveOrders=1, 
-    NoActiveOrders=2, 
-    EditOrder=3, 
-    CreateOrder=4,
-    waitAcceptOrder=5
+    ActiveOrders="ActiveOrders", 
+    NoActiveOrders="NoActiveOrders", 
+    EditOrder="EditOrder", 
+    CreateOrder="CreateOrder",
+    waitAcceptOrder="waitAcceptOrder"
 }

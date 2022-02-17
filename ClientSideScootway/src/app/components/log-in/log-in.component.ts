@@ -45,9 +45,6 @@ userService:UserService;
          localStorage.setItem("user",data.toString());
          //refresh
           window.location.reload();    
-
-
-
       }
     });
   }

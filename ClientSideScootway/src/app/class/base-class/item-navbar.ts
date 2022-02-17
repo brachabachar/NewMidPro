@@ -1,6 +1,6 @@
 export class ItemNavbar {
-    nameButton:string;
-    link:string;
-    dir:number;
-    onClick:string;
+    NameButton:string;
+    Link:string;
+    Dir:number;
+    OnClick:string;
 }

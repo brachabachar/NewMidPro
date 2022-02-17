@@ -13,10 +13,10 @@ import { ScooterService } from 'src/app/services/scooter.service';
   styleUrls: ['./storage.component.css']
 })
 export class StorageComponent implements OnInit {
-  [x: string]: any;
-  
   eStorage:EStorage;
-  list:List;
+  allStorage:List=new List();
+  allScooter:List=new List();
+
   storage:Storage[];
   scooter:Scooter[];
   constructor(public storageService:StorageService,public scooterService:ScooterService, private router:ActivatedRoute) {
@@ -29,10 +29,10 @@ export class StorageComponent implements OnInit {
   public get EStorage() {
     return EStorage; 
   }
-  CheckComponentByEnum(eStorage:number){
+  CheckComponentByEnum(eStorage:EStorage){
     switch (eStorage) {
-      case EStorage.MySrorage:
-        this.MySrorage();
+      case EStorage.MyStorage:
+        this.MyStorage();
       break;
       case EStorage.NewStorage:
         this.NewStorage();
@@ -51,31 +51,32 @@ export class StorageComponent implements OnInit {
         break;
     }
   }
-  MySrorage(){
-    this.storageService.GetAllStorages().subscribe((storage:Storage[])=>{
-      this.storage=storage;
-    });
-    this.list.title="מחסנים שלי";
-    this.storage.forEach(x=> this.list.list.set(x.Id," :מיקום מחסן"+x.FullAddress));
+  MyStorage(){
+    this.storageService.GetAllStorages().subscribe((storage)=>{
+      let storageList:Storage[]=JSON.parse(storage.toString());
+      this.allStorage.Title="מחסנים שלי";
+      storageList.forEach(x=> this.allStorage.List.set(x.Id," :מיקום מחסן"+x.FullAddress));
+    });  
   }
+
   NewStorage(){
 
   }
   ScooterInStorage(storageId:number){
-    this.scooterService.GetScootersByStorageId(storageId).subscribe((scooter:Scooter[])=>{
-      this.scooter=scooter;
+    this.scooterService.GetScootersByStorageId(storageId).subscribe((scooter)=>{
+      let scooterList:Scooter[]=JSON.parse(scooter.toString());
+      this.allScooter.Title="קורקינט במחסן";
+      scooterList.forEach(x=> this.allScooter.List.set(x.Id," :מספר קורקינט"+x.Id));
     });
-    this.list.title="קורקינט במחסן";
-    this.scooter.forEach(x=> this.list.list.set(x.Id," :מספר קורקינט"+x.Id));
+    
   }
   CountScooterInStorage(StorageId:number){
-    countScooter:Number;
-    this.countScooter=this.scooterService.GetCountScootersByStorageId(StorageId);
+     return this.scooterService.GetCountScootersByStorageId(StorageId);
   }
   AboutStorage(){
 
   }
-  GetOrderID(ID:number){  
+  GetStorageID(ID:number){  
     console.log(ID);  
  } 
 }

@@ -14,7 +14,7 @@ export class StorageService {
   this.http.post(this.url+"AddStorage",s).subscribe(x=>{});
   }
   GetAllStorages(){
-    return this.http.get<Storage[]>(this.url+"GetAllStorages");
+    return this.http.get(this.url+"GetAllStorages");
   }
   GetCountStorages(){
     this.http.get<Storage[]>(this.url+"GetCountStorages");
