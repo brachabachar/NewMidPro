@@ -38,6 +38,7 @@ export class ScooterComponent implements OnInit {
       case EScooter.UpdatStatScooter:
         this.UpdatStatScooter(1,2);
       break;
+      
       case EScooter.AddScooter:
         this.AddScooter();
       break;

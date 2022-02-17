@@ -1,7 +1,8 @@
-<p>scooter works!</p>
+<!-- <p>scooter works!</p> -->
 <div [ngSwitch]="eScooter">
   
     <div *ngSwitchCase="EScooter.AllScooter">
+
         <app-list [list]="allScooter" (objectCheck)="GetScooterID($event)"></app-list>
     </div>
     <div *ngSwitchCase="EScooter.UpdatStatScooter">
@@ -12,7 +13,7 @@
        <!-- <app-add [listAdd]="addScooter" (objectCheck)="GetScooterID($event)"></app-add>
     </div>
     <div *ngSwitchCase="EScooter.AddNoteScooter">
-        AddNoteScooter  <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
+        AddNoteScooter  <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
     </div>
     <div *ngSwitchCase="EScooter.AddScooterToStorage">
         AddScooterToStorage  <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->

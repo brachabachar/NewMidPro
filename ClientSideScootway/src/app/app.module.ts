@@ -39,8 +39,12 @@ import { ListComponent } from './components/base-components/list/list.component'
 import { OrderComponent } from './components/order/order.component';
 import { StorageComponent } from './components/storage/storage.component';
 import { ScooterComponent } from './components/scooter/scooter.component';
+
 import { AddComponent } from './components/base-components/add/add.component';
 import { NoteComponent } from './components/note/note.component';
+
+import { BaseNoteComponent } from './components/base-components/base-note/base-note.component';
+
 
 
 @NgModule({
@@ -63,8 +67,12 @@ import { NoteComponent } from './components/note/note.component';
     OrderComponent,
     StorageComponent,
     ScooterComponent,
+
     AddComponent,
     NoteComponent,
+
+    BaseNoteComponent,
+
     
   ],
   imports: [
