@@ -12,7 +12,7 @@ export class UserService {
      this.setUser(JSON.parse(localStorage.getItem("user") || 'null'));
   }
   //  url:string = "http://localhost:44394/api/User//GetUser?";
-  url:string = "https://localhost:44395/api/User/";
+  url:string = "http://localhost:44395/api/User//";
 
 getUser(){
   return this.user;
