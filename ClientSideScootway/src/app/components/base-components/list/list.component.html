@@ -1,7 +1,7 @@
 <div  class="table">
-<h2>{{list.title}}</h2>
-<ul class="list-group list-group-flush">
-    <li  class="list-group-item " *ngFor="let item of list.list| keyvalue" (click)="LiClick(item.key)">{{item.value}}</li>
-</ul>
+<h2>{{list.Title}}</h2>
+    <ul class="list-group list-group-flush">
+        <li  class="list-group-item " *ngFor="let item of list.List| keyvalue" (click)="LiClick(item.key)">{{item.value}}</li>
+    </ul>
 </div>
 

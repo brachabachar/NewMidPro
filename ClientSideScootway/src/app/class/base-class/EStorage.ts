@@ -1,7 +1,7 @@
 export enum EStorage {
-  MySrorage = 1,
-  NewStorage = 2,
-  ScooterInStorage=3,
-  CountScooterInStorage=4,
-  AboutStorage = 5,
+  MyStorage = "MyStorage",
+  NewStorage = "NewStorage",
+  ScooterInStorage="ScooterInStorage",
+  CountScooterInStorage="CountScooterInStorage",
+  AboutStorage = "AboutStorage",
 }

@@ -11,8 +11,7 @@ export class UserService {
   constructor(private http: HttpClient) {
      this.setUser(JSON.parse(localStorage.getItem("user") || 'null'));
   }
-  //  url:string = "http://localhost:44394/api/User//GetUser?";
-  url:string = "https://localhost:44395/api/User/";
+  url:string = "/api/User/";
 
 getUser(){
   return this.user;
@@ -32,7 +31,7 @@ this.user=u;
   });
   }
  Login(email:string,password:string) {
-    return this.http.get(this.url+"GetUser?"+"email="+email+"&password="+password);
+    return this.http.get(this.url+"GetUserLogin?"+"email="+email+"&password="+password);
  }
   Test(){
     return this.http.get("/api/User/Test").subscribe(x => {

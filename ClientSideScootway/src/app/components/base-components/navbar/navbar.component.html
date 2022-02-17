@@ -5,15 +5,15 @@
     </button>
 <div class="collapse navbar-collapse" id="navbarSupportedContent" >
     <ul class=" nav navbar-nav navbar-right">        
-      <li class="nav-item active" *ngFor="let right of rightNav" (click)="Main(right.onClick)">
-        <a class="nav-link" *ngIf="right.link" href="{{right.link}}">{{right.nameButton}}</a>
-        <a class="nav-link" *ngIf="!right.link">{{right.nameButton}}</a>
+      <li class="nav-item active" *ngFor="let right of rightNav" (click)="Main(right.OnClick)">
+        <a class="nav-link" *ngIf="right.Link" href="{{right.Link}}">{{right.NameButton}}</a>
+        <a class="nav-link" *ngIf="!right.Link">{{right.NameButton}}</a>
         <span class="sr-only">(current)</span></li>
       </ul>
       <ul class="nav navbar-nav mr-auto">
-      <li class="nav-item active" *ngFor="let left of leftNav"  (click)="Main(left.onClick)">
-        <a class="nav-link" *ngIf="left.link"  href="{{left.link}}"> {{left.nameButton}}</a>
-        <a class="nav-link" *ngIf="!left.link"> {{left.nameButton}}</a>
+      <li class="nav-item active" *ngFor="let left of leftNav"  (click)="Main(left.OnClick)">
+        <a class="nav-link" *ngIf="left.Link"  href="{{left.Link}}"> {{left.NameButton}}</a>
+        <a class="nav-link" *ngIf="!left.Link"> {{left.NameButton}}</a>
         <span class="sr-only">(current)</span></li>
     </ul>
     

@@ -1,4 +1,4 @@
 export class List {
-    title:string;
-    list = new Map<number, string>();
+    Title:string;
+    List = new Map<number, string>();
 }

@@ -18,11 +18,10 @@ export class NoteService {
 
   }
   GetNotesByScooterId(scooterId:number){
-    return this.http.get(this.url+"GetScooterId"+"scooterId"+scooterId).subscribe(x=>{});
-
+    return this.http.get(this.url+"GetScooterId?"+"scooterId="+scooterId)
   }
   GetNotesByUserId(userId:number){
-    return this.http.get(this.url+"GetScooterId"+"userId"+userId).subscribe(x=>{});
+    return this.http.get(this.url+"GetScooterId?"+"userId="+userId);
 
   }
   GetNewNotesByUserId(userId:number){
@@ -30,12 +29,14 @@ export class NoteService {
 
   }
   GetNotesByOredrId(orderId:number){
-    return this.http.get(this.url+"GetScooterId"+"orderId"+orderId).subscribe(x=>{});
-
+    return this.http.get(this.url+"GetScooterId?"+"orderId="+orderId);
   }
   GetNotesByFutureOrderId(futureOrderId:number){
-    return this.http.get(this.url+"GetScooterId"+"futureOrderId"+futureOrderId).subscribe(x=>{});
+    return this.http.get(this.url+"GetScooterId?"+"futureOrderId="+futureOrderId);
 
+  }
+  GetNotesNoRead(){
+    return this.http.get(this.url+"GetNotesNoRead");
   }
   UpdateStatusNote(noteId:number,state:number){
     return this.http.get(this.url+"GetScooterId"+"noteId"+noteId+"&state"+state).subscribe(x=>{});

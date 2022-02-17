@@ -1,10 +1,13 @@
+import { ValidatorFn } from '@angular/forms';
+import { ListAdd } from './../../class/base-class/list-add';
+import { List } from 'src/app/class/base-class/list';
 import { EScooter } from './../../class/base-class/EScooter';
 import { Scooter } from './../../class/scooter';
 import { Component, OnInit } from '@angular/core';
-import { List } from 'src/app/class/base-class/list';
 import { ActivatedRoute } from '@angular/router';
 import { ScooterService } from 'src/app/services/scooter.service';
 import { map } from "rxjs/operators";
+import { Add } from 'src/app/class/base-class/add';
 
 @Component({
   selector: 'app-scooter',
@@ -14,8 +17,8 @@ import { map } from "rxjs/operators";
 export class ScooterComponent implements OnInit {
 
   eScooter:EScooter;
-  list:List=new List;
-  scooter:Scooter[];
+  allScooter:List=new List();//AllScooter
+  addScooter:ListAdd;//AddScooter
 
   constructor(public scooterService:ScooterService,private router:ActivatedRoute) {
     this.eScooter=this.router.snapshot.params['eScooter'];
@@ -28,8 +31,7 @@ export class ScooterComponent implements OnInit {
     return EScooter; 
   }
   CheckComponentByEnum(eScooter:EScooter){
-    let scooter:Number=Number(eScooter);
-    switch (scooter) {
+    switch (eScooter) {
       case EScooter.AllScooter:
      this.AllScooter();
       break;
@@ -55,16 +57,16 @@ export class ScooterComponent implements OnInit {
   AllScooter(){
    this.scooterService.GetAllScooters()
    .subscribe((scooter)=>{
-    this.scooter=JSON.parse(scooter.toString());
-    this.list.title="רשימה קורקינט";
-    this.scooter.forEach(x=> this.list.list.set(x.Id," :מספר קורקינט"+x.Id));
+    let scooterList:Scooter[]=JSON.parse(scooter.toString());
+    this.allScooter.Title="רשימה קורקינט";
+    scooterList.forEach(x=> this.allScooter.List.set(x.Id," :מספר קורקינט"+x.Id));
   });
    }
   UpdatStatScooter(scooterId:number,state:number){
     this.scooterService. UpdateStatusScooter(scooterId,state);
   }
   AddScooter(){
-   
+    this.DateNewScooter();
   }
   AddNoteScooter(){
    
@@ -74,7 +76,15 @@ export class ScooterComponent implements OnInit {
   PerceptionScooter(scooterId:number){
     this.scooterService.UpdateStatusScooter(scooterId,1)
   }
-  GetOrderID(ID:number){  
+  GetScooterID(ID:number){  
     console.log(ID);  
  } 
+ DateNewScooter(){
+  let valid:ValidatorFn[]=[];
+  let addL:Add[]=[new Add("בחר מחסן","",valid,new List,"",null,1)];
+  this.addScooter=new ListAdd();
+  this.addScooter.Title="";
+  this.addScooter.TitleSubmit="";
+  this.addScooter.List=addL;
+ }
 }

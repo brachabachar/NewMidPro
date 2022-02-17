@@ -13,7 +13,7 @@ export class WayComponent {
   public searchControl: FormControl;
   public zoom: number;
   public submitted:boolean;
-  favoriteForm: FormGroup;
+  autoCompleteForm: FormGroup;
   
   @ViewChild("search",{static: false})
   public searchElementRef: ElementRef;
@@ -24,23 +24,18 @@ export class WayComponent {
   ) { }
   
   ngOnInit() {
-    this.favoriteForm = new FormGroup({
+    this.autoCompleteForm = new FormGroup({
       Alias: new FormControl('',[Validators.required, Validators.pattern('^[a-zA-Zא-ת ]+$'),Validators.max(20)]),
       latitude: new FormControl('',[Validators.required]),
       longitude: new FormControl(''),
       FullAddress: new FormControl('')
     });
-
-
     //set google maps defaults
     this.zoom = 4;
     this.latitude = 39.8282;
     this.longitude = -98.5795;
-    
     //create search FormControl
     this.searchControl = new FormControl();
- 
-    
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
@@ -50,17 +45,15 @@ export class WayComponent {
         this.ngZone.run(() => {
           //get the place result
           let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-          this.favoriteForm.controls.FullAddress.setValue(place.name);
+          this.autoCompleteForm.controls.FullAddress.setValue(place.name);
           //verify result
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
-          
           //set latitude, longitude and zoom
-          this.favoriteForm.controls.FullAddress.setValue(place.formatted_address);
-          this.favoriteForm.controls.latitude.setValue(place.geometry.location.lat());
-          this.favoriteForm.controls.longitude.setValue(place.geometry.location.lng());
-          
+          this.autoCompleteForm.controls.FullAddress.setValue(place.formatted_address);
+          this.autoCompleteForm.controls.latitude.setValue(place.geometry.location.lat());
+          this.autoCompleteForm.controls.longitude.setValue(place.geometry.location.lng());
        
         });
       });

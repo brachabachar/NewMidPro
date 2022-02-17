@@ -20,8 +20,8 @@ export class NavbarComponent implements OnInit {
  
    test:string="Way";
   ngOnInit(): void {
-    this.rightNav=this.nav.filter(x=>x.dir==0);
-    this.leftNav=this.nav.filter(x=>x.dir==1);
+    this.rightNav=this.nav.filter(x=>x.Dir==0);
+    this.leftNav=this.nav.filter(x=>x.Dir==1);
   }
 public Main(nameFunc:string){
   switch (nameFunc) {

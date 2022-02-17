@@ -23,16 +23,16 @@ export class ScooterService {
   return this.http.get(this.url+"GetScooterId"+"scooterId"+scooterId).subscribe(x=>{});
  }
  GetScootersByStorageId(StorageId:number){
-  return this.http.get<Scooter[]>(this.url+"GetScooterId"+"StorageId"+StorageId);
+  return this.http.get(this.url+"GetScootersByStorageId?"+"StorageId="+StorageId);
  }
  GetCountScootersByStorageId(StorageId:number){
-  return this.http.get(this.url+"GetScooterId"+"StorageId"+StorageId).subscribe(x=>{});
+  return this.http.get(this.url+"GetCountScootersByStorageId?"+"StorageId="+StorageId).subscribe(x=>{});
  }
  UpdateStatusScooter(scooterId:number,state:number){
-  return this.http.get(this.url+"GetScooterId"+"scooterId"+scooterId+"&state"+state).subscribe(x=>{});
+  return this.http.get(this.url+"UpdateStatusScooter?"+"scooterId="+scooterId+"&state="+state).subscribe(x=>{});
  }
  UpdateStorageId(scooterId:number,StorageId:number){
-  return this.http.get(this.url+"GetScooterId"+"scooterId"+scooterId+"&StorageId"+StorageId).subscribe(x=>{});
+  return this.http.get(this.url+"UpdateStorageId?"+"scooterId="+scooterId+"&StorageId="+StorageId).subscribe(x=>{});
  }
 
 }
