@@ -17,6 +17,7 @@ export class RegistrationComponent implements OnInit {
     submitted:boolean=false;
     user=new User();
     response:string;
+     date: Date;
     constructor(userS:UserService , private router: Router){
       this.userService=userS;
     }
@@ -24,7 +25,8 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(){
     this.mandoForm= new FormGroup({
       UserId:new FormControl('',[Validators.required,Validators.min(99999999),Validators.max(999999999), Validators.pattern('^[0-9]+$')]),
-      Name: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Zא-ת ]+$'),Validators.max(15)]),
+      FirstName: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Zא-ת ]+$'),Validators.max(15)]),
+      LastName: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Zא-ת ]+$'),Validators.max(15)]),    
       Email: new FormControl('',[Validators.required,Validators.email,Validators.pattern('^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$'),Validators.max(50)]),
       Password: new FormControl(  '',[Validators.required,Validators.pattern('((?=.*[$@$!%*?&])(?=.*[0-9]).{5,10})'),Validators.max(10)]),
       Brondate: new FormControl()
@@ -32,19 +34,23 @@ export class RegistrationComponent implements OnInit {
   } 
   onFormSubmit(){
     this.submitted=true;
-
+    this.date=new Date();
     if (!this.mandoForm.valid) 
     {
        return;
     }
     else
     {
-  this.user.Id=this.mandoForm.controls["UserId"].value;
-  this.user.LastName=this.mandoForm.controls["Name"].value;
+  this.user.Identity=this.mandoForm.controls["UserId"].value;
+  this.user.FirstName=this.mandoForm.controls["FirstName"].value;
+  this.user.LastName=this.mandoForm.controls["LastName"].value;
   this.user.Email=this.mandoForm.controls["Email"].value;
   this.user.Password=this.mandoForm.controls["Password"].value;
   this.user.BornDate=this.mandoForm.controls["Brondate"].value;
-  localStorage.setItem("",this.user.Id.toString());
+  this.user.IsManage=false;
+  this.user.StatusId=1;
+  this.user.CreatedOn=this.date;
+  localStorage.setItem("",this.user.Identity.toString());
   this.userService.AddUser(this.user);
   window.location.reload();  
     }

@@ -7,14 +7,22 @@
   <div class="form" >
       <div>
           <form  class="my-form" [formGroup]="mandoForm" (ngSubmit)="onFormSubmit()">
-            <!--name -->
+            <!--FirstName -->
             <div class="form-group" >  
-              <label>שם מלא</label><br> 
-              <input type="text" id="Name" name="Name"  maxlength="15" formControlName="Name"  placeholder="שם מלא" class="form-control form-content" required>
+              <label>שם פרטי</label><br> 
+              <input type="text" id="Name" name="FirstName"  maxlength="15" formControlName="FirstName"  placeholder="שם פרטי" class="form-control form-content" required>
               <div class="form-border"></div> 
               <small *ngIf="submitted && mandoForm.controls['Name'].errors?.required">שדה חובה</small> 
               <small *ngIf="submitted && mandoForm.controls['Name'].errors?.pattern">צריך להכיל רק אותיות בעברית או באנגלית</small> 
             </div>
+            <!--LastName -->
+            <div class="form-group" >  
+              <label>שם משפחה</label><br> 
+              <input type="text" id="Name" name="LastName"  maxlength="15" formControlName="LastName"  placeholder="שם משפחה" class="form-control form-content" required>
+              <div class="form-border"></div> 
+              <small *ngIf="submitted && mandoForm.controls['Name'].errors?.required">שדה חובה</small> 
+              <small *ngIf="submitted && mandoForm.controls['Name'].errors?.pattern">צריך להכיל רק אותיות בעברית או באנגלית</small> 
+            </div>            
             <!--userId -->
             <div class="form-group"> 
               <label>תעודת זהות</label><br> 
