@@ -28,6 +28,9 @@ export class ScooterService {
  GetCountScootersByStorageId(StorageId:number){
   return this.http.get(this.url+"GetCountScootersByStorageId?"+"StorageId="+StorageId).subscribe(x=>{});
  }
+ GetScooterInStreet(){
+  return this.http.get(this.url+"GetScooterInStreet");
+ }
  UpdateStatusScooter(scooterId:number,state:number){
   return this.http.get(this.url+"UpdateStatusScooter?"+"scooterId="+scooterId+"&state="+state).subscribe(x=>{});
  }

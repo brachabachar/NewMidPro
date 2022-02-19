@@ -21,4 +21,8 @@
     <div *ngSwitchCase="EScooter.PerceptionScooter">
         PerceptionScooter  <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
     </div>
+    <div *ngSwitchCase="EScooter.GetScooterInStreet">
+      <app-list [list]="allScooter" (objectCheck)="GetScooterID($event)"></app-list>
+    </div>
+    
 </div>

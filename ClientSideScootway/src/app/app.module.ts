@@ -33,19 +33,14 @@ import '@angular/compiler';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { RentComponent } from './components/rent/rent.component';
 import { FuturRentComponent } from './components/futur-rent/futur-rent.component';
-
 import { CreateWayComponent } from './components/create-way/create-way.component';
 import { ListComponent } from './components/base-components/list/list.component';
 import { OrderComponent } from './components/order/order.component';
 import { StorageComponent } from './components/storage/storage.component';
 import { ScooterComponent } from './components/scooter/scooter.component';
-
 import { AddComponent } from './components/base-components/add/add.component';
 import { NoteComponent } from './components/note/note.component';
-
 import { BaseNoteComponent } from './components/base-components/base-note/base-note.component';
-
-
 
 @NgModule({
   declarations: [
@@ -72,8 +67,6 @@ import { BaseNoteComponent } from './components/base-components/base-note/base-n
     NoteComponent,
 
     BaseNoteComponent,
-
-    
   ],
   imports: [
     BrowserModule,
