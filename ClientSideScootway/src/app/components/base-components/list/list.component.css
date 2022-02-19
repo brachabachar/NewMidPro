@@ -42,4 +42,8 @@
   .content-table ul li.active-row {
     font-weight: bold;
   }
+  button{
+   align-items: left;
+direction: rtl;
+  }
  

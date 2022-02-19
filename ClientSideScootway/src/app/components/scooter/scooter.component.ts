@@ -85,7 +85,7 @@ export class ScooterComponent implements OnInit {
     .subscribe((scooter)=>{
      let scooterList:Scooter[]=JSON.parse(scooter.toString());
      this.allScooter.Title="קורקינטים בסביבה";
-     scooterList.forEach(x=> this.allScooter.List.set(x.Id," : מיקום הקורקינט"+x.FullAddress));
+     scooterList.forEach(x=> this.allScooter.List.set(x.Id,"  מיקום הקורקינט: "+x.FullAddress));
    });
   }
   GetScooterID(ID:number){  
