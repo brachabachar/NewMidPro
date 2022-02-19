@@ -51,6 +51,9 @@ export class ScooterComponent implements OnInit {
         case EScooter.PerceptionScooter:
         this.PerceptionScooter(1);
         break;
+        case EScooter.GetScooterInStreet:
+          this.GetScooterInStreet();
+          break;
       default:
         break;
     }
@@ -76,6 +79,14 @@ export class ScooterComponent implements OnInit {
   }
   PerceptionScooter(scooterId:number){
     this.scooterService.UpdateStatusScooter(scooterId,1)
+  }
+  GetScooterInStreet(){
+    this.scooterService.GetScooterInStreet()
+    .subscribe((scooter)=>{
+     let scooterList:Scooter[]=JSON.parse(scooter.toString());
+     this.allScooter.Title="קורקינטים בסביבה";
+     scooterList.forEach(x=> this.allScooter.List.set(x.Id," : מיקום הקורקינט"+x.FullAddress));
+   });
   }
   GetScooterID(ID:number){  
     console.log(ID);  

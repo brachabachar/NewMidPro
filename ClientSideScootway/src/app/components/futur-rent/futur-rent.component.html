@@ -1,1 +1,25 @@
-<p>futur-rent works!</p>
+<div class="container">
+    <div id="card-content">
+      <div id="card-title">
+        <h2>הזמנה קורקינט</h2>
+        <div class="underline-title"></div>
+     </div>
+    <div class="form" >
+        <div>
+            <form  class="my-form" [formGroup]="futureOrderForm" >
+            <!-- BoronDate -->
+              <div class="form-group"> 
+                <label>תאריך    </label><br>  
+                <input type="date" formControlName="DateOrder"  placeholder="" class="form-control form-content" > 
+                <div class="form-border"></div>
+              </div>
+              
+              <div class="modal-footer">
+            <button class="btn btn-primary active" id="submit-btn" type="submit">אישור הזמנה</button> 
+             </div>
+             <a href="#about" id="signup"> חזרה </a>
+            </form>
+          </div>
+          <br>
+      </div>
+  </div>

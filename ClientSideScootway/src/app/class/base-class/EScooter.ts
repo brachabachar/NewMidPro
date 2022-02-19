@@ -4,5 +4,6 @@ export enum EScooter {
     AddScooter="AddScooter",
     AddNoteScooter="AddNoteScooter",
     AddScooterToStorage="AddScooterToStorage",
-    PerceptionScooter="PerceptionScooter"
+    PerceptionScooter="PerceptionScooter",
+    GetScooterInStreet="GetScooterInStreet"
 }

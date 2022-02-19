@@ -1,4 +1,3 @@
-import './notice';
 export class FutureOrder {
     Id:number;
     UserId:number
@@ -7,5 +6,4 @@ export class FutureOrder {
     Priority:number
     CreatedOn :Date;
     StatusId :number;
-
 }
