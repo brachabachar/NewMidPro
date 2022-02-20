@@ -45,7 +45,6 @@ public Main(nameFunc:string){
 
   public Registration() {
     const modalReg = this.modalService.open(RegistrationComponent)
-  
   }
   public logout() {
     localStorage.clear();

@@ -1,3 +1,6 @@
 <p>base-note works!</p>
-<input type="text">
-<button></button>
+<form class='from' [formGroup]="noteForm" >
+
+<input type="text" formControlName="description">
+<button >שליחה</button>
+</form>

@@ -7,5 +7,4 @@ export enum ENote{
     orderNote="orderNote",
     FutureOrderNote="FutureOrderNote",
     UpdateStatusNote="UpdateStatusNote"
-    
 }
