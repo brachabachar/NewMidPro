@@ -2,5 +2,6 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~bootstrap/dist/css/bootstrap-grid.css';
 @import './app/app.component.css';
+@import '~@angular/cdk/overlay-prebuilt.css';
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

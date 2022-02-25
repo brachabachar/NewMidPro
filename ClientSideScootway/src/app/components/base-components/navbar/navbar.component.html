@@ -6,14 +6,14 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent" >
     <ul class=" nav navbar-nav navbar-right">        
       <li class="nav-item active" *ngFor="let right of rightNav" (click)="Main(right.OnClick)">
-        <a class="nav-link" *ngIf="right.Link" href="{{right.Link}}">{{right.NameButton}}</a>
-        <a class="nav-link" *ngIf="!right.Link">{{right.NameButton}}</a>
+        <a class="nav-link" *ngIf="right.Link" href="{{right.Link}}" title="{{right.Title}}">{{right.NameButton}}</a>
+        <a class="nav-link" *ngIf="!right.Link" title="{{right.Title}}">{{right.NameButton}}</a>
         <span class="sr-only">(current)</span></li>
       </ul>
       <ul class="nav navbar-nav mr-auto">
       <li class="nav-item active" *ngFor="let left of leftNav"  (click)="Main(left.OnClick)">
-        <a class="nav-link" *ngIf="left.Link"  href="{{left.Link}}"> {{left.NameButton}}</a>
-        <a class="nav-link" *ngIf="!left.Link"> {{left.NameButton}}</a>
+        <a class="nav-link" *ngIf="left.Link"  href="{{left.Link}}" title="{{left.Title}}"> {{left.NameButton}}</a>
+        <a class="nav-link" *ngIf="!left.Link" title="{{left.Title}}"> {{left.NameButton}}</a>
         <span class="sr-only">(current)</span></li>
     </ul>
     

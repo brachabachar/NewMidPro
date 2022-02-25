@@ -3,5 +3,5 @@ export class ItemNavbar {
     Link:string;
     Dir:number;
     OnClick:string;
-    
+    Title:string='';
 }

@@ -48,6 +48,7 @@ import { UserScooterComponent } from './components/Abuot-base/user-scooter/user-
 import { UserOrderComponent } from './components/Abuot-base/user-order/user-order.component';
 import { ManagerScooterComponent } from './components/Abuot-base/manager-scooter/manager-scooter.component';
 import { ManagerOrderComponent } from './components/Abuot-base/manager-order/manager-order.component';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { ManagerOrderComponent } from './components/Abuot-base/manager-order/man
   ],
   imports: [
     BrowserModule,
+    OverlayModule,
     AppRoutingModule,HttpClientModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
