@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup,ReactiveFormsModule  } from '@angular/forms';
+import { FormControl, FormGroup,ReactiveFormsModule,FormsModule  } from '@angular/forms';
 import { User } from 'src/app/class/user';
 import { PersonalAreaComponent } from './components/personal-area/personal-area.component';
 import { LogInComponent} from './components/log-in/log-in.component';
@@ -41,6 +41,13 @@ import { ScooterComponent } from './components/scooter/scooter.component';
 import { AddComponent } from './components/base-components/add/add.component';
 import { NoteComponent } from './components/note/note.component';
 import { BaseNoteComponent } from './components/base-components/base-note/base-note.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { UserScooterComponent } from './components/Abuot-base/user-scooter/user-scooter.component';
+import { UserOrderComponent } from './components/Abuot-base/user-order/user-order.component';
+import { ManagerScooterComponent } from './components/Abuot-base/manager-scooter/manager-scooter.component';
+import { ManagerOrderComponent } from './components/Abuot-base/manager-order/manager-order.component';
 
 @NgModule({
   declarations: [
@@ -62,26 +69,29 @@ import { BaseNoteComponent } from './components/base-components/base-note/base-n
     OrderComponent,
     StorageComponent,
     ScooterComponent,
-
     AddComponent,
     NoteComponent,
-
     BaseNoteComponent,
+    UserScooterComponent,
+    UserOrderComponent,
+    ManagerScooterComponent,
+    ManagerOrderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,HttpClientModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
-    GooglePlaceModule, 
-    ModalModule.forRoot(),ReactiveFormsModule,MatGoogleMapsAutocompleteModule,
+    GooglePlaceModule, MatAutocompleteModule,MatInputModule,
+    MDBBootstrapModule.forRoot(),
+    ModalModule.forRoot(),ReactiveFormsModule,FormsModule,MatGoogleMapsAutocompleteModule,
     AgmCoreModule.forRoot({
     apiKey: 'AIzaSyBs9YFui13oo8KZWLIs7a7Xptdhsp8SRCU',
     libraries: ["places","geometry"],
     }),
     BrowserAnimationsModule,  AgmDirectionModule, 
   ],
-  exports: [BsDropdownModule, TooltipModule, ModalModule],
+  exports: [BsDropdownModule, TooltipModule, ModalModule,FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })

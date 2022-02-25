@@ -1,0 +1,13 @@
+<h2>מס הזמנה: {{futureOrder.Id}}</h2>
+<div>
+
+    <label>לתאריך :{{futureOrder.DateOrder}}</label>
+    <label>מקום :{{futureOrder.LocationOrder}}</label>
+    <label>מיקום סיום:{{futureOrder.Priority}}</label>
+    <label>תאריך יצירת הזמנה:{{futureOrder.CreatedOn}}</label>
+    <div *ngIf="futureOrder.StatusId==4">
+        <button (click)="UpdateStatus(6)" >אישור הזמנה</button>
+        <button (click)="UpdateStatus(7)">ביטול הזמנה</button>
+    </div>
+</div>
+

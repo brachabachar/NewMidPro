@@ -3,5 +3,7 @@ export enum EOrder {
     NoActiveOrders="NoActiveOrders", 
     EditOrder="EditOrder", 
     CreateOrder="CreateOrder",
-    waitAcceptOrder="waitAcceptOrder"
+    waitAcceptOrder="waitAcceptOrder",
+    AllOrders="AllOrders",
+    AllMyOrders="AllMyOrders",
 }

@@ -27,10 +27,8 @@ this.user=u;
     localStorage.setItem("user",JSON.stringify(u));
   }
   
-  GetUser(userId:string){
-    return this.http.get("/api/User/GetUser?userId=47").subscribe(x => {
-      return x;
-  });
+  GetUser(userId:number){
+    return this.http.get(this.url+"GetUser?"+"userId"+userId);
   }
  Login(email:string,password:string) {
     return this.http.get(this.url+"GetUserLogin?"+"email="+email+"&password="+password);

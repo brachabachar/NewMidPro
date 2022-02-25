@@ -1,3 +1,4 @@
+import { UpdateStatus } from './../class/base-class/updateStatus';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FutureOrder } from '../class/future-order';
@@ -12,19 +13,18 @@ export class FutureOrderService {
   constructor(private http: HttpClient) { }
 
   AddFutureOrder(f:FutureOrder){
-    this.http.post(this.url+"AddFutureOrder",f).subscribe(x=>{});
+    return this.http.post(this.url+"AddFutureOrder",f);
   }
   GetFutureOrderByUserId(userId:number){
-    return this.http.get(this.url+"GetAllStorages"+"userId"+userId).subscribe(x=>{});
+    return this.http.get(this.url+"GetFutureOrderByUserId?"+"userId="+userId);
   }
   GetFutureOrderId(futureOrderId:number){
-    return this.http.get(this.url+"GetAllStorages"+"futureOrderId"+futureOrderId).subscribe(x=>{});
+    return this.http.get(this.url+"GetFutureOrderId?"+"futureOrderId="+futureOrderId);
   }
   GetFutureOrderByUserIdByStatus(userId:number,state:number){
     return this.http.get(this.url+"GetAllStorages"+"userId"+userId+"&state"+state).subscribe(x=>{});
   }
   UpdateStatusFutureOrders(futureOrdersId:number,state:number){
-    return this.http.get(this.url+"GetAllStorages"+"futureOrdersId"+futureOrdersId+"&state"+state).subscribe(x=>{});
+    return this.http.post(this.url+"UpdateStatusFutureOrders",new UpdateStatus(futureOrdersId,state));
   }
-  
 }

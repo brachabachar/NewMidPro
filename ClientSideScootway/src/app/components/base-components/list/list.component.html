@@ -7,9 +7,13 @@
     </div>
 <ul class="list-group list-group-flush">
     <li  class="list-group-item " *ngFor="let item of list.List| keyvalue" (click)="LiClick(item.key)">{{item.value}}
-        <button style="float:'left'">תפיסת קורקינט</button>
+        <!-- <button style="float:'left'">תפיסת קורקינט</button> -->
     </li>
 </ul>
+    
 </table>
+<div *ngIf="list.List.size==0 && isLoading">
+    <h2>אין רשומות להצגה</h2>
+</div>
 </div>
 

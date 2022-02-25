@@ -1,9 +1,11 @@
 import { List } from '../../class/base-class/list';
 import { OrderService } from './../../services/order.service';
-import {Order} from './../../class/order';
+import { Order } from './../../class/order';
 import { Component, OnInit } from '@angular/core';
 import { EOrder } from 'src/app/class/base-class/EOrder';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FutureOrder } from 'src/app/class/future-order';
+import { FutureOrderService } from 'src/app/services/future-order.service';
 
 @Component({
   selector: 'app-order',
@@ -11,75 +13,55 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-  
-  eOrder:EOrder;
-  allOrder:List=new List();
-  orders:Order[];
 
-  constructor(public orderService:OrderService,private router:ActivatedRoute) {
-    this.eOrder=this.router.snapshot.params['eOrder'];
-   }
+  eOrder: EOrder;
+  allOrders: List = new List();
+  allStatus: List = new List();
+  orderList:FutureOrder[];
 
+  constructor(public futureOrderService: FutureOrderService, private activatedRoute: ActivatedRoute
+    , private router: Router) {
+    this.eOrder = this.activatedRoute.snapshot.params['eOrder'];
+    this.SetStatus();
+  }
+  SetStatus() {
+    this.allStatus.Title = "סטטוסים לסינון";
+    this.allStatus.List.set(1, 'פעיל');
+    this.allStatus.List.set(4, 'עבר למנהל');
+    this.allStatus.List.set(6, 'אושר על ידי המנהל');
+    this.allStatus.List.set(7, 'המנהל דחה');
+    this.allStatus.List.set(2, 'לא פעיל');
+  }
   ngOnInit(): void {
     this.CheckComponentByEnum(this.eOrder);
   }
   public get EOrder() {
-    return EOrder; 
+    return EOrder;
   }
-  CheckComponentByEnum(eOrder:EOrder){
+  CheckComponentByEnum(eOrder: EOrder) {
     switch (eOrder) {
-      case EOrder.ActiveOrders:
-        this.ActiveOrders();
+      case EOrder.AllOrders:
+        this.AllOrders();
         break;
-        case EOrder.NoActiveOrders:
-          this.NoActiveOrders();
-          break;
-          case EOrder.EditOrder:
-            this.EditOrder();
-            break;
-            case EOrder.CreateOrder:
-           this.CreateOrder();
-            break;
-            case EOrder.waitAcceptOrder:
-              this.waitAcceptOrder();
-               break;
       default:
         break;
     }
-  }
-  ActiveOrders(){
-    localStorage.getItem('Id');
-    this.orderService.GetActiveOrdersByUserId(1).subscribe((orders)=>{
-      let orderList:Order[]=JSON.parse(orders.toString());
-      this.allOrder.Title="מחסנים שלי";
-      orderList.forEach(x=> this.allOrder.List.set(x.Id," :מספר הזמנה"+x.Id));
-    });  
-  }
- 
-  NoActiveOrders(){
-    this.orderService.GetNoActiveOrdersByUserId(1).subscribe((orders)=>{
-      let orderList:Order[]=JSON.parse(orders.toString());
-      this.allOrder.Title="הזמנות לא פעילות שלי";
-      orderList.forEach(x=> this.allOrder.List.set(x.Id," :מספר הזמנה"+x.Id));
-    }); 
-  }
-  EditOrder(){
- 
-  }
-  CreateOrder(){
 
   }
-  waitAcceptOrder(){
-    localStorage.getItem('Id');
-     this.orderService.GetOrderByStateMovedManager().subscribe((orders:Order[])=>{
-      let orderList:Order[]=JSON.parse(orders.toString());
-      this.allOrder.Title="הזמנות מחכות לאישור מנהל";
-      orderList.forEach(x=> this.allOrder.List.set(x.Id," :מספר הזמנה"+x.Id));
-    });
-    
+  AllOrders() {
+    this.futureOrderService.GetFutureOrderByUserId(JSON.parse(localStorage.getItem("user") ?? "").Id)
+      .subscribe((futureOrder) => {
+        this.orderList = JSON.parse(futureOrder.toString());
+        this.allOrders.Title = "רשימת הזמנות עתידיות ";
+        this.orderList.forEach(x => this.allOrders.List.set(x.Id, " :הזמנה מספר" + x.Id));
+      });
   }
-  GetOrderID(ID:number){  
-    console.log(ID);  
- } 
+  GetOrderID(ID: number) {
+    this.router.navigate(['managerOrder', ID]);
+  }
+  GetStatusID(statusId: number) {
+    this.allOrders.List.clear();
+    this.orderList.filter(x=>x.StatusId===statusId).forEach(x => this.allOrders.List.set(x.Id, " :הזמנה מספר" + x.Id));
+  }
 
 }

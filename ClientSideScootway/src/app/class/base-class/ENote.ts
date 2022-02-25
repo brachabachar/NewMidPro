@@ -6,5 +6,7 @@ export enum ENote{
     scooterNote="scooterNote",
     orderNote="orderNote",
     FutureOrderNote="FutureOrderNote",
-    UpdateStatusNote="UpdateStatusNote"
+    UpdateStatusNote="UpdateStatusNote",
+    GetNotesByUserIdCreat="GetNotesByUserIdCreat",
+    GetNotesByUserIdFromManager="GetNotesByUserIdFromManager" 
 }

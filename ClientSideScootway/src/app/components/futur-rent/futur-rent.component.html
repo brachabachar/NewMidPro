@@ -1,16 +1,30 @@
-<form>
-    <h2>הזמנה </h2>
-    <div>
-    <label>שם מלא:</label>
-    <input type="text" placeholder="שם מלא" class="form-control form-content"> 
-    <label>מייל:</label>
-    <input type="text"  placeholder="מייל" class="form-control form-content"> 
-    <label>תאריך:</label>
-    <input type="text"  placeholder="תאריך" class="form-control form-content"> 
-    <label>כמות:</label>
-    <input type="text"  placeholder="כמות" class="form-control form-content"> 
-    <label>כתובת:</label>
-    <input type="text"  placeholder="כתובת" class="form-control form-content">
-     </div><button class="btn btn-primary active" id="submit-btn" type="submit">אישור הזמנה</button>
-</form>    
-
+<div class="container">
+        <div id="card-title">
+            <h2>יצירת הזמנה </h2>
+            <div class="underline-title"></div>
+        </div>
+        <form class='from' [formGroup]="futureOrderForm" (ngSubmit)="onFormSubmit()" data-toggle="modal">
+            <div class="form-group">
+                <label>למתי צריך את ההזמנה</label><br>
+                <input type="date" formControlName="DateOrder" placeholder="תאריך להזמנה"
+                    class="form-control form-content">
+            </div>
+            <div>
+                <label>מיקום</label><br>
+                <app-way (placeOut)="GetPlace($event)"></app-way>
+            </div>
+            <div class="form-group">
+                <label>כמות קורקינטים </label><br>
+                <input type="number" formControlName="Count" placeholder="כמות קורקינטים"
+                    class="form-control form-content">
+            </div>
+            <div class="form-group">
+                <label>הערה </label><br>
+                <input type="text" formControlName="DescriptionNote" placeholder="הוסף הערה"
+                    class="form-control form-content">
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-secondary" id="submit-btn">אישור</button>
+            </div>
+        </form>
+</div>
