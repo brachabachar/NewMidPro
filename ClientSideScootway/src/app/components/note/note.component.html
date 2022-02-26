@@ -23,4 +23,10 @@
    <div *ngSwitchCase="ENote.UpdateStatusNote">
       UpdateStatusNote 
    </div>
+   <div *ngSwitchCase="ENote.GetNotesByUserIdCreat">
+       <app-list [list]="allNote" (objectCheck)="GetNoteID($event)"></app-list>
+   </div>
+   <div *ngSwitchCase="ENote.GetNotesByUserIdFromManager">
+       <app-list [list]="allNote" (objectCheck)="GetNoteID($event)"></app-list>
+   </div>
 </div>

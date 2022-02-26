@@ -50,7 +50,7 @@ export class RegistrationComponent implements OnInit {
   this.user.IsManage=false;
   this.user.StatusId=1;
   this.user.CreatedOn=this.date;
-  localStorage.setItem("",this.user.Identity.toString());
+  // localStorage.setItem("",this.user.Identity.toString());
   this.userService.AddUser(this.user);
   window.location.reload();  
     }

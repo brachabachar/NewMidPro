@@ -4,16 +4,15 @@
           <app-list [list]="allStorage" (objectCheck)="GetStorageID($event)"></app-list>
     </div>
     <div *ngSwitchCase="EStorage.NewStorage">
-        NewStorage  <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
+        NewStorage 
     </div>
     <div *ngSwitchCase="EStorage.ScooterInStorage">
         <app-list [list]="allStorage" (objectCheck)="GetStorageID($event)"></app-list>
-     
     </div> 
     <div *ngSwitchCase="EStorage.CountScooterInStorage">
       <app-list [list]="allStorage" (objectCheck)="GetStorageID($event)"></app-list> 
     </div>
      <div *ngSwitchCase="EStorage.AboutStorage">
-        <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
+        AboutStorage
     </div>
 </div>

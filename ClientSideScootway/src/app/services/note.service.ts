@@ -20,6 +20,12 @@ export class NoteService {
   GetNotesByScooterId(scooterId:number){
     return this.http.get(this.url+"GetScooterId?"+"scooterId="+scooterId)
   }
+  GetNotesByUserIdCreat(userId:number){
+    return this.http.get(this.url+"GetNotesByUserIdCreat?"+"userId="+userId);
+  }
+  GetNotesByUserIdFromManager(userId:number){
+    return this.http.get(this.url+"GetNotesByUserIdFromManager?"+"userId="+userId);
+  }
   GetNotesByUserId(userId:number){
     return this.http.get(this.url+"GetScooterId?"+"userId="+userId);
 

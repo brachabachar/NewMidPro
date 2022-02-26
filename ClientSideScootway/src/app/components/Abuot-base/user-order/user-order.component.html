@@ -1,0 +1,10 @@
+<h2>מס הזמנה: {{order.Id}}</h2>
+<div *ngif="order.StatusId==1">
+    <button click="">שחרור הקורקינט</button>
+</div>
+<div *ngif="!order.StatusId">
+    <label>תאריך:{{order.CreatedOn}}</label>
+    <label>מיקום התחלה:{{order.StartLocation}}</label>
+    <label>מיקום סיום:{{order.EndLocation}}</label>
+    <label>משך זמן:{{Otime}}</label>
+</div>

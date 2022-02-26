@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { LogInComponent } from '../../log-in/log-in.component';
 import { RegistrationComponent } from '../../registration/registration.component';
 import { NavbarService } from 'src/app/services/navbar.service';
+import { FuturRentComponent } from '../../futur-rent/futur-rent.component';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +18,6 @@ export class NavbarComponent implements OnInit {
   @Input() nav:ItemNavbar[];
   constructor(private modalService: NgbModal,private router: Router,private navbarService:NavbarService) { 
   }
- 
    test:string="Way";
   ngOnInit(): void {
     this.rightNav=this.nav.filter(x=>x.Dir==0);
@@ -31,9 +31,18 @@ public Main(nameFunc:string){
     case "registration":
       this.registration(); 
       break;
-      case "logout":
+    case "logout":
         this.logout();
-        break;   
+        break;  
+    case "myFuturRent":
+          this.myFuturRent();
+          break;   
+    case "myNote":
+          this.myNote();
+          break;  
+    case "noteManage":
+          this.noteManage();
+          break;  
     default:
         console.log("default");
   }
@@ -46,12 +55,20 @@ public Main(nameFunc:string){
   public registration() {
     const modalReg = this.modalService.open(RegistrationComponent)
   }
+  
   public logout() {
-    localStorage.clear();
     this.router.navigate(['About']);
-    window.location.reload();
+    localStorage.clear();
+  }
+  public myFuturRent(){
+
+  }
+ 
+  public myNote(){
+
+  }
+  public noteManage(){
+
   }
   public null(){}
-
-
 }

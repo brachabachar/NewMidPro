@@ -1,13 +1,15 @@
-import { Injectable,Component, OnInit, ElementRef, ViewChild, NgZone } from '@angular/core';
+import { Injectable,Component, OnInit, ElementRef, ViewChild, NgZone, Output, EventEmitter } from '@angular/core';
 import { MapsAPILoader } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormControl, Validators } from '@angular/forms'; 
+import { Place } from 'src/app/class/base-class/place';
 @Component({
   selector: 'app-way',
   templateUrl: './way.component.html',
   styleUrls: ['./way.component.css']
 })
-export class WayComponent {
+export class WayComponent implements OnInit{
+  @Output() placeOut:EventEmitter<Place>= new EventEmitter();
   public latitude: number;
   public longitude: number;
   public searchControl: FormControl;
@@ -54,7 +56,8 @@ export class WayComponent {
           this.autoCompleteForm.controls.FullAddress.setValue(place.formatted_address);
           this.autoCompleteForm.controls.latitude.setValue(place.geometry.location.lat());
           this.autoCompleteForm.controls.longitude.setValue(place.geometry.location.lng());
-       
+          let p:Place=new Place(place.formatted_address??"",place.geometry.location.lat(),place.geometry.location.lng());
+          this.placeOut.emit(p);
         });
       });
     });

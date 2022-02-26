@@ -1,9 +1,12 @@
+import { ManagerOrderComponent } from './components/Abuot-base/manager-order/manager-order.component';
+import { FuturRentComponent } from './components/futur-rent/futur-rent.component';
+import { UserScooterComponent } from './components/Abuot-base/user-scooter/user-scooter.component';
 import { ScooterComponent } from './components/scooter/scooter.component';
 import { StorageComponent } from './components/storage/storage.component';
 import { OrderComponent } from './components/order/order.component';
 import { WayComponent } from './components/way/way.component';
 import { PersonalAreaComponent } from './components/personal-area/personal-area.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LogInComponent } from './components/log-in/log-in.component';
@@ -13,6 +16,7 @@ import { NewScootComponent } from './components/new-scoot/new-scoot.component';
 import { NewRouteComponent } from './components/new-route/new-route.component';
 import { NoteComponent } from './components/note/note.component';
 import { FutureOrder } from './class/future-order';
+
 const routes: Routes = [ 
 {path: '', redirectTo: 'About' , pathMatch: 'full'},
 { path: 'Registration', component: RegistrationComponent },
@@ -27,8 +31,11 @@ const routes: Routes = [
 { path: 'Scooter/:eScooter', component:ScooterComponent},
 { path: 'Note', component:NoteComponent},
 { path: 'Future-Order', component:FutureOrder},
+{ path: 'user-scooter/:scooterId', component:UserScooterComponent},
+{ path: 'managerOrder/:futureOrderId', component:ManagerOrderComponent},
 
-
+{ path: 'FuturRent', component:FuturRentComponent},
+{path:'Note/:eNote',component:NoteComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

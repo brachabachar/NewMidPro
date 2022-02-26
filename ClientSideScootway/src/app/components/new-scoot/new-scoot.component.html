@@ -1,14 +1,22 @@
-<!-- <form  class="my-form" [formGroup]="addScootForm" (ngSubmit)="onFormSubmit()"> -->
-    <div>
-        <h5>הוספת קורקינט חדש:</h5><br/>
-        <label>מספר קורקינט:</label>
-        <input name="place_changed" type="number">
-        <label>מיקום: </label>
-        <!-- <input name="place_changed" placeholder="התחל להקליד" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl"> -->
-
-        <label>מצב הקורקינט: </label><br/>
-        <input type="checkbox" id="scootState" placeholder="true/false" formControlName="Isfree"/><br/>
-       <br> <button  type="submit">הוספה</button> 
+<div class="container">
+  <div id="card-title">
+    <h2>הוספת קורקינט </h2>
+    <div class="underline-title"></div>
+  </div>
+  <form class='from' [formGroup]="newScootForm" (ngSubmit)="onFormSubmit()" data-toggle="modal">
+    <i class="fas fa-star" value="1" name="gender" (click)="SetContent(1)"></i> למחסן
+    &nbsp;&nbsp;
+    <i class="fas fa fa-plus" value="2" name="gender" (click)="SetContent(2)"></i> לשחרור ברחוב
+    <div *ngIf="inStorage==1">
+      <label>למחסן</label><br>
+     <app-personal-area (storageId)="SetStorage($event)"></app-personal-area>
     </div>
-    
-  <!-- </form> -->
+    <div *ngIf="inStorage==2">
+      <label>מיקום</label><br>
+      <app-way (placeOut)="GetPlace($event)"></app-way>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-secondary" id="submit-btn">אישור</button>
+    </div>
+  </form>
+</div>

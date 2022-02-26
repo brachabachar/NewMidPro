@@ -1,4 +1,5 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Place } from './class/base-class/place';
 import { UserService } from './services/user.service';
 declare var google: any;
 @Component({
@@ -17,7 +18,9 @@ export class AppComponent {
     this.userService=userS;
     //this.userService.Test();  
   }
-
+  GetPlace(place:Place){
+    alert ("aa");
+  }
   ngOnInit(): void { 
   //   this.initMap();
   //   const mapProperties = { 

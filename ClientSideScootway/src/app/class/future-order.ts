@@ -3,7 +3,9 @@ export class FutureOrder {
     UserId:number
     DateOrder :Date;
     LocationOrder:string; 
-    Priority:number
+    Count:number;
+    Priority:number;
     CreatedOn :Date;
     StatusId :number;
+    DescriptionNote:string;
 }

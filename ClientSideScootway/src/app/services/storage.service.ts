@@ -20,7 +20,7 @@ export class StorageService {
     this.http.get<Storage[]>(this.url+"GetCountStorages");
   }
   GetStorage(storageId:number){
-   return this.http.get(this.url+"GetAllStorages"+"storageId"+storageId).subscribe(x=>{});
+   return this.http.get(this.url+"GetAllStorages"+"storageId"+storageId);
   }
   UpdateStatusStorages(storageId:number ,state:number){
   return this.http.get(this.url+"UpdateStatusStorages"+"storageId"+storageId+"&state"+state).subscribe(x=>{});

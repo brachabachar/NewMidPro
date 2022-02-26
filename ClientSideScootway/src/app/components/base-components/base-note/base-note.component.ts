@@ -1,3 +1,4 @@
+import { User } from 'src/app/class/user';
 import { Note } from './../../../class/note';
 import { NoteService } from './../../../services/note.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
@@ -22,8 +23,16 @@ export class BaseNoteComponent implements OnInit {
     });
   }
   onFormSubmit(): void {
-    debugger;
     this.n.Description=this.noteForm.controls["description"].value;
+     let u:User=new User()
+     u.BornDate= new Date();
+     u.Identity="208090910";
+    localStorage.setItem("user",JSON.stringify(u));
+    let u1:User=JSON.parse(localStorage.getItem("user")??"")
+    
+
+    localStorage.getItem("");
+    localStorage.setItem("","");
     this.noteService.AddNote(this.n);
   }
 }
