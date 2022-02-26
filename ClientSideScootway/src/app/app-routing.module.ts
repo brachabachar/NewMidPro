@@ -11,6 +11,8 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { AboutComponent } from './components/about/about.component';
 import { NewScootComponent } from './components/new-scoot/new-scoot.component';
 import { NewRouteComponent } from './components/new-route/new-route.component';
+import { NoteComponent } from './components/note/note.component';
+import { FutureOrder } from './class/future-order';
 const routes: Routes = [ 
 {path: '', redirectTo: 'About' , pathMatch: 'full'},
 { path: 'Registration', component: RegistrationComponent },
@@ -23,7 +25,8 @@ const routes: Routes = [
 { path: 'Order/:eOrder', component:OrderComponent},
 { path: 'Storage/:eStorage', component:StorageComponent},
 { path: 'Scooter/:eScooter', component:ScooterComponent},
-
+{ path: 'Note', component:NoteComponent},
+{ path: 'Future-Order', component:FutureOrder},
 
 
 ];

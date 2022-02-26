@@ -41,6 +41,7 @@ import { ScooterComponent } from './components/scooter/scooter.component';
 import { AddComponent } from './components/base-components/add/add.component';
 import { NoteComponent } from './components/note/note.component';
 import { BaseNoteComponent } from './components/base-components/base-note/base-note.component';
+import { MapComponent } from './components/map/map.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { BaseNoteComponent } from './components/base-components/base-note/base-n
     NoteComponent,
 
     BaseNoteComponent,
+      MapComponent,
   ],
   imports: [
     BrowserModule,
