@@ -4,7 +4,7 @@ import { Storage } from './../../class/storage';
 import { EStorage } from './../../class/base-class/EStorage';
 import { Component, OnInit } from '@angular/core';
 import { List } from 'src/app/class/base-class/list';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ScooterService } from 'src/app/services/scooter.service';
 
 @Component({
@@ -19,8 +19,9 @@ export class StorageComponent implements OnInit {
 
   storage:Storage[];
   scooter:Scooter[];
-  constructor(public storageService:StorageService,public scooterService:ScooterService, private router:ActivatedRoute) {
-    this.eStorage=this.router.snapshot.params['eStorage'];
+  constructor(public storageService:StorageService,public scooterService:ScooterService, private activatedRoute: ActivatedRoute
+    , private router: Router) {
+    this.eStorage=this.activatedRoute.snapshot.params['eStorage'];
    }
 
   ngOnInit(): void {
@@ -32,11 +33,9 @@ export class StorageComponent implements OnInit {
   CheckComponentByEnum(eStorage:EStorage){
     switch (eStorage) {
       case EStorage.MyStorage:
-        this.MyStorage();
+        this.GetAllStorage();
       break;
-      case EStorage.NewStorage:
-        this.NewStorage();
-      break;
+     
       case EStorage.ScooterInStorage:
         this.ScooterInStorage(1);
       break;
@@ -51,7 +50,7 @@ export class StorageComponent implements OnInit {
         break;
     }
   }
-  MyStorage(){
+  GetAllStorage(){
     this.storageService.GetAllStorages().subscribe((storage)=>{
       let storageList:Storage[]=JSON.parse(storage.toString());
       this.allStorage.Title="מחסנים שלי";
@@ -78,5 +77,11 @@ export class StorageComponent implements OnInit {
   }
   GetStorageID(ID:number){  
     console.log(ID);  
- } 
+  } 
+  AddStorage(){
+    this.router.navigate(['new-storag']);
+  }
+ AbuotStorag(ID:number){
+  this.router.navigate(['managerStorage',ID]);
+ }
 }

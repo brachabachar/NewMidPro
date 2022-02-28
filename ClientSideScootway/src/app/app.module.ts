@@ -49,7 +49,11 @@ import { UserOrderComponent } from './components/Abuot-base/user-order/user-orde
 import { ManagerScooterComponent } from './components/Abuot-base/manager-scooter/manager-scooter.component';
 import { ManagerOrderComponent } from './components/Abuot-base/manager-order/manager-order.component';
 import { OverlayModule } from '@angular/cdk/overlay';
-
+import { ManagerStoragComponent } from './components/Abuot-base/manager-storag/manager-storag.component';
+import { NewStoragComponent } from './components/new-storag/new-storag.component';
+import { PoshOrderComponent } from './components/Abuot-base/posh-order/posh-order.component';
+import {AgmMap,MapsAPILoader  } from '@agm/core';
+import { AbuotNoteComponent } from './components/Abuot-base/abuot-note/abuot-note.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,6 +81,10 @@ import { OverlayModule } from '@angular/cdk/overlay';
     UserOrderComponent,
     ManagerScooterComponent,
     ManagerOrderComponent,
+    ManagerStoragComponent,
+    NewStoragComponent,
+    PoshOrderComponent,
+    AbuotNoteComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,27 +12,36 @@ import { Router } from '@angular/router';
 })
 
 export class BaseNoteComponent implements OnInit {
-  @Output() objectCheck:EventEmitter<string>= new EventEmitter(); 
-  description:string;
-  noteForm:FormGroup;
-  n:Note=new Note;
-    constructor(public noteService:NoteService) { }
+  @Input() note: Note;
+  @Output() objectCheck: EventEmitter<boolean> = new EventEmitter();
+
+  description: string;
+  noteForm: FormGroup;
+  addNoteEnable: boolean = true;
+  onSubmit: boolean = false;
+  constructor(public noteService: NoteService) { }
   ngOnInit(): void {
     this.noteForm = new FormGroup({
-      description: new FormControl('', [Validators.required, Validators.pattern('^[A-Zא-תa-z0-9._%+-]+$'),Validators.max(300000000)])
+      description: new FormControl('', [Validators.required, Validators.pattern('^[A-Zא-תa-z0-9._%+-]+$'), Validators.max(300000000)])
     });
   }
   onFormSubmit(): void {
-    this.n.Description=this.noteForm.controls["description"].value;
-     let u:User=new User()
-     u.BornDate= new Date();
-     u.Identity="208090910";
-    localStorage.setItem("user",JSON.stringify(u));
-    let u1:User=JSON.parse(localStorage.getItem("user")??"")
-    
-
-    localStorage.getItem("");
-    localStorage.setItem("","");
-    this.noteService.AddNote(this.n);
+    this.onSubmit=true;
+    this.note.Description = this.noteForm.controls["description"].value;
+    this.note.CreatedById = JSON.parse(localStorage.getItem("user") ?? "").Id;
+    this.noteService.AddNote(this.note).subscribe((msg) => {
+      if (msg == true) {
+        alert("תודה");
+        this.AddNoteEnable(false);
+      }
+      else
+        alert("שגיאה בתהליך")
+    }, (error) => {
+      alert(error.error);
+    });;
+  }
+  AddNoteEnable(enable: boolean) {
+    this.addNoteEnable = enable;
+    this.objectCheck.emit(enable);
   }
 }

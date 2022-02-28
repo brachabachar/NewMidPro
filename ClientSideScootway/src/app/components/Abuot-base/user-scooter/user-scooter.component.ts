@@ -12,24 +12,24 @@ import { ScooterService } from 'src/app/services/scooter.service';
 export class UserScooterComponent implements OnInit {
 
   scooter:Scooter=new Scooter();
-  
+  userId:number;
   constructor(public scooterService:ScooterService,private activatedRoute:ActivatedRoute,private router:Router) {
     scooterService.GetScooterId(Number.parseInt(this.activatedRoute.snapshot.params['scooterId'])).subscribe((s)=>{
       this.scooter=JSON.parse(s.toString());
       });
+      this.userId=JSON.parse(localStorage.getItem("user") ?? "").Id
    }
 
   ngOnInit(): void {
   }
   Perception(){
-    this.scooterService.UpdateScooterIsFree(this.scooter.Id).subscribe((checked)=>{
+    this.scooterService.UpdateScooterIsFreeAddCreatOrder(this.scooter.Id, this.userId).subscribe((checked)=>{
       if(checked==true)
          alert("נסיעה מהנה");
       else
         alert("מצטערים הקורקינט נתפס על ידי משהו אחר...\n נסה קורקינט אחר")
       this.router.navigate(['About']);
       });
-      
   }
 
 }

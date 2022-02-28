@@ -1,6 +1,7 @@
 <div class="container">
   <div id="card-title">
-    <h2>הוספת קורקינט </h2>
+    <h2 *ngIf="newScoot.Id ==0">הוספת קורקינט </h2>
+    <h2 *ngIf="newScoot.Id !=0">עדכון מיקום קורקינט </h2>
     <div class="underline-title"></div>
   </div>
   <form class='from' [formGroup]="newScootForm" (ngSubmit)="onFormSubmit()" data-toggle="modal">
