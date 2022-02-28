@@ -41,6 +41,7 @@ import { ScooterComponent } from './components/scooter/scooter.component';
 import { AddComponent } from './components/base-components/add/add.component';
 import { NoteComponent } from './components/note/note.component';
 import { BaseNoteComponent } from './components/base-components/base-note/base-note.component';
+import { MapComponent } from './components/map/map.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
@@ -77,6 +78,7 @@ import { AbuotNoteComponent } from './components/Abuot-base/abuot-note/abuot-not
     AddComponent,
     NoteComponent,
     BaseNoteComponent,
+      MapComponent,
     UserScooterComponent,
     UserOrderComponent,
     ManagerScooterComponent,

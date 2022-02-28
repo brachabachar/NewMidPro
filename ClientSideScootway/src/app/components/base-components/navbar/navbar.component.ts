@@ -28,8 +28,8 @@ public Main(nameFunc:string){
     case "login":
       this.login();
       break;
-    case "Registration":
-      this.Registration(); 
+    case "registration":
+      this.registration(); 
       break;
     case "logout":
         this.logout();
@@ -52,7 +52,7 @@ public Main(nameFunc:string){
     const modalLog = this.modalService.open(LogInComponent);
   }
 
-  public Registration() {
+  public registration() {
     const modalReg = this.modalService.open(RegistrationComponent)
   }
   

@@ -41,5 +41,4 @@ export class NavbarService {
       { Title: '', Link: '/Order/AllOrders', Dir: 0, NameButton: 'ניהול הזמנות', OnClick: "null" }];
 
   }
-
 }
