@@ -3,7 +3,9 @@ import { Note } from './../../../class/note';
 import { NoteService } from './../../../services/note.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TypeNote } from 'src/app/class/base-class/TypeNote';
+
 
 @Component({
   selector: 'app-base-note',
@@ -24,6 +26,7 @@ export class BaseNoteComponent implements OnInit {
     this.noteForm = new FormGroup({
       description: new FormControl('', [Validators.required, Validators.pattern('^[A-Zא-תa-z0-9._%+-]+$'), Validators.max(300000000)])
     });
+    this.CheckComponentByEnum(this.EType.typeNameId);
   }
   onFormSubmit(): void {
     this.onSubmit=true;

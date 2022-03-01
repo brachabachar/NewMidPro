@@ -19,6 +19,7 @@ export class OrderComponent implements OnInit {
   allOrders: List = new List();
   allStatus: List = new List();
   orderList:FutureOrder[];
+
   allOrdersActive: List = new List();
   constructor(public futureOrderService: FutureOrderService,public orderService:OrderService, private activatedRoute: ActivatedRoute
     , private router: Router) {
@@ -50,7 +51,6 @@ export class OrderComponent implements OnInit {
       default:
         break;
     }
-
   }
   AllOrders() {
     this.futureOrderService.GetFutureOrderByUserId(JSON.parse(localStorage.getItem("user") ?? "").Id)

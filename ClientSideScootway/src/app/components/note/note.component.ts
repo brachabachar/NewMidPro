@@ -133,7 +133,6 @@ export class NoteComponent implements OnInit {
   GetNoteID(ID: number) {
     console.log(ID);
   }
-
   abuotNote(ID: number){
     this.router.navigate(['AbuotNote', ID]);
   }

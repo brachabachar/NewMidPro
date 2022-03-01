@@ -21,7 +21,7 @@ import { NewRouteComponent } from './components/new-route/new-route.component';
 import { NoteComponent } from './components/note/note.component';
 import { AbuotNoteComponent } from './components/Abuot-base/abuot-note/abuot-note.component';
 import { FutureOrder } from './class/future-order';
-
+import { BaseNoteComponent } from './components/base-components/base-note/base-note.component';
 const routes: Routes = [ 
 {path: '', redirectTo: 'About' , pathMatch: 'full'},
 { path: 'Registration', component: RegistrationComponent },
@@ -34,8 +34,8 @@ const routes: Routes = [
 { path: 'NewRoute', component:NewRouteComponent},
 { path: 'Order/:eOrder', component:OrderComponent},
 { path: 'Storage/:eStorage', component:StorageComponent},
+{ path: 'base-note/:EType', component:BaseNoteComponent},
 { path: 'Scooter/:eScooter', component:ScooterComponent},
-{ path: 'Note', component:NoteComponent},
 { path: 'Future-Order', component:FutureOrder},
 { path: 'user-scooter/:scooterId', component:UserScooterComponent},
 { path: 'managerOrder/:futureOrderId', component:ManagerOrderComponent},

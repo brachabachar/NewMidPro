@@ -4,28 +4,25 @@
   
   .content-table {
     border-collapse: collapse;
-    margin: 20px 120px;
+    margin-right: 25%;
     font-size: 0.9em;
-    min-width: 1300px;
+    min-width: 25%;
+    max-width: 50%;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-bottom: 0;
   }
   
-  .content-table  h2{
+  .thead{
     text-align: center;
     font-weight: bold;
-    background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e);
+    background: -webkit-linear-gradient(right, #3a84b6, #56bbbe, #73c7a4, #61cf8f);
     border: none;
-    box-shadow: 0px 1px 8px #24c64f;
     color: white;
     font-family: "Raleway SemiBold", sans-serif;
+  }
 
-  }
-  
-  .content-table h2,ul {
-    padding: 12px 15px;
-  }
   
   .content-table ul li {
     border-bottom: 1px solid #dddddd;

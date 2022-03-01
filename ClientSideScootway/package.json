@@ -30,6 +30,7 @@
     "agm-direction": "^0.8.10",
     "angular-bootstrap-md": "^12.2.0",
     "angular-ng-autocomplete": "^2.0.8",
+    "autocomplete": "0.0.1",
     "bootstrap": "^4.1.3",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
