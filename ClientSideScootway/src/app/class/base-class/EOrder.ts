@@ -6,4 +6,5 @@ export enum EOrder {
     waitAcceptOrder="waitAcceptOrder",
     AllOrders="AllOrders",
     AllMyOrders="AllMyOrders",
+    AllOrdersActiveUser="AllOrdersActiveUser"
 }

@@ -6,7 +6,7 @@
         allNote <app-list [list]="allNote" (objectCheck)="GetNoteID($event)"></app-list>
      </div>
      <div *ngSwitchCase="ENote.noReadNote">
-        noReadNote <app-list [list]="allNote" (objectCheck)="GetNoteID($event)"></app-list>
+         <app-list [list]="allNote" (objectCheck)="abuotNote($event)"></app-list>
      </div>
      <div *ngSwitchCase="ENote.userNote">
         userNote <app-list [list]="allNote" (objectCheck)="GetNoteID($event)"></app-list>

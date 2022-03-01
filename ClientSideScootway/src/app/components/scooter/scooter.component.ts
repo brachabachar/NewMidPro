@@ -71,7 +71,7 @@ export class ScooterComponent implements OnInit {
     this.scooterService.UpdateStatusScooter(scooterId, state);
   }
   AddScooter() {
-    this.router.navigate(['NewScoot']);
+    this.router.navigate(['NewScoot',0]);
   }
   AddNoteScooter() {
 
@@ -90,7 +90,7 @@ export class ScooterComponent implements OnInit {
       });
   }
   AboutScooter(ID: number) {
-    this.router.navigate(['About']);
+    this.router.navigate(['managerScooter',ID]);
   }
   PerceptionScooter(ID: number) {
     this.router.navigate(['user-scooter', ID]);

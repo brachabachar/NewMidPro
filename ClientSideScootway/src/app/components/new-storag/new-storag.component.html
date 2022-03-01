@@ -1,0 +1,16 @@
+<h2></h2>
+<form class='from' [formGroup]="newStorageForm" (ngSubmit)="onFormSubmit()" data-toggle="modal">
+
+<div class="form-group">
+    <label>שם מחסן </label><br>
+    <input type="text" formControlName="name" placeholder="שם מחסן"
+        class="form-control form-content">
+</div>
+<div>
+    <label>מיקום</label><br>
+    <app-way (placeOut)="GetPlace($event)"></app-way>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-secondary" id="submit-btn">הוספה</button>
+  </div>
+</form>

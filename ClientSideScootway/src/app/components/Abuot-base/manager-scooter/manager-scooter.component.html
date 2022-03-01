@@ -1,28 +1,15 @@
 
-<!-- הוספת קורקינט למחסן -->
-<!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">הוספת קורקינט</h5>
-            <div class="modal-body">
-                <app-personal-area></app-personal-area>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">ביטול</button>
-                <button type="button" class="btn btn-primary">אישור</button>
-            </div>
-        </div>
+<h2>מס קורקינט: {{scooter.Id}}</h2>
+<div>
+    <label>מקום :{{scooter.FullAddress}}</label><br>
+    <label *ngIf="scooter.IsFree">מצב : תפוס </label><br>
+    <label *ngIf="!scooter.IsFree">מצב : משוחרר</label><br>
+    <div *ngIf="!scooter.IsFree">
+        <button *ngIf="scooter.StatusId==1" (click)="UpdateStatus(2)" >הפוך ללא פעיל</button><br>
+        <button *ngIf="scooter.StatusId==2" (click)="UpdateStatus(1)">הפוך לפעיל</button><br>
+        <button *ngIf="scooter.StatusId==2" (click)="UpdatePlace()">עדכון מיקום</button><br>
     </div>
-</div> -->
-
-<!-- <h2>קורקינט מס:{{scooter.Id}}</h2>
-<div  *ngif="scooter.FullAddress">
-  <label>כתובת:{{scooter.FullAddress}}</label>
+    
+    <app-base-note  [note]="note" (objectCheck)="EnableButton($event)"></app-base-note>
 </div>
-<div  *ngif="!scooter.FullAddress">
-  <label>שם מחסן:{{storageAbout.Name}}</label>
-  <label>כתובת:{{storageAbout.FullAddress}}</label>
-
-</div> -->
 

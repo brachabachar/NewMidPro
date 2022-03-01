@@ -11,10 +11,10 @@ export class NoteService {
   constructor(private http: HttpClient) { }
   
   AddNote(n:Note){
-    this.http.post(this.url+"AddNote",n).subscribe(x=>{});
+    return this.http.post(this.url+"AddNote",n);
   }
   GetNotesById(noteId:number){
-    return this.http.get(this.url+"GetScooterId"+"noteId"+noteId).subscribe(x=>{});
+    return this.http.get(this.url+"GetNotesById?"+"noteId="+noteId);
 
   }
   GetNotesByScooterId(scooterId:number){
@@ -41,11 +41,11 @@ export class NoteService {
     return this.http.get(this.url+"GetScooterId?"+"futureOrderId="+futureOrderId);
 
   }
-  GetNotesNoRead(){
-    return this.http.get(this.url+"GetNotesNoRead");
+  GetNotesNoRead(userId:number){
+    return this.http.get(this.url+"GetNotesNoRead?"+"userId="+userId);
   }
   UpdateStatusNote(noteId:number,state:number){
     return this.http.get(this.url+"GetScooterId"+"noteId"+noteId+"&state"+state).subscribe(x=>{});
 
   }
-}
+} 

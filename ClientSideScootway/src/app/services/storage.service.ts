@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { UpdateStatus } from '../class/base-class/updateStatus';
 import { Storage } from '../class/storage';
 
 @Injectable({
@@ -10,20 +11,21 @@ export class StorageService {
   storage:Storage=new Storage();
   constructor(private http: HttpClient) { }
 
-  AddStorage(s:Storage ){
-  this.http.post(this.url+"AddStorage",s).subscribe(x=>{});
+  AddStorage(storage:Storage){
+    return this.http.post(this.url+"AddStorage",storage);
   }
   GetAllStorages(){
-    return this.http.get(this.url+"GetAllStorages");
+    return this.http.get(this.url+"GetAllStorage");
   }
   GetCountStorages(){
     this.http.get<Storage[]>(this.url+"GetCountStorages");
   }
   GetStorage(storageId:number){
-   return this.http.get(this.url+"GetAllStorages"+"storageId"+storageId);
+   return this.http.get(this.url+"GetStorage?"+"storageId="+storageId);
   }
+
   UpdateStatusStorages(storageId:number ,state:number){
-  return this.http.get(this.url+"UpdateStatusStorages"+"storageId"+storageId+"&state"+state).subscribe(x=>{});
+  return this.http.post(this.url+"UpdateStatusStorages", new UpdateStatus(storageId, state));
   }
   
 }

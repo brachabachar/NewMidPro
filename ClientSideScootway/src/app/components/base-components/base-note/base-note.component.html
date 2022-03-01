@@ -1,5 +1,14 @@
-<p>base-note works!</p>
-<form class='from' [formGroup]="noteForm" >
-<input type="text" formControlName="description">
-<button >שליחה</button>
-</form>
+<br>
+<div *ngIf="!onSubmit">
+    <button *ngIf="!addNoteEnable && !onSubmit" (click)="AddNoteEnable(true)">הוסף הערה</button>
+    <br>
+    <div *ngIf="addNoteEnable && !onSubmit">
+        <p>הוסף הערה</p>
+        <form class='from' [formGroup]="noteForm">
+
+            <input type="text" formControlName="description">
+            <button (click)="onFormSubmit()">שליחה</button>
+        </form>
+    </div>
+    <button *ngIf="addNoteEnable" (click)="AddNoteEnable(false)">אין הערה</button>
+</div>

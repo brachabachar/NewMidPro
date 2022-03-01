@@ -1,0 +1,13 @@
+<h2>{{note.Description}}<h2>
+    <div>
+        <!-- <a *ngIf="note.ScooterId" href=""></a>
+        <a *ngIf="note.FutureOrderId" href=""></a>>
+        <a *ngIf="note.OrderId" href=""></a>>
+        <a *ngIf="note.UserId" href=""></a>> -->
+<button *ngIf="note.FutureOrderId" (click)="navigate('managerOrder',note.FutureOrderId)">הזמנה עתידית</button>
+<button *ngIf="note.ScooterId" (click)="navigate('managerScooter',note.ScooterId)">קורקינט</button>
+<button *ngIf="note.OrderId" (click)="navigate('user-scooter',note.OrderId)">הזמנה רגילה</button>
+<button *ngIf="note.UserId" (click)="navigate('',note.UserId)">למשתמש</button>
+
+    </div>
+<button (click)="abuotPage()">חזרה</button>

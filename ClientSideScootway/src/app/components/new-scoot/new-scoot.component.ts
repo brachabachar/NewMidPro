@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Scooter } from 'src/app/class/scooter';
 import { FormGroup, Validators } from '@angular/forms';
 import { ScooterService } from 'src/app/services/scooter.service';
@@ -11,11 +11,11 @@ import { Place } from 'src/app/class/base-class/place';
   styleUrls: ['./new-scoot.component.css']
 })
 export class NewScootComponent implements OnInit {
-
   newScootForm: FormGroup;
   newScoot: Scooter = new Scooter();
   public inStorage: number;
-  constructor(public scooterService: ScooterService, private router: Router) {
+  constructor(public scooterService: ScooterService, private activatedRoute: ActivatedRoute, private router: Router) {
+    this.newScoot.Id = Number.parseInt(this.activatedRoute.snapshot.params['scooterId']);
   }
 
   ngOnInit(): void {
@@ -33,14 +33,14 @@ export class NewScootComponent implements OnInit {
     this.newScoot.GoogleCoordinateY = this.newScootForm.controls["GoogleCoordinateY"].value;
     this.newScoot.FullAddress = this.newScootForm.controls["FullAddress"].value;
     this.newScoot.StorageId = this.newScootForm.controls["StorageId"].value;
-    this.scooterService.AddScooter(this.newScoot).subscribe((created) => {
+    this.scooterService.AddOrUpdateScooter(this.newScoot).subscribe((created) => {
       if (created == true) {
-        alert("נוצר בהצלחה");
+        alert("התהליך הצליח");
       }
       else
         alert("שגיאה בתהליך")
       this.router.navigate(['About']);
-    },(error)=>{ alert(error.error);});
+    }, (error) => { alert(error.error); });
   }
   GetPlace(place: Place) {
     this.newScootForm.controls["GoogleCoordinateX"].setValue(place.GoogleCoordinateX);
@@ -54,8 +54,8 @@ export class NewScootComponent implements OnInit {
     this.newScootForm.controls["GoogleCoordinateY"].setValue(null);
     this.newScootForm.controls["FullAddress"].setValue(null);
   }
-  public SetContent(set:number){
-    this.inStorage=set;
+  public SetContent(set: number) {
+    this.inStorage = set;
   }
 
 }

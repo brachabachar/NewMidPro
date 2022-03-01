@@ -51,7 +51,19 @@ import { AddComponent } from './components/base-components/add/add.component';
 import { NoteComponent } from './components/note/note.component';
 import { BaseNoteComponent } from './components/base-components/base-note/base-note.component';
 import { MapComponent } from './components/map/map.component';
-import { NotesComponent } from './components/notes/notes.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { UserScooterComponent } from './components/Abuot-base/user-scooter/user-scooter.component';
+import { UserOrderComponent } from './components/Abuot-base/user-order/user-order.component';
+import { ManagerScooterComponent } from './components/Abuot-base/manager-scooter/manager-scooter.component';
+import { ManagerOrderComponent } from './components/Abuot-base/manager-order/manager-order.component';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { ManagerStoragComponent } from './components/Abuot-base/manager-storag/manager-storag.component';
+import { NewStoragComponent } from './components/new-storag/new-storag.component';
+import { PoshOrderComponent } from './components/Abuot-base/posh-order/posh-order.component';
+import {AgmMap,MapsAPILoader  } from '@agm/core';
+import { AbuotNoteComponent } from './components/Abuot-base/abuot-note/abuot-note.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,11 +89,14 @@ import { NotesComponent } from './components/notes/notes.component';
 
     BaseNoteComponent,
       MapComponent,
-      UserScooterComponent,
-      UserOrderComponent,
-      ManagerScooterComponent,
-      ManagerOrderComponent,
-      NotesComponent,
+    UserScooterComponent,
+    UserOrderComponent,
+    ManagerScooterComponent,
+    ManagerOrderComponent,
+    ManagerStoragComponent,
+    NewStoragComponent,
+    PoshOrderComponent,
+    AbuotNoteComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,13 +4,7 @@
       <app-list [list]="allStatus" [size]="cnt"(objectCheck)="GetStatusID($event)"></app-list>
       <app-list [list]="allOrders" (objectCheck)="GetOrderID($event)"></app-list>
    </div>
-   <div *ngSwitchCase="EOrder.EditOrder">
-      EditOrder
-      <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
+   <div *ngSwitchCase="EOrder.AllOrdersActiveUser">
+      <app-list [list]="allOrdersActive" (objectCheck)="GetOrderActiveID($event)"></app-list>
    </div>
-   <div *ngSwitchCase="EOrder.waitAcceptOrder">
-      waitAcceptOrder
-      <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
-   </div>
-
 </div>

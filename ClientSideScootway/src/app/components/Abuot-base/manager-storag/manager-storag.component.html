@@ -1,0 +1,11 @@
+<h2>מחסן מספר :{{storage.Id}}</h2><br>
+<label>שם מחסן :{{storage.Name}}</label><br>
+<label>מיקום מחסן:{{storage.FullAddress}}</label><br>
+<div  *ngIf="storage.StatusId==1">
+    <label>סטטוס מחסן: פעיל</label><br>
+<button  (click)="UpdateStatus(2)" >הפוך ללא פעיל</button><br>
+</div>
+<div *ngIf="storage.StatusId==2">
+    <label >סטטוס מחסן: לא פעיל</label>
+    <button  (click)="UpdateStatus(1)">הפוך לפעיל</button><br>
+</div>

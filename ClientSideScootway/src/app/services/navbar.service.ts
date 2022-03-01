@@ -23,20 +23,21 @@ export class NavbarService {
 
     this.NavForReg = [
       { Title: '', Link: 'About', Dir: 0, NameButton: 'אודות', OnClick: "null" },
-      { Title: '', Link: '/Notes/AllNote', Dir: 1, NameButton: 'הודעות שלי', OnClick: "null" },
-      { Title: '', Link: '/Notes/AllNote', Dir: 1, NameButton: 'הודעות מהמנהל', OnClick: "null" },
+      { Title: '', Link: '/Note/noReadNote', Dir: 1, NameButton: 'הודעות חדשות', OnClick: "null" },
       { Title: this.user?.FirstName + ' ' + this.user?.LastName, Link: '', Dir: 1, NameButton: 'פרופיל', OnClick: "" },
       { Title: '', Link: 'About', Dir: 1, NameButton: 'יציאה', OnClick: "logout" },
       { Title: '', Link: '/Scooter/GetScooterInStreet', Dir: 0, NameButton: 'תפיסה קורקינט', OnClick: "null" },
       { Title: '', Link: 'FuturRent', Dir: 0, NameButton: 'הזמנה', OnClick: "null" },
+      { Title: '', Link: '/Order/AllOrdersActiveUser', Dir: 0, NameButton: ' שחרור קורקינט', OnClick: "null" },
       { Title: '', Link: '/Order/AllOrders', Dir: 0, NameButton: 'הזמנות שלי', OnClick: "null" }];
+
 
     this.NavForManag = [
       { Title: '', Link: 'About', Dir: 0, NameButton: 'אודות', OnClick: "null" },
-      { Title: '', Link: '/Notes/allNote', Dir: 1, NameButton: 'הערה', OnClick: "null" },
+      { Title: '', Link: '/Note/noReadNote', Dir: 1, NameButton: 'הודעות חדשות', OnClick: "null" },
       { Title: '', Link: 'About', Dir: 1, NameButton: 'יציאה', OnClick: "logout" },
       { Title: '', Link: '/Scooter/AllScooter', Dir: 0, NameButton: 'קורקינט', OnClick: "" },
-      { Title: '', Link: '', Dir: 0, NameButton: 'מחסן', OnClick: "" },
+      { Title: '', Link: 'Storage/MyStorage', Dir: 0, NameButton: 'מחסן', OnClick: "" },
       { Title: '', Link: '/Order/AllOrders', Dir: 0, NameButton: 'ניהול הזמנות', OnClick: "null" }];
 
   }

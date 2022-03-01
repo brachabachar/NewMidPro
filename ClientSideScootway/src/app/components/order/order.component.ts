@@ -18,8 +18,9 @@ export class OrderComponent implements OnInit {
   allOrders: List = new List();
   allStatus: List = new List();
   orderList:FutureOrder[];
-  cnt:number=0;
-  constructor(public futureOrderService: FutureOrderService, private activatedRoute: ActivatedRoute
+
+  allOrdersActive: List = new List();
+  constructor(public futureOrderService: FutureOrderService,public orderService:OrderService, private activatedRoute: ActivatedRoute
     , private router: Router) {
     this.eOrder = this.activatedRoute.snapshot.params['eOrder'];
     this.SetStatus();
@@ -43,7 +44,10 @@ export class OrderComponent implements OnInit {
     switch (eOrder) {
       case EOrder.AllOrders:
         this.AllOrders();
-        break;
+      break;
+      case EOrder.AllOrdersActiveUser:
+        this.AllOrdersActiveUser();
+      break;
       default:
         break;
     }
@@ -54,10 +58,20 @@ export class OrderComponent implements OnInit {
         this.orderList = JSON.parse(futureOrder.toString());
         this.allOrders.Title = "רשימת הזמנות עתידיות ";
         this.orderList.forEach(x => this.allOrders.List.set(x.Id, " :הזמנה מספר" + x.Id));
-      });
+      });  
+  }
+  AllOrdersActiveUser() {
+    this.orderService.GetActiveOrdersByUserId(JSON.parse(localStorage.getItem("user") ?? "").Id)
+    .subscribe((order) => {
+      this.orderList = JSON.parse(order.toString());
+      this.orderList.forEach(x => this.allOrdersActive.List.set(x.Id, " :הזמנה מספר" + x.Id));
+    });
   }
   GetOrderID(ID: number) {
     this.router.navigate(['managerOrder', ID]);
+  }
+  GetOrderActiveID(ID: number) {
+  this.router.navigate(['userOrder', ID]);
   }
   GetStatusID(statusId: number) {
     this.allOrders.List.clear();
