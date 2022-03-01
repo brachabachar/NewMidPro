@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
 import { List } from 'src/app/class/base-class/list';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ScooterService } from 'src/app/services/scooter.service';
-import { MapList } from 'src/app/class/base-class/mapList';
 
 @Component({
   selector: 'app-storage',
@@ -55,7 +54,7 @@ export class StorageComponent implements OnInit {
     this.storageService.GetAllStorages().subscribe((storage)=>{
       let storageList:Storage[]=JSON.parse(storage.toString());
       this.allStorage.Title="מחסנים שלי";
-      storageList.forEach(x=> this.allStorage.List.push(new MapList(x.Id," :מיקום מחסן"+x.FullAddress)));
+      storageList.forEach(x=> this.allStorage.List.set(x.Id," :מיקום מחסן"+x.FullAddress));
     });  
   }
 
@@ -66,8 +65,9 @@ export class StorageComponent implements OnInit {
     this.scooterService.GetScootersByStorageId(storageId).subscribe((scooter)=>{
       let scooterList:Scooter[]=JSON.parse(scooter.toString());
       this.allScooter.Title="קורקינט במחסן";
-      scooterList.forEach(x=> this.allScooter.List.push(new MapList(x.Id," :מספר קורקינט"+x.Id)));
+      scooterList.forEach(x=> this.allScooter.List.set(x.Id," :מספר קורקינט"+x.Id));
     });
+    
   }
   CountScooterInStorage(StorageId:number){
      return this.scooterService.GetCountScootersByStorageId(StorageId);

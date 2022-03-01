@@ -5,7 +5,6 @@ import { ENote } from './../../class/base-class/ENote';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/class/user';
-import { MapList } from 'src/app/class/base-class/mapList';
 
 @Component({
   selector: 'app-note',
@@ -73,14 +72,14 @@ export class NoteComponent implements OnInit {
     this.noteService.GetNotesNoRead(this.user.Id).subscribe((notes) => {
       this.noteList = JSON.parse(notes.toString());
       this.allNote.Title = "הודעות";
-      this.noteList.forEach(x => this.allNote.List.push(new MapList(x.Id, "הודעה מס:" + x.Id )));
+      this.noteList.forEach(x => this.allNote.List.set(x.Id, "הודעה מס:" + x.Id ));
     });
   }
   noReadNote() {
     this.noteService.GetNotesNoRead(this.user.Id).subscribe((notes) => {
       this.noteList = JSON.parse(notes.toString());
       this.allNote.Title = "הודעות";
-      this.noteList.forEach(x => this.allNote.List.push(new MapList(x.Id, "הודעה מס:" + x.Id )));
+      this.noteList.forEach(x => this.allNote.List.set(x.Id, "הודעה מס:" + x.Id ));
     });
   }
 
@@ -88,21 +87,21 @@ export class NoteComponent implements OnInit {
     this.noteService.GetNotesByUserId(userId).subscribe((notes) => {
       this.noteList = JSON.parse(notes.toString());
       this.allNote.Title = "";
-      this.noteList.forEach(x => this.allNote.List.push(new MapList(x.Id, " " + x.Id)));
+      this.noteList.forEach(x => this.allNote.List.set(x.Id, " " + x.Id));
     });
   }
   GetNotesByUserIdCreat(userId: number) {
     this.noteService.GetNotesByUserIdCreat(userId).subscribe((notes) => {
       this.noteList = JSON.parse(notes.toString());
       this.allNote.Title = "";
-      this.noteList.forEach(x => this.allNote.List.push(new MapList(x.Id, " :מספר קורקינט" + x.Id)));
+      this.noteList.forEach(x => this.allNote.List.set(x.Id, " :מספר קורקינט" + x.Id));
     });
   }
   GetNotesByUserIdFromManager(userId: number) {
     this.noteService.GetNotesByUserIdFromManager(userId).subscribe((notes) => {
       this.noteList = JSON.parse(notes.toString());
       this.allNote.Title = "";
-      this.noteList.forEach(x => this.allNote.List.push(new MapList(x.Id, " " + x.Description)));
+      this.noteList.forEach(x => this.allNote.List.set(x.Id, " " + x.Description));
     });
   }
 
@@ -110,21 +109,21 @@ export class NoteComponent implements OnInit {
     this.noteService.GetNotesByScooterId(scooterId).subscribe((notes) => {
       this.noteList = JSON.parse(notes.toString());
       this.allNote.Title = "";
-      this.noteList.forEach(x => this.allNote.List.push(new MapList(x.Id, "" + x.Id)));
+      this.noteList.forEach(x => this.allNote.List.set(x.Id, "" + x.Id));
     });
   }
   orderNote(orderId: number) {
     this.noteService.GetNotesByOredrId(orderId).subscribe((notes) => {
       this.noteList = JSON.parse(notes.toString());
       this.allNote.Title = "";
-      this.noteList.forEach(x => this.allNote.List.push(new MapList(x.Id, "" + x.Id)));
+      this.noteList.forEach(x => this.allNote.List.set(x.Id, "" + x.Id));
     });
   }
   FutureOrderNote(orderId: number) {
     this.noteService.GetNotesByFutureOrderId(orderId).subscribe((notes) => {
       this.noteList = JSON.parse(notes.toString());
       this.allNote.Title = "";
-      this.noteList.forEach(x => this.allNote.List.push(new MapList(x.Id, "" + x.Id)));
+      this.noteList.forEach(x => this.allNote.List.set(x.Id, "" + x.Id));
     });
   }
   UpdateStatusNote() {

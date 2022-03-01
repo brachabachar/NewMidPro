@@ -13,10 +13,10 @@ export class AbuotNoteComponent implements OnInit {
   userId:User;
   note:Note=new Note();
   constructor(public noteService:NoteService,private activatedRoute: ActivatedRoute, private router: Router) {
-    this.userId=JSON.parse(localStorage.getItem("user") ?? "");
-    noteService.GetNotesById(Number.parseInt(this.activatedRoute.snapshot.params['noteId']),this.userId.Id).subscribe((n) => {
+    noteService.GetNotesById(Number.parseInt(this.activatedRoute.snapshot.params['noteId'])).subscribe((n) => {
      this.note = JSON.parse(n.toString());
     });
+    this.userId=JSON.parse(localStorage.getItem("user") ?? "");
    }
    navigate(nav:string,id: number) {
     this.router.navigate([nav, id]);
