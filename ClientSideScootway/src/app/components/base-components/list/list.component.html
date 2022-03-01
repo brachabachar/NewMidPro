@@ -1,19 +1,22 @@
-
 <div>
+<table  class="table content-table">
+    <!-- <div >
+        <h2 >{{list.Title}}</h2>
+    </div> -->
+    <thead  class="thead">
+        <tr *ngIf="list.List.size==size">
+        <th *ngFor="let item of list.List| keyvalue" scope="col"  (click)="LiClick(item.key)">
+        {{item.value}}
+        </th>
+    </thead>
+    <tbody> 
+<tr *ngIf="list.List.size!=size">
+      <td *ngFor="let item of list.List| keyvalue" scope="row"  (click)="LiClick(item.key)">
+           {{item.value}}
+        </td></tr> <tr *ngIf="list.List.size==0 && isLoading"> 
 
-<table  class="content-table">
-    <div>
-        <h2>{{list.Title}}</h2>
-    </div>
-<ul class="list-group list-group-flush">
-    <li  class="list-group-item " *ngFor="let item of list.List| keyvalue" (click)="LiClick(item.key)">{{item.value}}
-        <!-- <button style="float:'left'">תפיסת קורקינט</button> -->
-    </li>
-</ul>
-    
+          <th scope="row">אין רשומות להצגה</th>
+        </tr>
+    </tbody>
 </table>
-<div *ngIf="list.List.size==0 && isLoading">
-    <h2>אין רשומות להצגה</h2>
-</div>
-</div>
 

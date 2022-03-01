@@ -14,9 +14,9 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { AboutComponent } from './components/about/about.component';
 import { NewScootComponent } from './components/new-scoot/new-scoot.component';
 import { NewRouteComponent } from './components/new-route/new-route.component';
-import { NoteComponent } from './components/note/note.component';
+import { NotesComponent } from './components/notes/notes.component';
 import { FutureOrder } from './class/future-order';
-
+import { BaseNoteComponent } from './components/base-components/base-note/base-note.component';
 const routes: Routes = [ 
 {path: '', redirectTo: 'About' , pathMatch: 'full'},
 { path: 'Registration', component: RegistrationComponent },
@@ -28,14 +28,15 @@ const routes: Routes = [
 { path: 'NewRoute', component:NewRouteComponent},
 { path: 'Order/:eOrder', component:OrderComponent},
 { path: 'Storage/:eStorage', component:StorageComponent},
+{ path: 'base-note/:EType', component:BaseNoteComponent},
 { path: 'Scooter/:eScooter', component:ScooterComponent},
-{ path: 'Note', component:NoteComponent},
+{ path: 'Notes', component:NotesComponent},
 { path: 'Future-Order', component:FutureOrder},
 { path: 'user-scooter/:scooterId', component:UserScooterComponent},
 { path: 'managerOrder/:futureOrderId', component:ManagerOrderComponent},
-
+{ path: 'BaseNote', component:BaseNoteComponent},
 { path: 'FuturRent', component:FuturRentComponent},
-{path:'Note/:eNote',component:NoteComponent}
+{ path:'Notes/:eNote',component:NotesComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

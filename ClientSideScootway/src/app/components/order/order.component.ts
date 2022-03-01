@@ -18,7 +18,7 @@ export class OrderComponent implements OnInit {
   allOrders: List = new List();
   allStatus: List = new List();
   orderList:FutureOrder[];
-
+  cnt:number=0;
   constructor(public futureOrderService: FutureOrderService, private activatedRoute: ActivatedRoute
     , private router: Router) {
     this.eOrder = this.activatedRoute.snapshot.params['eOrder'];
@@ -31,6 +31,7 @@ export class OrderComponent implements OnInit {
     this.allStatus.List.set(6, 'אושר על ידי המנהל');
     this.allStatus.List.set(7, 'המנהל דחה');
     this.allStatus.List.set(2, 'לא פעיל');
+    this.cnt=this.allStatus.List.size;
   }
   ngOnInit(): void {
     this.CheckComponentByEnum(this.eOrder);
@@ -46,7 +47,6 @@ export class OrderComponent implements OnInit {
       default:
         break;
     }
-
   }
   AllOrders() {
     this.futureOrderService.GetFutureOrderByUserId(JSON.parse(localStorage.getItem("user") ?? "").Id)

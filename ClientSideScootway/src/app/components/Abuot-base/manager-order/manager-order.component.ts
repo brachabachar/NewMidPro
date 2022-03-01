@@ -1,5 +1,4 @@
 import { List } from './../../../class/base-class/list';
-import { Add } from './../../../class/base-class/add';
 import { EOrder } from './../../../class/base-class/EOrder';
 import { FutureOrderService } from './../../../services/future-order.service';
 import { User } from './../../../class/user';

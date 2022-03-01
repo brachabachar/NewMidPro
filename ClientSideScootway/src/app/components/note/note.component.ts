@@ -14,13 +14,23 @@ import { User } from 'src/app/class/user';
 
 export class NoteComponent implements OnInit {
   
-   eNote:ENote;
+  eNote:ENote;
   allNote:List=new List();
   noteList:Note[];
+  allStatus: List = new List();
   u:User;
-  constructor(public noteService:NoteService,private router:ActivatedRoute) {
+  constructor(public noteService:NoteService,private router:ActivatedRoute,) {
     this.eNote=this.router.snapshot.params['eNote'];
     this.u=JSON.parse(localStorage.getItem("user")??"");
+    this.SetStatus();
+  }
+  SetStatus() {
+    this.allStatus.Title = "סטטוסים לסינון";
+    this.allStatus.List.set(1, 'פעיל');
+    this.allStatus.List.set(4, 'עבר למנהל');
+    this.allStatus.List.set(6, 'אושר על ידי המנהל');
+    this.allStatus.List.set(7, 'המנהל דחה');
+    this.allStatus.List.set(2, 'לא פעיל');
   }
    ngOnInit(): void {
     this.CheckComponentByEnum(this.eNote);
@@ -128,6 +138,10 @@ export class NoteComponent implements OnInit {
   GetNoteID(ID:number){  
     console.log(ID);  
  } 
-
+ GetStatusID(statusId: number) {
+  this.allNote.List.clear();
+  this.noteList.filter(x=>x.StatusId===statusId).forEach(x => this.allNote.List.set(x.Id, " :הזמנה מספר" + x.Id));
+ 
+}
 
 }

@@ -3,7 +3,7 @@
         addNote 
     </div>
     <div *ngSwitchCase="ENote.allNote">
-        allNote <!-- <app-list [list]="allNote" (objectCheck)="GetNoteID($event)"></app-list> -->
+        allNote <app-list [list]="allNote" (objectCheck)="GetNoteID($event)"></app-list>
      </div>
      <div *ngSwitchCase="ENote.noReadNote">
         noReadNote <app-list [list]="allNote" (objectCheck)="GetNoteID($event)"></app-list>
@@ -24,6 +24,7 @@
       UpdateStatusNote 
    </div>
    <div *ngSwitchCase="ENote.GetNotesByUserIdCreat">
+      <app-list [list]="allStatus" (objectCheck)="GetStatusID($event)"></app-list>
        <app-list [list]="allNote" (objectCheck)="GetNoteID($event)"></app-list>
    </div>
    <div *ngSwitchCase="ENote.GetNotesByUserIdFromManager">

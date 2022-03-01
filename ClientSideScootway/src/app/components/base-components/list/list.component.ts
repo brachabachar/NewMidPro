@@ -7,8 +7,9 @@ import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements AfterViewInit  {
-  isLoading: boolean=false;
+isLoading: boolean=false;
 @Input() list:List;
+@Input() size:number;
 @Output() objectCheck:EventEmitter<number>= new EventEmitter();
   constructor() { }
 

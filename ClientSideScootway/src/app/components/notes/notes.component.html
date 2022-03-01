@@ -1,0 +1,8 @@
+<div [ngSwitch]="eNote">
+           <app-list [list]="allStatus" (objectCheck)="GetStatusID($event)"></app-list>
+
+    <div *ngSwitchCase="ENote.allNote">
+         <app-list [list]="allNote" (objectCheck)="GetNoteID($event)"></app-list>
+     </div>   
+    <button (click)="createNewMessage()"   >ליצירת הודעה חדשה</button>
+</div>

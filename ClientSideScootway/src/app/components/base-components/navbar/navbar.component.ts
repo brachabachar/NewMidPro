@@ -28,21 +28,13 @@ public Main(nameFunc:string){
     case "login":
       this.login();
       break;
-    case "registration":
-      this.registration(); 
+    case "Registration":
+      this.Registration(); 
       break;
     case "logout":
         this.logout();
         break;  
-    case "myFuturRent":
-          this.myFuturRent();
-          break;   
-    case "myNote":
-          this.myNote();
-          break;  
-    case "noteManage":
-          this.noteManage();
-          break;  
+
     default:
         console.log("default");
   }
@@ -52,7 +44,7 @@ public Main(nameFunc:string){
     const modalLog = this.modalService.open(LogInComponent);
   }
 
-  public registration() {
+  public Registration() {
     const modalReg = this.modalService.open(RegistrationComponent)
   }
   
@@ -60,15 +52,6 @@ public Main(nameFunc:string){
     this.router.navigate(['About']);
     localStorage.clear();
   }
-  public myFuturRent(){
-
-  }
  
-  public myNote(){
-
-  }
-  public noteManage(){
-
-  }
   public null(){}
 }

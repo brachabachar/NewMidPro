@@ -2,6 +2,9 @@ import { timeout } from 'rxjs/operators';
 import { Injectable,Component, OnInit, ElementRef, ViewChild, NgZone } from '@angular/core';
 import { MapsAPILoader } from '@agm/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'; 
+import { ScooterService } from 'src/app/services/scooter.service';
+import { Scooter } from 'src/app/class/scooter';
+import { List } from 'src/app/class/base-class/list';
 
 @Component({
   selector: 'app-map',
@@ -14,12 +17,14 @@ public latitude: number;
 public longitude: number;
 public searchControl: FormControl;
 public searchControl2: FormControl;
+autoCompleteForm: FormGroup;
 
 lat = 0;
 lng = 0;
 lat2 = 40.0695462;
 lng2 = 38.8949019;
-autoCompleteForm: FormGroup;
+
+allScooter:List=new List();
 
 @ViewChild("search",{static: false})
 public searchElementRef: ElementRef;
