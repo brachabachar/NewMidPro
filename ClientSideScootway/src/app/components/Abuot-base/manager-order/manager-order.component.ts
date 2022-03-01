@@ -1,3 +1,4 @@
+import { NoteService } from './../../../services/note.service';
 import { List } from './../../../class/base-class/list';
 import { Add } from './../../../class/base-class/add';
 import { EOrder } from './../../../class/base-class/EOrder';
@@ -8,6 +9,7 @@ import { FutureOrder } from './../../../class/future-order';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Note } from 'src/app/class/note';
+import { MapList } from 'src/app/class/base-class/mapList';
 
 @Component({
   selector: 'app-manager-order',
@@ -20,12 +22,14 @@ export class ManagerOrderComponent implements OnInit {
   note:Note;
   addNoteEnable:boolean=true;
   
-  constructor(public futureOrderService: FutureOrderService, private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(public futureOrderService: FutureOrderService,private noteService:NoteService
+     ,private activatedRoute: ActivatedRoute, private router: Router) {
     futureOrderService.GetFutureOrderId(Number.parseInt(this.activatedRoute.snapshot.params['futureOrderId'])).subscribe((f) => {
       this.futureOrder = JSON.parse(f.toString());
       this.note=new Note();
       this.note.FutureOrderId=this.futureOrder.Id;
       this.note.UserId=this.futureOrder.UserId;
+    this.NoteInOrder();
     });
     this.userId=JSON.parse(localStorage.getItem("user") ?? "");
   }
@@ -44,5 +48,16 @@ export class ManagerOrderComponent implements OnInit {
   }
   EnableButton(addNoteEnable:boolean){
     this.addNoteEnable=addNoteEnable;
+  }
+  allNote: List = new List();
+  NoteInOrder(){
+    this.noteService.GetNotesByFutureOrderId(this.futureOrder.Id).subscribe((notes) => {
+      let noteList:Note[] = JSON.parse(notes.toString());
+      this.allNote.Title = "הודעות";
+      noteList.forEach(x => this.allNote.List.push(new MapList(x.Id, "הודעה מס:" + x.Id )));
+    });
+  }
+  NavigateAboutNote(ID:number){
+    this.router.navigate(['AbuotNote', ID]);
   }
 }

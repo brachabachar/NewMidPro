@@ -1,4 +1,6 @@
+import { MapList } from "./mapList";
+
 export class List {
     Title:string;
-    List = new Map<number, string>();
+    List :MapList[]=[];
 }

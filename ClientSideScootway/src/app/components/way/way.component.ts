@@ -56,7 +56,10 @@ export class WayComponent implements OnInit{
           this.autoCompleteForm.controls.FullAddress.setValue(place.formatted_address);
           this.autoCompleteForm.controls.latitude.setValue(place.geometry.location.lat());
           this.autoCompleteForm.controls.longitude.setValue(place.geometry.location.lng());
-          let p:Place=new Place(place.formatted_address??"",place.geometry.location.lat(),place.geometry.location.lng());
+          let p:Place=new Place()
+          p.FullAddress=place.formatted_address??"";
+          p.GoogleCoordinateX=place.geometry.location.lat();
+          p.GoogleCoordinateY=place.geometry.location.lng();
           this.placeOut.emit(p);
         });
       });

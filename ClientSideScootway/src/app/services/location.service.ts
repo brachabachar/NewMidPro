@@ -18,7 +18,7 @@ export class LocationService {
         reject(Error('No support for geolocation'));
         return;
       }
-      let place: Place = new Place('', 0, 0);
+      let place: Place = new Place();
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
           if (position) {

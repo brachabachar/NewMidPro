@@ -1,3 +1,4 @@
+import { MapList } from './../../class/base-class/mapList';
 import { List } from '../../class/base-class/list';
 import { OrderService } from './../../services/order.service';
 import { Order } from './../../class/order';
@@ -26,11 +27,11 @@ export class OrderComponent implements OnInit {
   }
   SetStatus() {
     this.allStatus.Title = "סטטוסים לסינון";
-    this.allStatus.List.set(1, 'פעיל');
-    this.allStatus.List.set(4, 'עבר למנהל');
-    this.allStatus.List.set(6, 'אושר על ידי המנהל');
-    this.allStatus.List.set(7, 'המנהל דחה');
-    this.allStatus.List.set(2, 'לא פעיל');
+    this.allStatus.List.push(new MapList( 1, 'פעיל'));
+    this.allStatus.List.push(new MapList(4, 'עבר למנהל'));
+    this.allStatus.List.push(new MapList(6, 'אושר על ידי המנהל'));
+    this.allStatus.List.push(new MapList(7, 'המנהל דחה'));
+    this.allStatus.List.push(new MapList(2, 'לא פעיל'));
   }
   ngOnInit(): void {
     this.CheckComponentByEnum(this.eOrder);
@@ -56,14 +57,14 @@ export class OrderComponent implements OnInit {
       .subscribe((futureOrder) => {
         this.orderList = JSON.parse(futureOrder.toString());
         this.allOrders.Title = "רשימת הזמנות עתידיות ";
-        this.orderList.forEach(x => this.allOrders.List.set(x.Id, " :הזמנה מספר" + x.Id));
+        this.orderList.forEach(x => this.allOrders.List.push(new MapList(x.Id, " :הזמנה מספר" + x.Id)));
       });  
   }
   AllOrdersActiveUser() {
     this.orderService.GetActiveOrdersByUserId(JSON.parse(localStorage.getItem("user") ?? "").Id)
     .subscribe((order) => {
       this.orderList = JSON.parse(order.toString());
-      this.orderList.forEach(x => this.allOrdersActive.List.set(x.Id, " :הזמנה מספר" + x.Id));
+      this.orderList.forEach(x => this.allOrdersActive.List.push(new MapList(x.Id, " :הזמנה מספר" + x.Id)));
     });
   }
   GetOrderID(ID: number) {
@@ -73,8 +74,8 @@ export class OrderComponent implements OnInit {
   this.router.navigate(['userOrder', ID]);
   }
   GetStatusID(statusId: number) {
-    this.allOrders.List.clear();
-    this.orderList.filter(x=>x.StatusId===statusId).forEach(x => this.allOrders.List.set(x.Id, " :הזמנה מספר" + x.Id));
+    this.allOrders.List=[];
+    this.orderList.filter(x=>x.StatusId===statusId).forEach(x => this.allOrders.List.push(new MapList(x.Id, " :הזמנה מספר" + x.Id)));
   }
 
 }

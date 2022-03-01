@@ -13,12 +13,12 @@ export class NoteService {
   AddNote(n:Note){
     return this.http.post(this.url+"AddNote",n);
   }
-  GetNotesById(noteId:number){
-    return this.http.get(this.url+"GetNotesById?"+"noteId="+noteId);
+  GetNotesById(noteId:number,userId :number){
+    return this.http.get(this.url+"GetNotesById?"+"noteId="+noteId +"&userId="+userId);
 
   }
   GetNotesByScooterId(scooterId:number){
-    return this.http.get(this.url+"GetScooterId?"+"scooterId="+scooterId)
+    return this.http.get(this.url+"GetNotesByScooterId?"+"scooterId="+scooterId)
   }
   GetNotesByUserIdCreat(userId:number){
     return this.http.get(this.url+"GetNotesByUserIdCreat?"+"userId="+userId);
@@ -38,7 +38,7 @@ export class NoteService {
     return this.http.get(this.url+"GetScooterId?"+"orderId="+orderId);
   }
   GetNotesByFutureOrderId(futureOrderId:number){
-    return this.http.get(this.url+"GetScooterId?"+"futureOrderId="+futureOrderId);
+    return this.http.get(this.url+"GetNotesByFutureOrderId?"+"futureOrderId="+futureOrderId);
 
   }
   GetNotesNoRead(userId:number){

@@ -14,7 +14,7 @@ import { LocationService } from 'src/app/services/location.service';
 })
 export class UserOrderComponent implements OnInit {
   orderId: number;
-  place:Place=new Place('',0,0);
+  place:Place=new Place();
   note:Note;
   addNoteEnable:boolean=true;
   constructor(public locationService:LocationService, public orderService: OrderService, private activatedRoute: ActivatedRoute, private router: Router) {

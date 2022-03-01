@@ -1,3 +1,6 @@
+import { MapList } from './../../class/base-class/mapList';
+import { LocationService } from 'src/app/services/location.service';
+import { Place } from 'src/app/class/base-class/place';
 import { ValidatorFn } from '@angular/forms';
 import { ListAdd } from './../../class/base-class/list-add';
 import { List } from 'src/app/class/base-class/list';
@@ -19,8 +22,8 @@ export class ScooterComponent implements OnInit {
   eScooter: EScooter;
   allScooter: List = new List();//AllScooter
   addScooter: ListAdd;//AddScooter
-
-  constructor(public scooterService: ScooterService, private activatedRoute: ActivatedRoute
+  place: Place = new Place();
+  constructor(public scooterService: ScooterService, public locationService: LocationService, private activatedRoute: ActivatedRoute
     , private router: Router) {
     this.eScooter = this.activatedRoute.snapshot.params['eScooter'];
   }
@@ -64,14 +67,14 @@ export class ScooterComponent implements OnInit {
       .subscribe((scooter) => {
         let scooterList: Scooter[] = JSON.parse(scooter.toString());
         this.allScooter.Title = "רשימה קורקינט";
-        scooterList.forEach(x => this.allScooter.List.set(x.Id, " :מספר קורקינט" + x.Id));
+        scooterList.forEach(x => this.allScooter.List.push(new MapList(x.Id, " :מספר קורקינט" + x.Id)));
       });
   }
   UpdatStatScooter(scooterId: number, state: number) {
     this.scooterService.UpdateStatusScooter(scooterId, state);
   }
   AddScooter() {
-    this.router.navigate(['NewScoot',0]);
+    this.router.navigate(['NewScoot', 0]);
   }
   AddNoteScooter() {
 
@@ -82,15 +85,22 @@ export class ScooterComponent implements OnInit {
   //   this.scooterService.UpdateStatusScooter(scooterId, 1)
   // }
   GetScooterInStreet() {
-    this.scooterService.GetScooterInStreet()
-      .subscribe((scooter) => {
-        let scooterList: Scooter[] = JSON.parse(scooter.toString());
-        this.allScooter.Title = "קורקינטים בסביבה";
-        scooterList.forEach(x => this.allScooter.List.set(x.Id, "  מיקום הקורקינט: " + x.FullAddress));
-      });
+    this.locationService.getPlace().then((p: Place) => {
+      this.place = p;
+
+      this.scooterService.GetScooterInStreet(this.place)
+        .subscribe((scooter) => {
+          let scooterList: Scooter[] = JSON.parse(scooter.toString());
+          this.allScooter.Title = "קורקינטים בסביבה";
+          for(let i=0;i<scooterList.length;i++){
+            this.allScooter.List.push(new MapList( scooterList[i].Id, "  מיקום הקורקינט: " + scooterList[i].FullAddress));
+          }
+          //scooterList.forEach(x => );
+        });
+    });
   }
   AboutScooter(ID: number) {
-    this.router.navigate(['managerScooter',ID]);
+    this.router.navigate(['managerScooter', ID]);
   }
   PerceptionScooter(ID: number) {
     this.router.navigate(['user-scooter', ID]);

@@ -1,3 +1,4 @@
+import { Place } from 'src/app/class/base-class/place';
 import { Scooter } from './../class/scooter';
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
@@ -32,13 +33,16 @@ export class ScooterService {
     return this.http.get(this.url + "GetScooterId?" + "scooterId=" + scooterId);
   }
   GetScootersByStorageId(StorageId: number) {
-    return this.http.get(this.url + "GetScootersByStorageId?" + "StorageId=" + StorageId);
+    return this.http.get(this.url + "GetScootersByStorageId?" + "storageId=" + StorageId);
   }
   GetCountScootersByStorageId(StorageId: number) {
     return this.http.get(this.url + "GetCountScootersByStorageId?" + "StorageId=" + StorageId).subscribe(x => { });
   }
-  GetScooterInStreet() {
-    return this.http.get(this.url + "GetScooterInStreet");
+  GetScooterInStreet(place:Place) {
+    return this.http.post(this.url + "GetScooterInStreet",place);
+  }
+  GetScooterIsFreeInStreet(place:Place) {
+    return this.http.get(this.url + "GetScooterIsFreeInStreet?"+"place="+place);
   }
   UpdateStatusScooter(scooterId: number, state: number) {
     return this.http.post(this.url + "UpdateStatusScooter", new UpdateStatus(scooterId, state));
