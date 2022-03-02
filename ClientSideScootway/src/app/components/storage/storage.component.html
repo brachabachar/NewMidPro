@@ -1,18 +1,22 @@
 <div [ngSwitch]="eStorage">
-        <div *ngSwitchCase="EStorage.MyStorage">
-            <button (click)="AddStorage()">הוספת מחסן</button>
+    <div *ngSwitchCase="EStorage.MyStorage">
+        <div>
+            <button (click)="AddStorage()" class="button">הוספת מחסן</button>
+        </div>
+        <div>
             <app-list [list]="allStorage" (objectCheck)="AbuotStorag($event)"></app-list>
         </div>
-        <div *ngSwitchCase="EStorage.NewStorage">
-       
-        </div>
+    </div>
+    <div *ngSwitchCase="EStorage.NewStorage">
+
+    </div>
     <div *ngSwitchCase="EStorage.ScooterInStorage">
         <app-list [list]="allStorage" (objectCheck)="GetStorageID($event)"></app-list>
-    </div> 
-    <div *ngSwitchCase="EStorage.CountScooterInStorage">
-      <app-list [list]="allStorage" (objectCheck)="GetStorageID($event)"></app-list> 
     </div>
-     <div *ngSwitchCase="EStorage.AboutStorage">
-        
+    <div *ngSwitchCase="EStorage.CountScooterInStorage">
+        <app-list [list]="allStorage" (objectCheck)="GetStorageID($event)"></app-list>
+    </div>
+    <div *ngSwitchCase="EStorage.AboutStorage">
+
     </div>
 </div>

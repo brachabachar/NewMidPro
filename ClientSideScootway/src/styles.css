@@ -4,4 +4,35 @@
 @import './app/app.component.css';
 @import '~@angular/cdk/overlay-prebuilt.css';
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* body {  } */
+body{
+    direction:rtl;
+    text-align: center ;
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.myHeader {
+    color: #1c3b02;
+    text-align: center;
+}
+.myLabel{
+    text-align: right !important;
+}
+div{
+    line-height: 200%;
+  }
+  .button{
+
+  }
+  .divList{
+
+  }
+  .note{
+      
+  }
+  .contextNote{
+
+  }
+  .input{
+      
+  }
+  

@@ -10,20 +10,23 @@ import { Note } from 'src/app/class/note';
   styleUrls: ['./abuot-note.component.css']
 })
 export class AbuotNoteComponent implements OnInit {
-  userId:User;
-  note:Note=new Note();
-  constructor(public noteService:NoteService,private activatedRoute: ActivatedRoute, private router: Router) {
-    this.userId=JSON.parse(localStorage.getItem("user") ?? "");
-    noteService.GetNotesById(Number.parseInt(this.activatedRoute.snapshot.params['noteId']),this.userId.Id).subscribe((n) => {
-     this.note = JSON.parse(n.toString());
-    });
-   }
-   navigate(nav:string,id: number) {
+  userId: User;
+  note: Note = new Note();
+  constructor(public noteService: NoteService, private activatedRoute: ActivatedRoute, private router: Router) {
+    this.userId = JSON.parse(localStorage.getItem("user") ?? "");
+    // noteService.GetNotesById(Number.parseInt(this.activatedRoute.snapshot.params['noteId']),this.userId.Id).subscribe((n) => {
+    //  this.note = JSON.parse(n.toString());
+    // });
+    //TODO
+     this.note = JSON.parse(noteService.s)[0];
+    //END TODO
+  }
+  navigate(nav: string, id: number) {
     this.router.navigate([nav, id]);
-    }
+  }
   ngOnInit(): void {
   }
-  abuotPage(){
+  abuotPage() {
     this.router.navigate(['/Note/noReadNote']);
   }
 }

@@ -17,47 +17,61 @@ import { MapList } from 'src/app/class/base-class/mapList';
   styleUrls: ['./manager-order.component.css']
 })
 export class ManagerOrderComponent implements OnInit {
-  futureOrder: FutureOrder=new FutureOrder();
-  userId:User;
-  note:Note;
-  addNoteEnable:boolean=true;
-  
-  constructor(public futureOrderService: FutureOrderService,private noteService:NoteService
-     ,private activatedRoute: ActivatedRoute, private router: Router) {
-    futureOrderService.GetFutureOrderId(Number.parseInt(this.activatedRoute.snapshot.params['futureOrderId'])).subscribe((f) => {
-      this.futureOrder = JSON.parse(f.toString());
-      this.note=new Note();
-      this.note.FutureOrderId=this.futureOrder.Id;
-      this.note.UserId=this.futureOrder.UserId;
+  futureOrder: FutureOrder = new FutureOrder();
+  userId: User;
+  note: Note;
+  addNoteEnable: boolean = true;
+
+  constructor(public futureOrderService: FutureOrderService, private noteService: NoteService
+    , private activatedRoute: ActivatedRoute, private router: Router) {
+    // futureOrderService.GetFutureOrderId(Number.parseInt(this.activatedRoute.snapshot.params['futureOrderId'])).subscribe((f) => {
+    //   this.futureOrder = JSON.parse(f.toString());
+    //   this.note = new Note();
+    //   this.note.FutureOrderId = this.futureOrder.Id;
+    //   this.note.UserId = this.futureOrder.UserId;
+    //   this.NoteInOrder();
+    // });
+
+    //TODO
+    this.futureOrder = JSON.parse(futureOrderService.s)[0];
+    this.note = new Note();
+    this.note.FutureOrderId = this.futureOrder.Id;
+    this.note.UserId = this.futureOrder.UserId;
     this.NoteInOrder();
-    });
-    this.userId=JSON.parse(localStorage.getItem("user") ?? "");
+    //END TODO
+    this.userId = JSON.parse(localStorage.getItem("user") ?? "");
   }
   ngOnInit(): void {
 
   }
-  UpdateStatus(state:number){
-    this.futureOrderService.UpdateStatusFutureOrders(this.futureOrder.Id,state).subscribe((update) => {
+  UpdateStatus(state: number) {
+    this.futureOrderService.UpdateStatusFutureOrders(this.futureOrder.Id, state).subscribe((update) => {
       if (update == true) {
         alert("אושר בהצלחה");
       }
       else
         alert("שגיאה בתהליך")
       this.router.navigate(['About']);
-    },(error)=>{ alert(error.error);});
+    }, (error) => { alert(error.error); });
   }
-  EnableButton(addNoteEnable:boolean){
-    this.addNoteEnable=addNoteEnable;
+  EnableButton(addNoteEnable: boolean) {
+    this.addNoteEnable = addNoteEnable;
   }
   allNote: List = new List();
-  NoteInOrder(){
-    this.noteService.GetNotesByFutureOrderId(this.futureOrder.Id).subscribe((notes) => {
-      let noteList:Note[] = JSON.parse(notes.toString());
-      this.allNote.Title = "הודעות";
-      noteList.forEach(x => this.allNote.List.push(new MapList(x.Id, "הודעה מס:" + x.Id )));
-    });
+  NoteInOrder() {
+    // this.noteService.GetNotesByFutureOrderId(this.futureOrder.Id).subscribe((notes) => {
+    //   let noteList:Note[] = JSON.parse(notes.toString());
+    //   this.allNote.Title = "הודעות";
+    //   noteList.forEach(x => this.allNote.List.push(new MapList(x.Id, "הודעה מס:" + x.Id )));
+    // });
+
+    //TODO
+    let noteList: Note[] = JSON.parse(this.noteService.s);
+    this.allNote.Title = "הודעות";
+    noteList.forEach(x => this.allNote.List.push(new MapList(x.Id, "הודעה מס:" + x.Id)));
+    //END TODO
   }
-  NavigateAboutNote(ID:number){
+  NavigateAboutNote(ID: number) {
     this.router.navigate(['AbuotNote', ID]);
   }
 }

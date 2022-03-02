@@ -1,12 +1,12 @@
-<h2>{{note.Description}}<h2>
-        <div>
-            <!-- <a *ngIf="note.ScooterId" href=""></a>
-        <a *ngIf="note.FutureOrderId" href=""></a>>
-        <a *ngIf="note.OrderId" href=""></a>>
-        <a *ngIf="note.UserId" href=""></a>> -->
-            <button *ngIf="note.FutureOrderId" (click)="navigate('managerOrder',note.FutureOrderId)">הזמנה
-                עתידית</button>
-            <button *ngIf="note.ScooterId" (click)="navigate('managerScooter',note.ScooterId)">קורקינט</button>
-            <button *ngIf="note.OrderId" (click)="navigate('user-scooter',note.OrderId)">הזמנה רגילה</button>
-        </div>
-        <button (click)="abuotPage()">חזרה</button>
+<div>
+    <div class="myHeader">
+        <h4>פרטי ההודעה</h4>
+    </div>
+    <div>
+        <p class="contextNote">{{note.Description}}</p>
+    </div>
+        <button class="button" *ngIf="note.FutureOrderId" (click)="navigate('managerOrder',note.FutureOrderId)">הזמנהעתידית</button>
+        <button class="button" *ngIf="note.ScooterId" (click)="navigate('managerScooter',note.ScooterId)">קורקינט</button>
+        <button class="button" *ngIf="note.OrderId" (click)="navigate('user-scooter',note.OrderId)">הזמנה רגילה</button>
+    <button class="button" (click)="abuotPage()">חזרה</button>
+</div>

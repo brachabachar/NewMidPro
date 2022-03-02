@@ -1,17 +1,24 @@
-
-<h2>מס קורקינט: {{scooter.Id}}</h2>
 <div>
-    <label>מקום :{{scooter.FullAddress}}</label><br>
-    <label *ngIf="scooter.IsFree">מצב : תפוס </label><br>
-    <label *ngIf="!scooter.IsFree">מצב : משוחרר</label><br>
-    <div *ngIf="!scooter.IsFree">
-        <button *ngIf="scooter.StatusId==1" (click)="UpdateStatus(2)" >הפוך ללא פעיל</button><br>
-        <button *ngIf="scooter.StatusId==2" (click)="UpdateStatus(1)">הפוך לפעיל</button><br>
-        <button *ngIf="scooter.StatusId==2" (click)="UpdatePlace()">עדכון מיקום</button><br>
+    <div>
+        <h2>מס קורקינט: {{scooter.Id}}</h2><br>
     </div>
-    
-    <app-base-note  [note]="note" (objectCheck)="EnableButton($event)"></app-base-note>
-
-    <app-list [list]="allNote" (objectCheck)="NavigateAboutNote($event)"></app-list>
+    <div>
+        <label class="myLabel">כתובת:</label>
+        <label> {{scooter.FullAddress}}</label>
+    </div>
+    <div class="textout">
+        <label *ngIf="scooter.IsFree">סטטוס: תפוס </label>
+        <label *ngIf="!scooter.IsFree">סטטוס: משוחרר</label>
+    </div>
+    <div *ngIf="!scooter.IsFree" class="btnplace">
+        <button *ngIf="scooter.StatusId==1" (click)="UpdateStatus(2)" class="button">הפוך ללא פעיל</button><br>
+        <button *ngIf="scooter.StatusId==2" (click)="UpdateStatus(1)" class="button">הפוך לפעיל</button><br>
+        <button *ngIf="scooter.StatusId==2" (click)="UpdatePlace()" class="button">עדכון מיקום</button><br>
+    </div>
+    <div>
+        <app-base-note [note]="note" (objectCheck)="EnableButton($event)"></app-base-note>
+    </div>
+    <div>
+        <app-list [list]="allNote" (objectCheck)="NavigateAboutNote($event)"></app-list>
+    </div>
 </div>
-

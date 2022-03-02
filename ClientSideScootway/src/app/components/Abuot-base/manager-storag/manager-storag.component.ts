@@ -14,14 +14,18 @@ import { ScooterService } from 'src/app/services/scooter.service';
   styleUrls: ['./manager-storag.component.css']
 })
 export class ManagerStoragComponent implements OnInit {
-  storage: Storage=new Storage();
-  constructor(public scooterService: ScooterService,public storageService:StorageService, private activatedRoute: ActivatedRoute, private router: Router) {
-    storageService.GetStorage(Number.parseInt(this.activatedRoute.snapshot.params['storageId'])).subscribe((s) => {
-      this.storage = JSON.parse(s.toString());
-      this.AllScooterInStorage();
-    });
-    
-   }
+  storage: Storage = new Storage();
+  constructor(public scooterService: ScooterService, public storageService: StorageService, private activatedRoute: ActivatedRoute, private router: Router) {
+    // storageService.GetStorage(Number.parseInt(this.activatedRoute.snapshot.params['storageId'])).subscribe((s) => {
+    //   this.storage = JSON.parse(s.toString());
+    //   this.AllScooterInStorage();
+    // });
+
+    //TODO
+    this.storage = JSON.parse(storageService.s)[0];
+    this.AllScooterInStorage();
+    //END TODO
+  }
 
   ngOnInit(): void {
   }
@@ -29,7 +33,7 @@ export class ManagerStoragComponent implements OnInit {
     this.storageService.UpdateStatusStorages(this.storage.Id, state).subscribe((update) => {
       if (update == true) {
         alert("אושר בהצלחה");
-        this.storage.StatusId=state;
+        this.storage.StatusId = state;
       }
       else
         alert("שגיאה בתהליך")
@@ -38,14 +42,20 @@ export class ManagerStoragComponent implements OnInit {
   }
   allScooter: List = new List();//AllScooter
   AllScooterInStorage() {
-    this.scooterService.GetScootersByStorageId(this.storage.Id)
-      .subscribe((scooter) => {
-        let scooterList: Scooter[] = JSON.parse(scooter.toString());
+    // this.scooterService.GetScootersByStorageId(this.storage.Id)
+    //   .subscribe((scooter) => {
+    //     let scooterList: Scooter[] = JSON.parse(scooter.toString());
+    //     this.allScooter.Title = "רשימת קורקינטים";
+    //     scooterList.forEach(x => this.allScooter.List.push(new MapList(x.Id, " :מספר קורקינט" + x.Id)));
+    //   });
+
+    //TODO
+        let scooterList: Scooter[] = JSON.parse(this.scooterService.s);
         this.allScooter.Title = "רשימת קורקינטים";
         scooterList.forEach(x => this.allScooter.List.push(new MapList(x.Id, " :מספר קורקינט" + x.Id)));
-      });
+    //END TODO
   }
-  NavigateAboutScooter(ID:number){
+  NavigateAboutScooter(ID: number) {
     this.router.navigate(['managerScooter', ID]);
   }
 }

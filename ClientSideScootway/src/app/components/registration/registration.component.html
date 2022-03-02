@@ -9,7 +9,7 @@
           <form  class="my-form" [formGroup]="mandoForm" (ngSubmit)="onFormSubmit()">
             <!--FirstName -->
             <div class="form-group" >  
-              <label>שם פרטי</label><br> 
+              <label >שם פרטי</label><br> 
               <input type="text" id="Name" name="FirstName"  maxlength="15" formControlName="FirstName"  placeholder="שם פרטי" class="form-control form-content" required>
               <div class="form-border"></div> 
               <small *ngIf="submitted && mandoForm.controls['Name'].errors?.required">שדה חובה</small> 

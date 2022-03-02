@@ -18,16 +18,16 @@ export class OrderComponent implements OnInit {
   eOrder: EOrder;
   allOrders: List = new List();
   allStatus: List = new List();
-  orderList:FutureOrder[];
+  orderList: FutureOrder[];
   allOrdersActive: List = new List();
-  constructor(public futureOrderService: FutureOrderService,public orderService:OrderService, private activatedRoute: ActivatedRoute
+  constructor(public futureOrderService: FutureOrderService, public orderService: OrderService, private activatedRoute: ActivatedRoute
     , private router: Router) {
     this.eOrder = this.activatedRoute.snapshot.params['eOrder'];
     this.SetStatus();
   }
   SetStatus() {
     this.allStatus.Title = "סטטוסים לסינון";
-    this.allStatus.List.push(new MapList( 1, 'פעיל'));
+    this.allStatus.List.push(new MapList(1, 'פעיל'));
     this.allStatus.List.push(new MapList(4, 'עבר למנהל'));
     this.allStatus.List.push(new MapList(6, 'אושר על ידי המנהל'));
     this.allStatus.List.push(new MapList(7, 'המנהל דחה'));
@@ -43,39 +43,48 @@ export class OrderComponent implements OnInit {
     switch (eOrder) {
       case EOrder.AllOrders:
         this.AllOrders();
-      break;
+        break;
       case EOrder.AllOrdersActiveUser:
         this.AllOrdersActiveUser();
-      break;
+        break;
       default:
         break;
     }
 
   }
   AllOrders() {
-    this.futureOrderService.GetFutureOrderByUserId(JSON.parse(localStorage.getItem("user") ?? "").Id)
-      .subscribe((futureOrder) => {
-        this.orderList = JSON.parse(futureOrder.toString());
-        this.allOrders.Title = "רשימת הזמנות עתידיות ";
-        this.orderList.forEach(x => this.allOrders.List.push(new MapList(x.Id, " :הזמנה מספר" + x.Id)));
-      });  
+    // this.futureOrderService.GetFutureOrderByUserId(JSON.parse(localStorage.getItem("user") ?? "").Id)
+    //   .subscribe((futureOrder) => {
+    //     this.orderList = JSON.parse(futureOrder.toString());
+    //     this.allOrders.Title = "רשימת הזמנות עתידיות ";
+    //     this.orderList.forEach(x => this.allOrders.List.push(new MapList(x.Id, " :הזמנה מספר" + x.Id)));
+    //   });
+    //TODO
+    this.orderList = JSON.parse(this.futureOrderService.s);
+    this.allOrders.Title = "רשימת הזמנות עתידיות ";
+    this.orderList.forEach(x => this.allOrders.List.push(new MapList(x.Id, " :הזמנה מספר" + x.Id)));
+    //END TODO  
   }
   AllOrdersActiveUser() {
-    this.orderService.GetActiveOrdersByUserId(JSON.parse(localStorage.getItem("user") ?? "").Id)
-    .subscribe((order) => {
-      this.orderList = JSON.parse(order.toString());
-      this.orderList.forEach(x => this.allOrdersActive.List.push(new MapList(x.Id, " :הזמנה מספר" + x.Id)));
-    });
+    // this.orderService.GetActiveOrdersByUserId(JSON.parse(localStorage.getItem("user") ?? "").Id)
+    //   .subscribe((order) => {
+    //     this.orderList = JSON.parse(order.toString());
+    //     this.orderList.forEach(x => this.allOrdersActive.List.push(new MapList(x.Id, " :הזמנה מספר" + x.Id)));
+    //   });
+    //TODO
+    this.orderList = JSON.parse(this.orderService.s);
+    this.orderList.forEach(x => this.allOrdersActive.List.push(new MapList(x.Id, " :הזמנה מספר" + x.Id)));
+    //END TODO
   }
   GetOrderID(ID: number) {
     this.router.navigate(['managerOrder', ID]);
   }
   GetOrderActiveID(ID: number) {
-  this.router.navigate(['userOrder', ID]);
+    this.router.navigate(['userOrder', ID]);
   }
   GetStatusID(statusId: number) {
-    this.allOrders.List=[];
-    this.orderList.filter(x=>x.StatusId===statusId).forEach(x => this.allOrders.List.push(new MapList(x.Id, " :הזמנה מספר" + x.Id)));
+    this.allOrders.List = [];
+    this.orderList.filter(x => x.StatusId === statusId).forEach(x => this.allOrders.List.push(new MapList(x.Id, " :הזמנה מספר" + x.Id)));
   }
 
 }

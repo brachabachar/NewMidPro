@@ -22,13 +22,20 @@ export class ManagerScooterComponent implements OnInit {
   note: Note;
   addNoteEnable: boolean = true;
 
-  constructor(public scooterService: ScooterService,private noteService:NoteService, private activatedRoute: ActivatedRoute, private router: Router) {
-    scooterService.GetScooterId(Number.parseInt(this.activatedRoute.snapshot.params['scooterId'])).subscribe((s) => {
-      this.scooter = JSON.parse(s.toString());
-      this.note = new Note();
-      this.note.ScooterId = this.scooter.Id;
-      this.NoteInOrder();
-    });
+  constructor(public scooterService: ScooterService, private noteService: NoteService, private activatedRoute: ActivatedRoute, private router: Router) {
+    // scooterService.GetScooterId(Number.parseInt(this.activatedRoute.snapshot.params['scooterId'])).subscribe((s) => {
+    //   this.scooter = JSON.parse(s.toString());
+    //   this.note = new Note();
+    //   this.note.ScooterId = this.scooter.Id;
+    //   this.NoteInOrder();
+    // });
+    //TODO
+    this.scooter = JSON.parse(scooterService.s.toString())[0];
+    this.note = new Note();
+    this.note.ScooterId = this.scooter.Id;
+    this.NoteInOrder();
+    //END TODO
+
   }
   ngOnInit(): void {
   }
@@ -37,7 +44,7 @@ export class ManagerScooterComponent implements OnInit {
     this.scooterService.UpdateStatusScooter(this.scooter.Id, state).subscribe((update) => {
       if (update == true) {
         alert("אושר בהצלחה");
-        this.scooter.StatusId=state;
+        this.scooter.StatusId = state;
       }
       else
         alert("שגיאה בתהליך")
@@ -47,23 +54,28 @@ export class ManagerScooterComponent implements OnInit {
   EnableButton(addNoteEnable: boolean) {
     this.addNoteEnable = addNoteEnable;
   }
- 
-  
- 
-  public UpdatePlace(){
-    this.router.navigate(['NewScoot',this.scooter.Id]);
+
+
+
+  public UpdatePlace() {
+    this.router.navigate(['NewScoot', this.scooter.Id]);
 
   }
 
   allNote: List = new List();
-  NoteInOrder(){
-    this.noteService.GetNotesByScooterId(this.scooter.Id).subscribe((notes) => {
-      let noteList:Note[] = JSON.parse(notes.toString());
-      this.allNote.Title = "הודעות";
-      noteList.forEach(x => this.allNote.List.push(new MapList(x.Id, "הודעה מס:" + x.Id )));
-    });
+  NoteInOrder() {
+    // this.noteService.GetNotesByScooterId(this.scooter.Id).subscribe((notes) => {
+    //   let noteList: Note[] = JSON.parse(notes.toString());
+    //   this.allNote.Title = "הודעות";
+    //   noteList.forEach(x => this.allNote.List.push(new MapList(x.Id, "הודעה מס:" + x.Id)));
+    // });
+    //TODO
+    let noteList: Note[] = JSON.parse(this.noteService.s);
+    this.allNote.Title = "הודעות";
+    noteList.forEach(x => this.allNote.List.push(new MapList(x.Id, "הודעה מס:" + x.Id)));
+    //END TODO
   }
-  NavigateAboutNote(ID:number){
+  NavigateAboutNote(ID: number) {
     this.router.navigate(['AbuotNote', ID]);
   }
 }

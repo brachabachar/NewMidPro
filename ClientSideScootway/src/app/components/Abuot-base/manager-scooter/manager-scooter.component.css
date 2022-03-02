@@ -1,0 +1,26 @@
+div.card {
+    margin: 1em;
+    padding: 0.8em;
+    background: #b1eb8f;
+    width: 40%;
+    text-align: right;
+}
+button{
+    width: 20%;
+    align-self: end;
+    text-align: center;
+    align-self: end;
+}
+h2{
+text-align: center;
+margin: 1em;
+margin-bottom: -1.2em;
+padding-right: 2em;
+} 
+div.textout{
+    margin: 1em;
+}
+div.btnbtnplace{
+    width: 50%; 
+    align-self: end; 
+}

@@ -1,0 +1,6 @@
+.pink-textarea textarea.md-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #87cfa2;
+    box-shadow: 0 1px 0 0 #87cfa2;
+    width: 70%;
+  }
+

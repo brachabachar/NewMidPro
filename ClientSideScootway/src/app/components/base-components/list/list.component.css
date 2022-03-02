@@ -1,8 +1,9 @@
-* {
-    font-family: sans-serif; /* Change your font family */
-  }
+/* * { */
+    /* font-family: sans-serif;  */
+    /* Change your font family */
+  /* } */
   
-  .content-table {
+  /* .content-table {
     border-collapse: collapse;
     margin: 20px 120px;
     font-size: 0.9em;
@@ -46,4 +47,39 @@
    align-items: left;
 direction: rtl;
   }
- 
+  */
+  body {
+    background: #b1eb8f
+    
+}
+
+.list-group {
+    width: 100% !important
+}
+
+.list-group-item {
+    margin-top: 3%;
+    border-radius: none;
+    background: #87cfa2;
+    cursor: pointer;
+    transition: all 0.7s ease-in-out;
+}
+
+.list-group-item:hover {
+    transform: scaleX(1.1)
+}
+
+.check {
+    opacity: 3;
+    transition: all 0.6s ease-in-out
+}
+
+.list-group-item:hover .check {
+    opacity: 0
+}
+h2{
+  text-align: center;
+margin: 1em;
+margin-bottom: -1.2em;
+padding-right: 2em;
+}

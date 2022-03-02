@@ -14,29 +14,35 @@ import { LocationService } from 'src/app/services/location.service';
 })
 export class UserOrderComponent implements OnInit {
   orderId: number;
-  place:Place=new Place();
-  note:Note;
-  addNoteEnable:boolean=true;
-  constructor(public locationService:LocationService, public orderService: OrderService, private activatedRoute: ActivatedRoute, private router: Router) {
+  place: Place = new Place();
+  note: Note;
+  addNoteEnable: boolean = true;
+  constructor(public locationService: LocationService, public orderService: OrderService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.orderId = Number.parseInt(this.activatedRoute.snapshot.params['orderId']);
-    orderService.GetOrderById(this.orderId).subscribe((o) => {
-      let order:Order = JSON.parse(o.toString());
-      this.note=new Note();
-      this.note.OrderId=order.Id;
-      this.note.UserId=order.UserId;
-    });
+    // orderService.GetOrderById(this.orderId).subscribe((o) => {
+    //   let order:Order = JSON.parse(o.toString());
+    //   this.note=new Note();
+    //   this.note.OrderId=order.Id;
+    //   this.note.UserId=order.UserId;
+    // });
+    //TODO
+    let order: Order = JSON.parse(orderService.s);
+    this.note = new Note();
+    this.note.OrderId = order.Id;
+    this.note.UserId = order.UserId;
+    //END TODO
   }
   ngOnInit(): void {
-    this.locationService.getPlace().then((p:Place)=>{
-      this.place=p;
+    this.locationService.getPlace().then((p: Place) => {
+      this.place = p;
     });
   }
- 
+
   updateRelease() {
-    this.orderService.UpdateScooterAfterOrder(this.orderId,this.place).subscribe((o) => {
+    this.orderService.UpdateScooterAfterOrder(this.orderId, this.place).subscribe((o) => {
       let min = JSON.parse(o.toString());
       if (o != null) {
-        alert("תודה\n הקורקינט שוחררה אחרי "+min+" דקות");
+        alert("תודה\n הקורקינט שוחררה אחרי " + min + " דקות");
       }
       else
         alert("שגיאה בתהליך")
@@ -46,7 +52,7 @@ export class UserOrderComponent implements OnInit {
     });
 
   }
-  EnableButton(addNoteEnable:boolean){
-    this.addNoteEnable=addNoteEnable;
+  EnableButton(addNoteEnable: boolean) {
+    this.addNoteEnable = addNoteEnable;
   }
 }

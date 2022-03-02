@@ -19,9 +19,12 @@ export class PersonalAreaComponent {
   storageList: Storage[];
   filteredOptions: Observable<Storage[]>;
   constructor(public storageService: StorageService) {
-    storageService.GetAllStorages().subscribe((storage) => {
-      this.storageList = JSON.parse(storage.toString());
-    });
+    // storageService.GetAllStorages().subscribe((storage) => {
+    //   this.storageList = JSON.parse(storage.toString());
+    // });
+    //TODO
+    this.storageList = JSON.parse(storageService.s);
+    //END TODO
   }
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(
@@ -34,7 +37,7 @@ export class PersonalAreaComponent {
     return this.storageList?.filter(storage => storage.Name?.indexOf(filterValue) === 0);
   }
   OptionSelected(event: MatAutocompleteSelectedEvent) {
-    
+
     this.storageId.emit(event.option.value.Id);
   }
   DisplayWith(s: Storage) {

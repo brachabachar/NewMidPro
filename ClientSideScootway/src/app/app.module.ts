@@ -52,7 +52,6 @@ import { ManagerOrderComponent } from './components/Abuot-base/manager-order/man
 import { OverlayModule } from '@angular/cdk/overlay';
 import { ManagerStoragComponent } from './components/Abuot-base/manager-storag/manager-storag.component';
 import { NewStoragComponent } from './components/new-storag/new-storag.component';
-import { PoshOrderComponent } from './components/Abuot-base/posh-order/posh-order.component';
 import {AgmMap,MapsAPILoader  } from '@agm/core';
 import { AbuotNoteComponent } from './components/Abuot-base/abuot-note/abuot-note.component';
 @NgModule({
@@ -85,7 +84,6 @@ import { AbuotNoteComponent } from './components/Abuot-base/abuot-note/abuot-not
     ManagerOrderComponent,
     ManagerStoragComponent,
     NewStoragComponent,
-    PoshOrderComponent,
     AbuotNoteComponent,
   ],
   imports: [

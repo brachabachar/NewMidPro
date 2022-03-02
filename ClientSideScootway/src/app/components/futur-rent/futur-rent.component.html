@@ -1,30 +1,26 @@
-<div class="container">
-        <div id="card-title">
-            <h2>יצירת הזמנה </h2>
-            <div class="underline-title"></div>
+<div>
+    <div>
+        <h2>יצירת הזמנה</h2>
+    </div>
+    <form [formGroup]="futureOrderForm" (ngSubmit)="onFormSubmit()" data-toggle="modal">
+        <div>
+            <label class="myLabel">למתי צריך את ההזמנה</label><br>
+            <input type="date" formControlName="DateOrder" placeholder="תאריך להזמנה" class="input">
         </div>
-        <form class='from' [formGroup]="futureOrderForm" (ngSubmit)="onFormSubmit()" data-toggle="modal">
-            <div class="form-group">
-                <label>למתי צריך את ההזמנה</label><br>
-                <input type="date" formControlName="DateOrder" placeholder="תאריך להזמנה"
-                    class="form-control form-content">
-            </div>
-            <div>
-                <label>מיקום</label><br>
-                <app-way (placeOut)="GetPlace($event)"></app-way>
-            </div>
-            <div class="form-group">
-                <label>כמות קורקינטים </label><br>
-                <input type="number" formControlName="Count" placeholder="כמות קורקינטים"
-                    class="form-control form-content">
-            </div>
-            <div class="form-group">
-                <label>הערה </label><br>
-                <input type="text" formControlName="DescriptionNote" placeholder="הוסף הערה"
-                    class="form-control form-content">
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-secondary" id="submit-btn">אישור</button>
-            </div>
-        </form>
+        <div>
+            <label class="myLabel">מיקום</label><br>
+            <app-way (placeOut)="GetPlace($event)"></app-way>
+        </div>
+        <div>
+            <label class="myLabel">כמות קורקינטים </label><br>
+            <input type="number" formControlName="Count" placeholder="כמות קורקינטים" class="input">
+        </div>
+        <div>
+            <label class="myLabel">הערה </label><br>
+            <input type="text" formControlName="DescriptionNote" placeholder="הוסף הערה" class="input">
+        </div>
+        <div>
+            <button type="submit" class="button">אישור</button>
+        </div>
+    </form>
 </div>

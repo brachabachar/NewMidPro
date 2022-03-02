@@ -8,6 +8,8 @@ import { Note } from '../class/note';
 export class NoteService {
   url:string = "/api/Note/";
   note:Note= new Note();
+  s:string='[{"Id":6,"Description":"תודה והמשך יום טוב","CreatedOn":"2022-02-22T00:00:00","StatusId":3,"ScooterId":null,"FutureOrderId":null,"OrderId":null,"UserId":null,"CreatedById":1},{"Id":8,"Description":"תודה והמשך יום טוב","CreatedOn":"2022-02-22T00:00:00","StatusId":3,"ScooterId":null,"FutureOrderId":null,"OrderId":null,"UserId":null,"CreatedById":3},{"Id":13,"Description":"בליעכעהיחליע","CreatedOn":"2022-02-26T22:16:28.947","StatusId":3,"ScooterId":null,"FutureOrderId":2,"OrderId":null,"UserId":null,"CreatedById":1},{"Id":14,"Description":"Zסבהנימצ","CreatedOn":"2022-02-26T23:32:08.343","StatusId":3,"ScooterId":null,"FutureOrderId":3,"OrderId":null,"UserId":null,"CreatedById":1}]';
+
   constructor(private http: HttpClient) { }
   
   AddNote(n:Note){

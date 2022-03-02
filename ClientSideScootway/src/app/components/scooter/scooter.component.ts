@@ -63,12 +63,17 @@ export class ScooterComponent implements OnInit {
     }
   }
   AllScooter() {
-    this.scooterService.GetAllScooters()
-      .subscribe((scooter) => {
-        let scooterList: Scooter[] = JSON.parse(scooter.toString());
-        this.allScooter.Title = "רשימה קורקינט";
-        scooterList.forEach(x => this.allScooter.List.push(new MapList(x.Id, " :מספר קורקינט" + x.Id)));
-      });
+    // this.scooterService.GetAllScooters()
+    //   .subscribe((scooter) => {
+    //     let scooterList: Scooter[] = JSON.parse(scooter.toString());
+    //     this.allScooter.Title = "רשימה קורקינט";
+    //     scooterList.forEach(x => this.allScooter.List.push(new MapList(x.Id, " :מספר קורקינט" + x.Id)));
+    //   });
+    //TODO
+    let scooterList: Scooter[] = JSON.parse(this.scooterService.s);
+    this.allScooter.Title = "רשימה קורקינט";
+    scooterList.forEach(x => this.allScooter.List.push(new MapList(x.Id, " :מספר קורקינט" + x.Id)));
+    //END TODO
   }
   UpdatStatScooter(scooterId: number, state: number) {
     this.scooterService.UpdateStatusScooter(scooterId, state);
@@ -88,16 +93,24 @@ export class ScooterComponent implements OnInit {
     this.locationService.getPlace().then((p: Place) => {
       this.place = p;
 
-      this.scooterService.GetScooterInStreet(this.place)
-        .subscribe((scooter) => {
-          let scooterList: Scooter[] = JSON.parse(scooter.toString());
-          this.allScooter.Title = "קורקינטים בסביבה";
-          for(let i=0;i<scooterList.length;i++){
-            this.allScooter.List.push(new MapList( scooterList[i].Id, "  מיקום הקורקינט: " + scooterList[i].FullAddress));
-          }
-          //scooterList.forEach(x => );
-        });
-    });
+    //   this.scooterService.GetScooterInStreet(this.place)
+    //     .subscribe((scooter) => {
+    //       let scooterList: Scooter[] = JSON.parse(scooter.toString());
+    //       this.allScooter.Title = "קורקינטים בסביבה";
+    //       for (let i = 0; i < scooterList.length; i++) {
+    //         this.allScooter.List.push(new MapList(scooterList[i].Id, "  מיקום הקורקינט: " + scooterList[i].FullAddress));
+    //       }
+    //     });
+    // });
+
+     //TODO
+     let scooterList: Scooter[] = JSON.parse(this.scooterService.s);
+           this.allScooter.Title = "קורקינטים בסביבה";
+           for (let i = 0; i < scooterList.length; i++) {
+             this.allScooter.List.push(new MapList(scooterList[i].Id, "  מיקום הקורקינט: " + scooterList[i].FullAddress));
+           }
+         });
+     //END TODO
   }
   AboutScooter(ID: number) {
     this.router.navigate(['managerScooter', ID]);

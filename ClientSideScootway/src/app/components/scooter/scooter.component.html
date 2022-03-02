@@ -1,6 +1,6 @@
 <div [ngSwitch]="eScooter">
     <div *ngSwitchCase="EScooter.UpdatStatScooter">
-        UpdatStatScooter  <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
+        <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
     </div>
     <div *ngSwitchCase="EScooter.AddNoteScooter">
         <!-- AddNoteScooter  <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list>  -->
@@ -9,15 +9,17 @@
         <!-- AddScooterToStorage   <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> --> -->
     </div>
     <div *ngSwitchCase="EScooter.PerceptionScooter">
-        PerceptionScooter  <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
+        <!-- <app-list [list]="list" (objectCheck)="GetOrderID($event)"></app-list> -->
     </div>
     <div *ngSwitchCase="EScooter.GetScooterInStreet">
-      <app-list [list]="allScooter" (objectCheck)="PerceptionScooter($event)"></app-list>
+        <app-list [list]="allScooter" (objectCheck)="PerceptionScooter($event)"></app-list>
     </div>
     <div *ngSwitchCase="EScooter.AllScooter">
         <div>
-        <button (click)="AddScooter()">הוספת קורקינט</button>
+            <button (click)="AddScooter()" class="button">הוספת קורקינט</button>
         </div>
-        <app-list [list]="allScooter" (objectCheck)="AboutScooter($event)"></app-list>
+        <div>
+            <app-list [list]="allScooter" (objectCheck)="AboutScooter($event)"></app-list>
+        </div>
     </div>
 </div>

@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
+  s:string='{"Id":1,"FirstName":"בכר","LastName":"ברכה","Email":"brachabachar@gmail.com","Password":"Bb0!@","BornDate":"2001-02-25T00:00:00","Identity":"211661830","CreatedOn":"2022-02-14T00:00:00","StatusId":1,"IsManage":false}';
   user:User= new User();
   FullName:string="";
   constructor(private http: HttpClient) {

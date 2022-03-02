@@ -30,22 +30,28 @@ export class LogInComponent implements OnInit {
   onFormSubmit(): void {
     this.Email = this.mandoForm.controls["Email"].value;
     this.Password = this.mandoForm.controls["Password"].value;
-    this.userService.Login(this.Email, this.Password).subscribe((data) => {
-      if (data.toString() == "0") {
-        alert("המשתמש לא רשום")
-      }
-      else if (data.toString() == "1") {
-        alert("הסיסמה שגויה- הסיסמה נשלחה לדואר אלקטרוני הרשום במערכת, אנא היכנס שוב עם הסיסמה שנשלחה.")
-      }
-      else if (data.toString() == "2") {
-        alert("הסיסמה שגויה אנא נסה שוב")
-      }
-      else {
-        this.userService.setUser(data as User);
-        localStorage.setItem("user", data.toString());
-        //refresh
-        window.location.reload();
-      }
-    });
+    // this.userService.Login(this.Email, this.Password).subscribe((data) => {
+    //   if (data.toString() == "0") {
+    //     alert("המשתמש לא רשום")
+    //   }
+    //   else if (data.toString() == "1") {
+    //     alert("הסיסמה שגויה- הסיסמה נשלחה לדואר אלקטרוני הרשום במערכת, אנא היכנס שוב עם הסיסמה שנשלחה.")
+    //   }
+    //   else if (data.toString() == "2") {
+    //     alert("הסיסמה שגויה אנא נסה שוב")
+    //   }
+    //   else {
+    //     this.userService.setUser(data as User);
+    //     localStorage.setItem("user", data.toString());
+    //     //refresh
+    //     window.location.reload();
+    //   }
+    // });
+    //TODO
+    this.userService.setUser(JSON.parse(this.userService.s));
+    localStorage.setItem("user",this.userService.s );
+    //refresh
+    window.location.reload();
+    //END TODO
   }
 }

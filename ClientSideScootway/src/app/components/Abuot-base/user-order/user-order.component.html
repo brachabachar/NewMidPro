@@ -1,3 +1,14 @@
-<p>{{place.FullAddress}}</p>
-<app-base-note  [note]="note" (objectCheck)="EnableButton($event)"></app-base-note>
-<button *ngIf="!addNoteEnable" (click)="updateRelease()">שחרור הקורקינט</button>
+<div>
+    <div>
+        <h2>שחרור הקורקינט</h2>
+    </div>
+    <div>
+        <p>{{place.FullAddress}}</p>
+    </div>
+    <div>
+        <app-base-note [note]="note" (objectCheck)="EnableButton($event)"></app-base-note>
+    </div>
+    <div>
+        <button *ngIf="!addNoteEnable" (click)="updateRelease()" class="button">שחרור הקורקינט</button>
+    </div>
+</div>
