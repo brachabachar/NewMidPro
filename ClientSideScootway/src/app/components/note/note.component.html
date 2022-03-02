@@ -1,0 +1,32 @@
+<div [ngSwitch]="eNote">
+    <div *ngSwitchCase="ENote.addNote">
+         
+    </div>
+    <div *ngSwitchCase="ENote.allNote">
+         <!-- <app-list [list]="allNote" (objectCheck)="GetNoteID($event)"></app-list> -->
+     </div>
+     <div *ngSwitchCase="ENote.noReadNote">
+         <app-list [list]="allNote" (objectCheck)="abuotNote($event)"></app-list>
+     </div>
+     <div *ngSwitchCase="ENote.userNote">
+         <app-list [list]="allNote" (objectCheck)="GetNoteID($event)"></app-list>
+     </div>
+     <div *ngSwitchCase="ENote.scooterNote">
+       <app-list [list]="allNote" (objectCheck)="GetNoteID($event)"></app-list>
+     </div>
+     <div *ngSwitchCase="ENote.orderNote">
+       <app-list [list]="allNote" (objectCheck)="GetNoteID($event)"></app-list>
+   </div>
+   <div *ngSwitchCase="ENote.FutureOrderNote">
+       <app-list [list]="allNote" (objectCheck)="GetNoteID($event)"></app-list>
+   </div>
+   <div *ngSwitchCase="ENote.UpdateStatusNote">
+       
+   </div>
+   <div *ngSwitchCase="ENote.GetNotesByUserIdCreat">
+       <app-list [list]="allNote" (objectCheck)="GetNoteID($event)"></app-list>
+   </div>
+   <div *ngSwitchCase="ENote.GetNotesByUserIdFromManager">
+       <app-list [list]="allNote" (objectCheck)="GetNoteID($event)"></app-list>
+   </div>
+</div>

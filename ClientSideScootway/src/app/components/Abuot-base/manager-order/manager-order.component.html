@@ -1,0 +1,25 @@
+<div>
+    <div>
+        <h2>מס הזמנה: {{futureOrder.Id}}</h2>
+    </div>
+    <div>
+        <label class="myLabel">לתאריך :</label>
+        <label> {{futureOrder.DateOrder}}</label><br>
+        <label class="myLabel">מקום :</label>
+        <label> {{futureOrder.LocationOrder}}</label><br>
+        <label class="myLabel">מיקום סיום:</label>
+        <label> {{futureOrder.Priority}}</label><br>
+        <label class="myLabel">תאריך יצירת הזמנה:</label>
+        <label> {{futureOrder.CreatedOn}}</label><br>
+    </div>
+    <div *ngIf="futureOrder.StatusId==4 && userId.IsManage==true">
+        <button (click)="UpdateStatus(6)" class="button">אישור הזמנה</button><br>
+        <button (click)="UpdateStatus(7)" class="button">ביטול הזמנה</button><br>
+    </div>
+    <div>
+        <app-base-note [note]="note" (objectCheck)="EnableButton($event)"></app-base-note>
+    </div>
+    <div>
+        <app-list [list]="allNote" (objectCheck)="NavigateAboutNote($event)"></app-list>
+    </div>
+</div>

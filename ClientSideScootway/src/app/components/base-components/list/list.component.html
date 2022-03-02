@@ -1,0 +1,17 @@
+<div>
+    <table>
+        <div>
+            <h2>{{list.Title}}</h2>
+        </div>
+        <div>
+            <ul class="list-group mt-5 text-white">
+                <li class="list-group-item d-flex justify-content-between align-content-center"
+                    *ngFor="let item of list.List" (click)="LiClick(item.Key)">{{item.Value}}
+                </li>
+            </ul>
+        </div>
+    </table>
+    <!-- <div *ngIf="list.List.length === 0 && isLoading">
+            <h2>אין רשומות להצגה</h2>
+        </div> -->
+</div>

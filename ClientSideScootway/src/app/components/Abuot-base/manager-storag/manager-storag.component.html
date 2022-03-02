@@ -1,0 +1,35 @@
+<br><br>
+<div class="container">
+    <div class="form d-flex   row">
+        <div class="col-sm-6">
+            <h4 class="font-weight-bold mb-3 myHeader">מחסן מספר: {{storage.Id}}</h4><br>
+            <div>
+                <label class="myLabel">שם מחסן: </label>
+                <label>{{storage.Name}}</label>
+            </div>
+            <div>
+                <label class="myLabel">מיקום מחסן: </label>
+                <label>{{storage.FullAddress}}</label>
+            </div>
+
+            <div *ngIf="storage.StatusId==1">
+                <label class="myLabel">סטטוס: </label>
+                <label> פעיל</label>
+                <div>
+                    <button (click)="UpdateStatus(2)">הפוך ללא פעיל</button><br>
+                </div>
+            </div>
+
+            <div *ngIf="storage.StatusId==2">
+                <label class="myLabel">סטטוס: </label>
+                <label> לא פעיל </label>
+                <div>
+                    <button (click)="UpdateStatus(1)" c>הפוך לפעיל</button><br>
+                </div>
+            </div>
+            <div>
+                <app-list [list]="allScooter" (objectCheck)="NavigateAboutScooter($event)"></app-list>
+            </div>
+        </div>
+    </div>
+</div>

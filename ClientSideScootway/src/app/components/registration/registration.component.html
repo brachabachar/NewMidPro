@@ -1,53 +1,67 @@
- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title" id="exampleModalCenterTitle">הרשמה</h3>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
+<div class="container">
+  <div id="card-content">
+    <div id="card-title">
+      <h2>הרשמה </h2>
+      <div class="underline-title"></div>
+   </div>
+  <div class="form" >
+      <div>
           <form  class="my-form" [formGroup]="mandoForm" (ngSubmit)="onFormSubmit()">
-            <!--name -->
+            <!--FirstName -->
             <div class="form-group" >  
-              <i class="fas fa fa-user"></i>
-              <input type="text" id="Name" name="Name"  maxlength="15" formControlName="Name"  placeholder="שם מלא" class="form-control" required> 
+              <label >שם פרטי</label><br> 
+              <input type="text" id="Name" name="FirstName"  maxlength="15" formControlName="FirstName"  placeholder="שם פרטי" class="form-control form-content" required>
+              <div class="form-border"></div> 
               <small *ngIf="submitted && mandoForm.controls['Name'].errors?.required">שדה חובה</small> 
               <small *ngIf="submitted && mandoForm.controls['Name'].errors?.pattern">צריך להכיל רק אותיות בעברית או באנגלית</small> 
             </div>
+            <!--LastName -->
+            <div class="form-group" >  
+              <label>שם משפחה</label><br> 
+              <input type="text" id="Name" name="LastName"  maxlength="15" formControlName="LastName"  placeholder="שם משפחה" class="form-control form-content" required>
+              <div class="form-border"></div> 
+              <small *ngIf="submitted && mandoForm.controls['Name'].errors?.required">שדה חובה</small> 
+              <small *ngIf="submitted && mandoForm.controls['Name'].errors?.pattern">צריך להכיל רק אותיות בעברית או באנגלית</small> 
+            </div>            
             <!--userId -->
-            <div class="form-group">  
-              <input type="text" formControlName="UserId" placeholder="תעודת זהות" class="form-control "> 
+            <div class="form-group"> 
+              <label>תעודת זהות</label><br> 
+              <input type="text" formControlName="UserId" placeholder="תעודת זהות" class="form-control form-content"> 
+              <div class="form-border"></div>
               <small *ngIf="submitted && mandoForm.controls['UserId'].errors?.required">שדה חובה</small> 
               <small *ngIf="submitted && mandoForm.controls['UserId'].errors?.pattern">תעודת זהות צריכה להכיל ספרות בלבד</small> 
               <small *ngIf="submitted &&mandoForm.controls['UserId'].errors?.max">מקסימום אורך 9 ספרות</small> 
               <small *ngIf="submitted &&mandoForm.controls['UserId'].errors?.min">מינימום אורך 9 ספרות</small> 
             </div>
             <!-- email -->
-            <div class="form-group">  
-              <input type="email" formControlName="Email"  placeholder="אמייל" class="form-control" required> 
+            <div class="form-group">
+              <label>אמייל</label><br>   
+              <input type="email" formControlName="Email"  placeholder="אמייל" class="form-control form-content" required> 
+              <div class="form-border"></div>
               <small *ngIf="submitted && mandoForm.controls['Email'].errors?.required">שדה חובה</small> 
               <small *ngIf="submitted && mandoForm.controls['Email'].errors?.pattern">כתובת מייל לא תקינה</small> 
             </div>
             <!-- Password -->
             <div class="form-group">
-               <input type="text" formControlName="Password"  placeholder="סיסמה" class="form-control" required>
+              <label>סיסמה</label><br> 
+               <input type="text" formControlName="Password"  placeholder="סיסמה" class="form-control form-content" required>
+               <div class="form-border"></div>
                <small *ngIf="submitted && mandoForm.controls['Password'].errors?.required">שדה חובה</small> 
                <small *ngIf="submitted && mandoForm.controls['Password'].errors?.pattern">צריך להכיל לפחות חמש תווים ספרה אחת ואחד מהתווים הנ"ל:$@$!%*?&</small> 
             </div>
-            <div class="form-group">  
-              <input type="date" formControlName="Brondate"  placeholder="תאריך לידה" class="form-control" > 
+             <!-- BoronDate -->
+            <div class="form-group"> 
+              <label>תאריך לידה</label><br>  
+              <input type="date" formControlName="Brondate"  placeholder="תאריך לידה" class="form-control form-content" > 
+              <div class="form-border"></div>
             </div>
             <!-- submit -->
           <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">ביטול</button>
-          <button class="btn btn-primary active" type="submit">הרשמה</button> 
+          <button class="btn btn-primary active" id="submit-btn" type="submit">הרשמה</button> 
            </div>
+           <a href="#about" id="signup"> חזרה </a>
           </form>
-           
         </div>
-        
-      </div>
+        <br>
     </div>
-  </div>
+</div>

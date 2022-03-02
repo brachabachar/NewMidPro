@@ -1,0 +1,21 @@
+<br>
+<div *ngIf="!onSubmit">
+    <div>
+        <button *ngIf="!addNoteEnable && !onSubmit" (click)="AddNoteEnable(true)" class="button">הוסף הערה</button>
+    </div>
+    <br>
+    <div *ngIf="addNoteEnable && !onSubmit">
+        <form [formGroup]="noteForm">
+            <div>
+                <label class="myLabel">הוסף הערה</label>
+            </div>
+            <div>
+                <textarea rows="3" formControlName="description"></textarea>
+            </div>
+            <div>
+                <button (click)="onFormSubmit()" class="button">שליחה</button><br>
+                <button *ngIf="addNoteEnable" (click)="AddNoteEnable(false)" class="button">אין הערה</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div [ngSwitch]="eOrder">
+   <div *ngSwitchCase="EOrder.AllOrders">
+
+      <app-list [list]="allStatus" (objectCheck)="GetStatusID($event)"></app-list>
+
+      <app-list [list]="allOrders" (objectCheck)="GetOrderID($event)"></app-list>
+   </div>
+   <div *ngSwitchCase="EOrder.AllOrdersActiveUser">
+      <app-list [list]="allOrdersActive" (objectCheck)="GetOrderActiveID($event)"></app-list>
+   </div>
+</div>

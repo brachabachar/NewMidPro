@@ -17,6 +17,7 @@ export class RegistrationComponent implements OnInit {
     submitted:boolean=false;
     user=new User();
     response:string;
+     date: Date;
     constructor(userS:UserService , private router: Router){
       this.userService=userS;
     }
@@ -24,7 +25,8 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(){
     this.mandoForm= new FormGroup({
       UserId:new FormControl('',[Validators.required,Validators.min(99999999),Validators.max(999999999), Validators.pattern('^[0-9]+$')]),
-      Name: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Zא-ת ]+$'),Validators.max(15)]),
+      FirstName: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Zא-ת ]+$'),Validators.max(15)]),
+      LastName: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Zא-ת ]+$'),Validators.max(15)]),    
       Email: new FormControl('',[Validators.required,Validators.email,Validators.pattern('^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$'),Validators.max(50)]),
       Password: new FormControl(  '',[Validators.required,Validators.pattern('((?=.*[$@$!%*?&])(?=.*[0-9]).{5,10})'),Validators.max(10)]),
       Brondate: new FormControl()
@@ -32,36 +34,25 @@ export class RegistrationComponent implements OnInit {
   } 
   onFormSubmit(){
     this.submitted=true;
-
+    this.date=new Date();
     if (!this.mandoForm.valid) 
     {
        return;
     }
     else
     {
-  this.user.UserId=this.mandoForm.controls["UserId"].value;
-  this.user.Name=this.mandoForm.controls["Name"].value;
+  this.user.Identity=this.mandoForm.controls["UserId"].value;
+  this.user.FirstName=this.mandoForm.controls["FirstName"].value;
+  this.user.LastName=this.mandoForm.controls["LastName"].value;
   this.user.Email=this.mandoForm.controls["Email"].value;
   this.user.Password=this.mandoForm.controls["Password"].value;
-  this.user.BronDate=this.mandoForm.controls["Brondate"].value;
-  localStorage.setItem("",this.user.UserId.toString());
-  // this.userService.AddUser(this.user).subscribe( (res) =>{ 
-  //   if(res!=null)
-  //   {
-  //     if(res!="bed")
-  //     {
-  //       this.userService.user=true;
-  //       localStorage.setItem("user",res.toString());
-  //       let element:HTMLElement=document.getElementById("link") as HTMLElement;
-  //       element.click();
-  //     }
-  //     else{
-  //       this.response= "כתובת דואר אלקרוני זו קיימת כבר במערכת";
-  //       this.mandoForm.controls.Email.setValue("");
-  //     }
-  //   }
-  // },(error)=>{alert(error.error);});
-  this.userService.AddUser(this.user);    
+  this.user.BornDate=this.mandoForm.controls["Brondate"].value;
+  this.user.IsManage=false;
+  this.user.StatusId=1;
+  this.user.CreatedOn=this.date;
+  // localStorage.setItem("",this.user.Identity.toString());
+  this.userService.AddUser(this.user);
+  window.location.reload();  
     }
-}
+  }
 }

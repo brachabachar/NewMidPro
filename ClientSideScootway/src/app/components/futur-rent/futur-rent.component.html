@@ -1,0 +1,26 @@
+<div>
+    <div>
+        <h2>יצירת הזמנה</h2>
+    </div>
+    <form [formGroup]="futureOrderForm" (ngSubmit)="onFormSubmit()" data-toggle="modal">
+        <div>
+            <label class="myLabel">למתי צריך את ההזמנה</label><br>
+            <input type="date" formControlName="DateOrder" placeholder="תאריך להזמנה" class="input">
+        </div>
+        <div>
+            <label class="myLabel">מיקום</label><br>
+            <app-way (placeOut)="GetPlace($event)"></app-way>
+        </div>
+        <div>
+            <label class="myLabel">כמות קורקינטים </label><br>
+            <input type="number" formControlName="Count" placeholder="כמות קורקינטים" class="input">
+        </div>
+        <div>
+            <label class="myLabel">הערה </label><br>
+            <input type="text" formControlName="DescriptionNote" placeholder="הוסף הערה" class="input">
+        </div>
+        <div>
+            <button type="submit" class="button">אישור</button>
+        </div>
+    </form>
+</div>

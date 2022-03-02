@@ -1,11 +1,12 @@
-import { Time } from '@angular/common';
 export class Order {
-    orderId: number;
-    scooterId: string;
-    date: Date;
-    time: Time;
-    mode: boolean;
-    duration: Time;
-    userId: string;
-
+     Id :number;
+     UserId  :number;
+     ScooterId  :number;
+     FutureOrderId :number;
+     StartDate :Date; 
+     EndDate :Date; 
+     StartLocation:string;
+     EndLocation :string;
+     CreatedOn:Date; 
+     StatusId :number;
 }

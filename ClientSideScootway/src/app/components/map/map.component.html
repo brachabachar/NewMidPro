@@ -1,0 +1,14 @@
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="13">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    <agm-marker [latitude]="lat2" [longitude]="lng2"></agm-marker>
+</agm-map>
+<form class="my-form" [formGroup]="autoCompleteForm">
+    <div>
+        <label class="myLabel">הקלד מיקום נוכחי:</label>
+        <!-- <i class="fas fa fa-map-marker"></i> -->
+        <input name="place_changed" placeholder="התחל להקליד"  type="text" class="form-control" #search [formControl]="searchControl">
+        <label class="myLabel">הקלד מיקום היעד:</label>
+        <!-- <i class="fas fa fa-map-marker"></i> -->
+        <input name="place_changed" placeholder="התחל להקליד"  type="text" class="form-control" #search [formControl]="searchControl2">
+    </div>
+</form>

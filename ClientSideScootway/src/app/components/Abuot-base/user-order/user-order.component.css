@@ -1,0 +1,19 @@
+div.card {
+    margin: 1em;
+    padding: 0.8em;
+    background: #b1eb8f;
+    width: 40%;
+    text-align: right;
+}
+button{
+    width: 20%;
+    align-self: end;
+    text-align: center;
+}
+h2{
+text-align: center;
+margin: 1em;
+margin-bottom: -1.2em;
+padding-right: 2em;
+
+} 
