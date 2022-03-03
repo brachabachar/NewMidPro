@@ -28,7 +28,7 @@ public Main(nameFunc:string){
     case "login":
       this.login();
       break;
-    case "registration":
+    case "Registration":
       this.registration(); 
       break;
     case "logout":

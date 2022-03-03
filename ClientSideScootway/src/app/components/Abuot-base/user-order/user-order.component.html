@@ -11,4 +11,14 @@
     <div class="centered-text">
         <button *ngIf="!addNoteEnable" (click)="updateRelease()" class="button">שחרור הקורקינט</button>
     </div>
+    <div>
+        <br>
+        <br>
+        <div fxFlex="100" class="map-full-card-content">
+        <label class="myLabel">שיחרור הקורקינט על המפה:</label>
+            <agm-map [latitude]="place.GoogleCoordinateX" [longitude]="place.GoogleCoordinateY" [zoom]="13">
+                <agm-marker [latitude]="place.GoogleCoordinateX" [longitude]="place.GoogleCoordinateY"></agm-marker>
+            </agm-map>
+        </div>
+    </div>
 </div>
