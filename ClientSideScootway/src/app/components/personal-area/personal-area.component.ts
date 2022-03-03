@@ -19,12 +19,10 @@ export class PersonalAreaComponent {
   storageList: Storage[];
   filteredOptions: Observable<Storage[]>;
   constructor(public storageService: StorageService) {
-    // storageService.GetAllStorages().subscribe((storage) => {
-    //   this.storageList = JSON.parse(storage.toString());
-    // });
-    //TODO
-    this.storageList = JSON.parse(storageService.s);
-    //END TODO
+    storageService.GetAllStorages().subscribe((storage) => {
+      this.storageList = JSON.parse(storage.toString());
+    });
+
   }
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(
@@ -41,7 +39,7 @@ export class PersonalAreaComponent {
     this.storageId.emit(event.option.value.Id);
   }
   DisplayWith(s: Storage) {
-    return s.Name;
+    return s?.Name;
   }
 
 }

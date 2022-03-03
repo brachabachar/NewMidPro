@@ -19,18 +19,13 @@ export class UserOrderComponent implements OnInit {
   addNoteEnable: boolean = true;
   constructor(public locationService: LocationService, public orderService: OrderService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.orderId = Number.parseInt(this.activatedRoute.snapshot.params['orderId']);
-    // orderService.GetOrderById(this.orderId).subscribe((o) => {
-    //   let order:Order = JSON.parse(o.toString());
-    //   this.note=new Note();
-    //   this.note.OrderId=order.Id;
-    //   this.note.UserId=order.UserId;
-    // });
-    //TODO
-    let order: Order = JSON.parse(orderService.s);
-    this.note = new Note();
-    this.note.OrderId = order.Id;
-    this.note.UserId = order.UserId;
-    //END TODO
+    orderService.GetOrderById(this.orderId).subscribe((o) => {
+      let order:Order = JSON.parse(o.toString());
+      this.note=new Note();
+      this.note.OrderId=order.Id;
+      this.note.UserId=order.UserId;
+    });
+  
   }
   ngOnInit(): void {
     this.locationService.getPlace().then((p: Place) => {

@@ -2,11 +2,36 @@
     <div>
         <h2>קורקינט מס:{{scooter.Id}}</h2>
     </div>
-    <div>
-        <label class="myLabel">כתובת:</label>
-        <label> {{scooter.FullAddress}}</label>
+    <div class="center">
+        <div>
+            <label class="myLabel">כתובת:</label>&nbsp;
+            <label> {{scooter.FullAddress}}</label>
+        </div>
+        <div>
+            <button (click)="Perception()" class="button">תפיסה</button>
+        </div>
     </div>
     <div>
-        <button (click)="Perception()" class="button">תפיסה</button>
+        <br>
+        <br>
+        <div fxFlex="100" class="map-full-card-content">
+        <label class="myLabel">מיקום הקורקינט במפה:</label>
+            <agm-map [latitude]="scooter.GoogleCoordinateX" [longitude]="scooter.GoogleCoordinateY" [zoom]="13">
+                <agm-marker [latitude]="scooter.GoogleCoordinateX" [longitude]="scooter.GoogleCoordinateY"></agm-marker>
+            </agm-map>
+        </div>
     </div>
+
+    <!-- <div>
+        <ng-map zoom="14" center="37.7699298, -122.4469157" style="height:90%" >
+            <directions 
+              draggable="true"
+              panel="directions-panel"
+              travel-mode=""
+              waypoints=""
+              origin="14.600631955983781,120.99075458943844"
+              destination="14.600839603150039,120.98217152059078">
+            </directions>
+          </ng-map> 
+    </div> -->
 </div>

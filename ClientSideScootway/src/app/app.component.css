@@ -1,14 +1,12 @@
 body{
     direction: rtl;
-    text-align: right;
+    text-align: initial !important;
     
 }
 div{
-    text-align: right;
+    direction: rtl;
 }
-p{
-    text-align: right;
-}
+
 h1{
     text-align: right;
 }

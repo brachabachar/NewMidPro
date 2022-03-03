@@ -3,19 +3,77 @@
 @import '~bootstrap/dist/css/bootstrap-grid.css';
 @import './app/app.component.css';
 @import '~@angular/cdk/overlay-prebuilt.css';
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;900&display=swap');
 html, body { height: 100%; }
+:root{
+    --main-color: #60a11b;
+}
+
 /* body {  } */
 body{
+    font-family: 'Heebo', sans-serif !important;
     direction:rtl;
     text-align: center ;
     margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.form-wrapper{
+    margin: 1rem;
+  }
+.centered-text{
+    text-align: center;
+}
+b {
+    color: #545454 !important;
+}
+.button {
+    background-color: var(--main-color);
+    border: none;
+    padding: 0.2rem 5rem;
+    border-radius: 1.5rem;
+    color: white;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+h2{
+    text-align: center;
+  margin: 1rem !important;
+  font-weight: 900 !important;
+  color: var(--main-color);
+  }
+  h5{
+    margin: 1.5rem !important;
+    font-weight: 900 !important;
+  color: var(--main-color);
+  }
+  .center {
+    margin: auto;
+    width: 50%;
+    padding: 1rem;
+  }
+  textarea {
+    overflow: auto;
+    resize: vertical;
+    border-radius: 1rem;
+    width: 20rem;
+}
+.map-full-card-content {
+  height: 100% !important;
+  width: 60%;
+  margin-right: 15%;
+}
+agm-map {
+  height: 20rem;
+  width: 100%;
+  zoom: normal;
 }
 .myHeader {
     color: #1c3b02;
     text-align: center;
 }
 .myLabel{
-    text-align: right !important;
+    font-weight: bold;
+    font-family: 'Heebo' !important;
+    font-size: 1rem !important;
 }
 div{
     line-height: 200%;

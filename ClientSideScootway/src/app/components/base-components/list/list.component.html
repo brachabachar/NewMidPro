@@ -1,17 +1,20 @@
 <div>
-    <table>
-        <div>
+    <div>
+        <div class="list-ttl">
             <h2>{{list.Title}}</h2>
         </div>
         <div>
-            <ul class="list-group mt-5 text-white">
-                <li class="list-group-item d-flex justify-content-between align-content-center"
-                    *ngFor="let item of list.List" (click)="LiClick(item.Key)">{{item.Value}}
-                </li>
-            </ul>
+            <div class="list-group-sw">
+                <div class="list-item-sw" *ngFor="let item of list.List" (click)="LiClick(item.Key)">
+                    <b>{{item.Title}}</b>&nbsp;
+                    <span>{{item.Value}}</span>
+                </div>
+            </div>
         </div>
-    </table>
-    <!-- <div *ngIf="list.List.length === 0 && isLoading">
-            <h2>אין רשומות להצגה</h2>
-        </div> -->
+    </div>
+    <div class="centered-text">
+        <div *ngIf="list.List.length === 0 && isLoading">
+            <h5>**אין רשומות להצגה**</h5>
+        </div>
+    </div>
 </div>

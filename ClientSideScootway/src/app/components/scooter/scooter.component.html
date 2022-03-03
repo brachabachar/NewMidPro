@@ -22,4 +22,14 @@
             <app-list [list]="allScooter" (objectCheck)="AboutScooter($event)"></app-list>
         </div>
     </div>
+    <div>
+        <br>
+        <br>
+        <div fxFlex="100" class="map-full-card-content">
+        <label class="myLabel">מיקום שלי במפה:</label>
+            <agm-map [latitude]="place.GoogleCoordinateX" [longitude]="place.GoogleCoordinateY" [zoom]="13">
+                <agm-marker [latitude]="place.GoogleCoordinateX" [longitude]="place.GoogleCoordinateY"></agm-marker>
+            </agm-map>
+        </div>
+    </div>
 </div>

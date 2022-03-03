@@ -59,6 +59,7 @@ public Main(nameFunc:string){
   public logout() {
     this.router.navigate(['About']);
     localStorage.clear();
+    window.location.reload();
   }
   public myFuturRent(){
 

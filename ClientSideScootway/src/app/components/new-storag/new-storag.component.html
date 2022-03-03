@@ -2,26 +2,28 @@
     <div>
         <h2>הוספת מחסן</h2>
     </div>
-    <form [formGroup]="newStorageForm" (ngSubmit)="onFormSubmit()" data-toggle="modal">
+    <div class="center">
+        <form [formGroup]="newStorageForm" (ngSubmit)="onFormSubmit()" data-toggle="modal">
 
-        <div>
             <div>
-                <label class="myLabel">שם מחסן </label><br>
+                <div>
+                    <label class="myLabel">שם מחסן </label><br>
+                </div>
+                <div>
+                    <input type="text" formControlName="name" placeholder="שם מחסן" class="input">
+                </div>
             </div>
             <div>
-                <input type="text" formControlName="name" placeholder="שם מחסן" class="input">
+                <!-- <div>
+                    <label class="myLabel">מיקום</label><br>
+                </div> -->
+                <div>
+                    <app-way (placeOut)="GetPlace($event)"></app-way>
+                </div>
             </div>
-        </div>
-        <div>
             <div>
-                <label class="myLabel">מיקום</label><br>
+                <button type="submit" class="button">הוספה</button>
             </div>
-            <div>
-                <app-way (placeOut)="GetPlace($event)"></app-way>
-            </div>
-        </div>
-        <div>
-            <button type="submit" class="button">הוספה</button>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>

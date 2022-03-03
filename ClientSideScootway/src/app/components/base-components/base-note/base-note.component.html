@@ -1,11 +1,9 @@
-<br>
 <div *ngIf="!onSubmit">
-    <div>
+    <div class="centered-text">
         <button *ngIf="!addNoteEnable && !onSubmit" (click)="AddNoteEnable(true)" class="button">הוסף הערה</button>
     </div>
-    <br>
     <div *ngIf="addNoteEnable && !onSubmit">
-        <form [formGroup]="noteForm">
+        <form class="form-wrapper centered-text" [formGroup]="noteForm">
             <div>
                 <label class="myLabel">הוסף הערה</label>
             </div>

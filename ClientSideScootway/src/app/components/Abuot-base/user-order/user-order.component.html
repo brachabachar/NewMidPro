@@ -2,13 +2,13 @@
     <div>
         <h2>שחרור הקורקינט</h2>
     </div>
-    <div>
+    <div class="centered-text">
         <p>{{place.FullAddress}}</p>
     </div>
     <div>
         <app-base-note [note]="note" (objectCheck)="EnableButton($event)"></app-base-note>
     </div>
-    <div>
+    <div class="centered-text">
         <button *ngIf="!addNoteEnable" (click)="updateRelease()" class="button">שחרור הקורקינט</button>
     </div>
 </div>

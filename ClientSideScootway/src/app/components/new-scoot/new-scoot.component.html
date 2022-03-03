@@ -5,28 +5,31 @@
       <h2 *ngIf="newScoot.Id !=0">עדכון מיקום קורקינט </h2>
     </div>
   </div>
-  <form [formGroup]="newScootForm" (ngSubmit)="onFormSubmit()" data-toggle="modal">
-    <label value="1" name="gender" (click)="SetContent(1)">למחסן</label>
-    <label value="2" name="gender" (click)="SetContent(2)">לשחרור ברחוב</label>
-
-    <div *ngIf="inStorage==1">
+  <div class="center">
+    <form [formGroup]="newScootForm" (ngSubmit)="onFormSubmit" data-toggle="modal">
       <div>
-        <label class="myLabel">למחסן</label><br>
+        <button value="1" name="gender" (click)="SetContent(1)" class="button">למחסן</button>
+        <button value="2" name="gender" (click)="SetContent(2)" class="button"> לרחוב</button>
       </div>
-      <div>
-        <app-personal-area (storageId)="SetStorage($event)"></app-personal-area>
+      <div *ngIf="inStorage==1">
+        <div>
+          <label class="myLabel">למחסן</label><br>
+        </div>
+        <div>
+          <app-personal-area (storageId)="SetStorage($event)"></app-personal-area>
+        </div>
       </div>
-    </div>
-    <div *ngIf="inStorage==2">
-      <div>
-        <label class="myLabel">מיקום</label><br>
+      <div *ngIf="inStorage==2">
+        <!-- <div>
+          <label class="myLabel">מיקום</label><br>
+        </div> -->
+        <div>
+          <app-way (placeOut)="GetPlace($event)"></app-way>
+        </div>
       </div>
-      <div>
-        <app-way (placeOut)="GetPlace($event)"></app-way>
+      <div *ngIf="but">
+        <button type="submit" class="button">אישור</button>
       </div>
-    </div>
-    <div>
-      <button type="submit" class="button">אישור</button>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>

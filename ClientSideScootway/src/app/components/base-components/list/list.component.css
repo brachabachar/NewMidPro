@@ -77,9 +77,24 @@ direction: rtl;
 .list-group-item:hover .check {
     opacity: 0
 }
-h2{
-  text-align: center;
-margin: 1em;
-margin-bottom: -1.2em;
-padding-right: 2em;
+
+.list-ttl {
+  
+}
+.list-group-sw {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.list-item-sw {
+  background-color: white;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  box-shadow: 1px 1px 5px #0000002e;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.list-item-sw:hover {
+  box-shadow: 1px 1px 5px #0000005d;
 }

@@ -52,32 +52,21 @@ export class StorageComponent implements OnInit {
     }
   }
   GetAllStorage() {
-    // this.storageService.GetAllStorages().subscribe((storage)=>{
-    //   let storageList:Storage[]=JSON.parse(storage.toString());
-    //   this.allStorage.Title="מחסנים שלי";
-    //   storageList.forEach(x=> this.allStorage.List.push(new MapList(x.Id," :מיקום מחסן"+x.FullAddress)));
-    // });
-    //TODO
-    let storageList: Storage[] = JSON.parse(this.storageService.s);
-    this.allStorage.Title = "מחסנים שלי";
-    storageList.forEach(x => this.allStorage.List.push(new MapList(x.Id, " :מיקום מחסן" + x.FullAddress)));
-    //END TODO
+    this.storageService.GetAllStorages().subscribe((storage)=>{
+      let storageList:Storage[]=JSON.parse(storage.toString());
+      this.allStorage.Title="מחסנים שלי";
+      storageList.forEach(x=> this.allStorage.List.push(new MapList(x.Id,"שם:"+" "+x.Name+","," כתובת: "+" "+x.FullAddress)));
+    });
   }
 
-  NewStorage() {
 
-  }
   ScooterInStorage(storageId: number) {
-    // this.scooterService.GetScootersByStorageId(storageId).subscribe((scooter)=>{
-    //   let scooterList:Scooter[]=JSON.parse(scooter.toString());
-    //   this.allScooter.Title="קורקינט במחסן";
-    //   scooterList.forEach(x=> this.allScooter.List.push(new MapList(x.Id," :מספר קורקינט"+x.Id)));
-    // });
-    //TODO
-      let scooterList:Scooter[]=JSON.parse(this.scooterService.s);
+    this.scooterService.GetScootersByStorageId(storageId).subscribe((scooter)=>{
+      let scooterList:Scooter[]=JSON.parse(scooter.toString());
       this.allScooter.Title="קורקינט במחסן";
-      scooterList.forEach(x=> this.allScooter.List.push(new MapList(x.Id," :מספר קורקינט"+x.Id)));
-    //END TODO
+      scooterList.forEach(x=> this.allScooter.List.push(new MapList(x.Id," :מספר קורקינט",x.Id.toString())));
+    });
+ 
   }
   CountScooterInStorage(StorageId: number) {
     return this.scooterService.GetCountScootersByStorageId(StorageId);

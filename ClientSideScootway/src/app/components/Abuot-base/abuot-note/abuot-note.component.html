@@ -1,12 +1,18 @@
 <div>
     <div class="myHeader">
-        <h4>פרטי ההודעה</h4>
+        <h2>פרטי ההודעה</h2>
     </div>
-    <div>
-        <p class="contextNote">{{note.Description}}</p>
-    </div>
-        <button class="button" *ngIf="note.FutureOrderId" (click)="navigate('managerOrder',note.FutureOrderId)">הזמנהעתידית</button>
+    <div class="center">
+        <div>
+            <label class="myLabel">תאריך יצירה:</label>&nbsp;
+            <label>{{note.CreatedOn}}</label>
+        </div>
+        <div>
+            <div class="myLabel">{{note.Description}}</div>
+        </div>
+        <button class="button" *ngIf="note.FutureOrderId"(click)="navigate('managerOrder',note.FutureOrderId)">הזמנה עתידית</button>
         <button class="button" *ngIf="note.ScooterId" (click)="navigate('managerScooter',note.ScooterId)">קורקינט</button>
         <button class="button" *ngIf="note.OrderId" (click)="navigate('user-scooter',note.OrderId)">הזמנה רגילה</button>
-    <button class="button" (click)="abuotPage()">חזרה</button>
+        <button class="button" (click)="abuotPage()">חזרה</button>
+    </div>
 </div>

@@ -1,4 +1,4 @@
-<div>
+<div class="centered-text">
     <div>
         <h2>מס קורקינט: {{scooter.Id}}</h2><br>
     </div>
@@ -6,16 +6,25 @@
         <label class="myLabel">כתובת:</label>
         <label> {{scooter.FullAddress}}</label>
     </div>
-    <div class="textout">
-        <label *ngIf="scooter.IsFree">סטטוס: תפוס </label>
-        <label *ngIf="!scooter.IsFree">סטטוס: משוחרר</label>
+    <div class="textout centered-text">
+        <div  *ngIf="scooter.IsFree">
+            <label class="myLabel">סטטוס: </label>
+            <span>תפוס</span>
+        </div>
+        <div *ngIf="!scooter.IsFree">
+            <label  class="myLabel">סטטוס: </label>
+            <span>משוחרר</span>
+        </div>
+
     </div>
     <div *ngIf="!scooter.IsFree" class="btnplace">
-        <button *ngIf="scooter.StatusId==1" (click)="UpdateStatus(2)" class="button">הפוך ללא פעיל</button><br>
-        <button *ngIf="scooter.StatusId==2" (click)="UpdateStatus(1)" class="button">הפוך לפעיל</button><br>
-        <button *ngIf="scooter.StatusId==2" (click)="UpdatePlace()" class="button">עדכון מיקום</button><br>
+        <h5>פעולות על הקורקינט:</h5>
+        <button *ngIf="scooter.StatusId==1" (click)="UpdateStatus(2)" class="button">הפוך ללא פעיל</button>
+        <button *ngIf="scooter.StatusId==2" (click)="UpdateStatus(1)" class="button">הפוך לפעיל</button>
+        <button *ngIf="scooter.StatusId==1" (click)="UpdatePlace()" class="button">עדכון מיקום</button>
     </div>
     <div>
+        <h5>הערות:</h5>
         <app-base-note [note]="note" (objectCheck)="EnableButton($event)"></app-base-note>
     </div>
     <div>

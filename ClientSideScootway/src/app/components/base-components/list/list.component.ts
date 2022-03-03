@@ -13,7 +13,7 @@ export class ListComponent implements AfterViewInit  {
   constructor() { }
 
   ngAfterViewInit(): void {
-    setTimeout(()=>{this.isLoading=true;},3000)
+    setTimeout(()=>{this.isLoading=true;},5000)
     
   }
   
