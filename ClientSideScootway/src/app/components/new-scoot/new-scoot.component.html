@@ -6,10 +6,10 @@
     </div>
   </div>
   <div class="center">
-    <form [formGroup]="newScootForm" (ngSubmit)="onFormSubmit" data-toggle="modal">
+    <form [formGroup]="newScootForm" (ngSubmit)="onFormSubmit()" data-toggle="modal">
       <div>
-        <button value="1" name="gender" (click)="SetContent(1)" class="button">למחסן</button>
-        <button value="2" name="gender" (click)="SetContent(2)" class="button"> לרחוב</button>
+        <button (click)="SetContent(1)" class="button">למחסן</button>
+        <button (click)="SetContent(2)" class="button"> לרחוב</button>
       </div>
       <div *ngIf="inStorage==1">
         <div>

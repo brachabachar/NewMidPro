@@ -63,6 +63,9 @@ export class ScooterComponent implements OnInit {
     }
   }
   AllScooter() {
+    this.locationService.getPlace().then((p: Place) => {
+      this.place = p;
+    });
     this.scooterService.GetAllScooters()
       .subscribe((scooter) => {
         let scooterList: Scooter[] = JSON.parse(scooter.toString());
@@ -76,7 +79,6 @@ export class ScooterComponent implements OnInit {
           this.allScooter.List.push(new MapList(x.Id, " מספר:" + x.Id.toString()+",",value))
         });
       });
-
   }
   UpdatStatScooter(scooterId: number, state: number) {
     this.scooterService.UpdateStatusScooter(scooterId, state);

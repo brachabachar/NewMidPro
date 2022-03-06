@@ -17,6 +17,9 @@ a {
     margin: 6rem auto 8.1rem auto;
     width: 329px;
   }
+  small {
+    color: red;
+}
   #card-content {
     padding: 12px 44px;
   }

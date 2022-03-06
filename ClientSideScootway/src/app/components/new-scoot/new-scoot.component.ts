@@ -14,7 +14,7 @@ export class NewScootComponent implements OnInit {
   newScootForm: FormGroup;
   newScoot: Scooter = new Scooter();
   public inStorage: number;
-  but:boolean=false;
+  but: boolean = false;
   constructor(public scooterService: ScooterService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.newScoot.Id = Number.parseInt(this.activatedRoute.snapshot.params['scooterId']);
   }
@@ -29,6 +29,8 @@ export class NewScootComponent implements OnInit {
   }
 
   onFormSubmit() {
+    if (this.but == false)
+      return
     this.newScoot.IsFree = true;
     this.newScoot.GoogleCoordinateX = this.newScootForm.controls["GoogleCoordinateX"].value;
     this.newScoot.GoogleCoordinateY = this.newScootForm.controls["GoogleCoordinateY"].value;
@@ -44,14 +46,14 @@ export class NewScootComponent implements OnInit {
     }, (error) => { alert(error.error); });
   }
   GetPlace(place: Place) {
-    this.but=true;
+    this.but = true;
     this.newScootForm.controls["GoogleCoordinateX"].setValue(place.GoogleCoordinateX);
     this.newScootForm.controls["GoogleCoordinateY"].setValue(place.GoogleCoordinateY);
     this.newScootForm.controls["FullAddress"].setValue(place.FullAddress);
     this.newScootForm.controls["StorageId"].setValue(null);
   }
   SetStorage(storageId: number) {
-    this.but=true;
+    this.but = true;
     this.newScootForm.controls["StorageId"].setValue(storageId);
     this.newScootForm.controls["GoogleCoordinateX"].setValue(null);
     this.newScootForm.controls["GoogleCoordinateY"].setValue(null);

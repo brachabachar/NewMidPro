@@ -27,8 +27,8 @@ export class NavbarService {
       { Title: this.user?.FirstName + ' ' + this.user?.LastName, Link: '', Dir: 1, NameButton: 'פרופיל', OnClick: "" },
       { Title: '', Link: 'About', Dir: 1, NameButton: 'יציאה', OnClick: "logout" },
       { Title: '', Link: '/Scooter/GetScooterInStreet', Dir: 0, NameButton: 'תפיסה קורקינט', OnClick: "null" },
-      { Title: '', Link: 'FuturRent', Dir: 0, NameButton: 'הזמנה', OnClick: "null" },
       { Title: '', Link: '/Order/AllOrdersActiveUser', Dir: 0, NameButton: ' שחרור קורקינט', OnClick: "null" },
+      { Title: '', Link: 'FuturRent', Dir: 0, NameButton: 'הזמנה', OnClick: "null" },
       { Title: '', Link: '/Order/AllOrders', Dir: 0, NameButton: 'הזמנות שלי', OnClick: "null" }];
 
 

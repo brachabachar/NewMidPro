@@ -12,16 +12,16 @@
               <label >שם פרטי</label><br> 
               <input type="text" id="Name" name="FirstName"  maxlength="15" formControlName="FirstName"  placeholder="שם פרטי" class="form-control form-content" required>
               <div class="form-border"></div> 
-              <small *ngIf="submitted && mandoForm.controls['Name'].errors?.required">שדה חובה</small> 
-              <small *ngIf="submitted && mandoForm.controls['Name'].errors?.pattern">צריך להכיל רק אותיות בעברית או באנגלית</small> 
+              <small *ngIf="submitted && mandoForm.controls['FirstName'].errors?.required">שדה חובה</small> 
+              <small *ngIf="submitted && mandoForm.controls['FirstName'].errors?.pattern">צריך להכיל רק אותיות בעברית או באנגלית</small> 
             </div>
             <!--LastName -->
             <div class="form-group" >  
               <label>שם משפחה</label><br> 
               <input type="text" id="Name" name="LastName"  maxlength="15" formControlName="LastName"  placeholder="שם משפחה" class="form-control form-content" required>
               <div class="form-border"></div> 
-              <small *ngIf="submitted && mandoForm.controls['Name'].errors?.required">שדה חובה</small> 
-              <small *ngIf="submitted && mandoForm.controls['Name'].errors?.pattern">צריך להכיל רק אותיות בעברית או באנגלית</small> 
+              <small *ngIf="submitted && mandoForm.controls['LastName'].errors?.required">שדה חובה</small> 
+              <small *ngIf="submitted && mandoForm.controls['LastName'].errors?.pattern">צריך להכיל רק אותיות בעברית או באנגלית</small> 
             </div>            
             <!--userId -->
             <div class="form-group"> 
@@ -44,7 +44,7 @@
             <!-- Password -->
             <div class="form-group">
               <label>סיסמה</label><br> 
-               <input type="text" formControlName="Password"  placeholder="סיסמה" class="form-control form-content" required>
+               <input type="password" formControlName="Password"  placeholder="סיסמה" class="form-control form-content" required>
                <div class="form-border"></div>
                <small *ngIf="submitted && mandoForm.controls['Password'].errors?.required">שדה חובה</small> 
                <small *ngIf="submitted && mandoForm.controls['Password'].errors?.pattern">צריך להכיל לפחות חמש תווים ספרה אחת ואחד מהתווים הנ"ל:$@$!%*?&</small> 

@@ -4,7 +4,9 @@
     </div>
     <div>
         <label class="myLabel">כתובת:</label>
-        <label> {{scooter.FullAddress}}</label>
+        <label *ngIf="scooter.FullAddress"> {{scooter.FullAddress}}</label>
+        <label *ngIf="scooter.StorageId">מחסן מספר {{scooter.StorageId}}</label>
+
     </div>
     <div class="textout centered-text">
         <div  *ngIf="scooter.IsFree">

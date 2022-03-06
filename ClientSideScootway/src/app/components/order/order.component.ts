@@ -20,6 +20,7 @@ export class OrderComponent implements OnInit {
   allOrders: List = new List();
   allStatus: List = new List();
   orderList: Order[];
+  futureOrderList:FutureOrder[]
   allOrdersActive: List = new List();
   constructor(public datepipe: DatePipe,public futureOrderService: FutureOrderService, public orderService: OrderService, private activatedRoute: ActivatedRoute
     , private router: Router) {
@@ -54,9 +55,9 @@ export class OrderComponent implements OnInit {
   AllOrders() {
     this.futureOrderService.GetFutureOrderByUserId(JSON.parse(localStorage.getItem("user") ?? "").Id)
       .subscribe((futureOrder) => {
-        this.orderList = JSON.parse(futureOrder.toString());
+        this.futureOrderList = JSON.parse(futureOrder.toString());
         this.allOrders.Title = "רשימת הזמנות עתידיות ";
-        this.orderList.forEach(x => this.allOrders.List.push(new MapList(x.Id, " הזמנה מספר:"+ x.Id.toString()+"," , " תאריך הזמנה: "+this.datepipe.transform(x.StartDate, 'dd-MM-yyyy') )));
+        this.futureOrderList.forEach(x => this.allOrders.List.push(new MapList(x.Id, " הזמנה מספר:"+ x.Id.toString()+"," , " תאריך הזמנה: "+(x.DateOrder!=null ?this.datepipe.transform(x.DateOrder, 'dd-MM-yyyy'):this.datepipe.transform(x.CreatedOn, 'dd-MM-yyyy') ))));
       });
   
   }
@@ -76,7 +77,7 @@ export class OrderComponent implements OnInit {
   }
   GetStatusID(statusId: number) {
     this.allOrders.List = [];
-    this.orderList.filter(x => x.StatusId === statusId).forEach(x => this.allOrders.List.push(new MapList(x.Id, " :הזמנה מספר" , x.Id.toString())));
+    this.futureOrderList.filter(x => x.StatusId === statusId).forEach(x => this.allOrders.List.push(new MapList(x.Id, " הזמנה מספר:"+ x.Id.toString()+"," , " תאריך הזמנה: "+(x.DateOrder!=null ?this.datepipe.transform(x.DateOrder, 'dd-MM-yyyy'):this.datepipe.transform(x.CreatedOn, 'dd-MM-yyyy') ))));
   }
 
 }
